@@ -1,0 +1,179 @@
+/* Header Styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Body Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #1e1e1e;
+    font-size: 16px; /* Default font size */
+}
+
+/* File Upload Styles */
+.custom-file-upload {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: #fff;
+    border: 1px solid #4CAF50;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.custom-file-upload:hover {
+    background-color: #45a049;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+/* Table Styles */
+table {
+    background-color: white;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px; /* Adjust margin as needed */
+}
+
+th {
+    background-color: aquamarine;
+    text-align: left;
+    padding: 8px;
+}
+
+table, th, td {
+    border: 1px solid #000;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Radio Button Styles */
+.radio-container {
+    display: flex;
+    align-items: center;
+}
+
+.radio-label {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.custom-radio {
+    display: inline-block;
+    width: 13px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #333;
+    position: relative;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.custom-radio::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: #63b0c5;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+input[type="radio"]:checked + .custom-radio::after {
+    display: block;
+}
+
+/* Button Styles */
+button {
+    background-color: #63b0c5;
+    border: none;
+    color: white;
+    padding: 13px 17px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #4172ce;
+}
+
+/* Image Styles */
+img {
+    max-width: 100%; /* Ensure images do not overflow on smaller screens */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Container Styles */
+.container {
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+    padding: 20px; /* Add padding for better spacing on smaller screens */
+    box-sizing: border-box; /* Ensure padding does not affect overall width */
+}
+
+/* Additional Styles for A4 Formatting */
+#pdf-content {
+    width: 100%;
+    max-width: 280mm;
+    margin: 20mm auto;
+    padding: 20px;
+    background-color: white;
+    box-sizing: border-box;
+    page-break-before: always;
+}
+
+/* Dropdown Styles */
+.select-style {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+    /* Adjustments for smaller screens */
+    body {
+        font-size: 14px; /* Reduce font size for smaller screens */
+    }
+
+    .container {
+        padding: 10px; /* Add padding to the container for smaller screens */
+    }
+
+    input[type="text"], input[type="number"], select {
+        width: 100%; /* Make input fields and selects full width on smaller screens */
+        box-sizing: border-box; /* Ensure padding does not affect overall width */
+    }
+
+    /* Increase the width of trip routing input fields */
+    table.routing input[type="text"] {
+        width: calc(50% - 20px); /* Adjust the width as needed */
+    }
+}
+

@@ -1,0 +1,267 @@
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #1e1e1e;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: #fff;
+    border: 1px solid #4CAF50;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+/* Hover effect for the file input container */
+.custom-file-upload:hover {
+    background-color: #45a049;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+/* Style for the selected file name display */
+#file-display {
+    display: inline-block;
+    margin-left: 10px;
+    color: #555;
+}
+
+table {
+    background-color: white;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px; /* Adjust margin as needed */
+}
+
+th {
+    background-color: aquamarine; /* Light gray background for table headers */
+    text-align: left;
+    padding: 8px;
+}
+
+/* Set a fixed width for all table cells */
+table, th, td {
+    border: 1px solid #000;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+/* Alternate row background color */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Style for the custom radio button label */
+.radio-container {
+    display: flex;
+    align-items: center;
+}
+
+.radio-label {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.custom-radio {
+    display: inline-block;
+    width: 13px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #333;
+    position: relative;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+/* Style for the checked state of the custom radio button */
+.custom-radio::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: #63b0c5;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+/* Show the checked state when the radio button is checked */
+input[type="radio"]:checked + .custom-radio::after {
+    display: block;
+}
+
+table input[type="text"],
+table input[type="tel"],
+table input[type="email"],
+
+table textarea,
+.table-container input[type="radio"] {
+    width: 75%; /* Set the width to 100% for full width */
+}
+
+button {
+    background-color: #63b0c5;
+    border: none;
+    color: white;
+    padding: 13px 17px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#hotelInformation,
+table {
+    background-color: white;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px; /* Adjust margin as needed */
+}
+
+button:hover {
+    /* Change color on hover */
+    background-color: #4172ce;
+}
+
+img {
+    width: 200px; /* Adjust image size as needed */
+    margin-left: 10px;
+}
+
+.container {
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px; /* Adjust margin as needed */
+    width: 100%; /* Set the width as needed */
+}
+
+/* Additional styles for A4 formatting */
+#pdf-content {
+    width: 100%;
+    max-width: 210mm; /* A4 paper width */
+    margin: 20mm auto; /* Adjust the margins as needed for spacing */
+    padding: 20px;
+    background-color: white;
+    box-sizing: border-box;
+    page-break-before: always;
+}
+
+/* Style for the dropdown */
+.select-style {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 5px;
+}
+
+/* Style for the dropdown arrow */
+.select-style select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    background-image: url('path/to/your-arrow-image.png'); /* Add your arrow image path */
+    background-position: right center;
+    background-repeat: no-repeat;
+    border: none;
+    padding: 5px;
+    width: 100%;
+    cursor: pointer;
+}
+
+/* Custom styling for your form elements */
+.form-element {
+    width: 100%; /* Set the width to 100% for full width */
+    display: block;
+    margin-bottom: 10px;
+}
+
+#watermark {
+margin-left: 100px;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 80%;
+height: 70%;
+z-index: 9999;
+}
+
+#watermark img {
+    height: 300%;
+    width: 80%; /* Set the width of the image */
+    opacity: 0.3; /* Adjust the opacity to make the watermark more subtle */
+}
+
+#submit-pdf-button {
+    width: 50%; /* Set the width to 100% for full width */
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+#submit-pdf-button:hover {
+    background-color: #45a049;
+}
+
+@media print {
+    body {
+        background-color: white;
+    }
+
+    #pdf-content {
+        width: 100%; /* Use the full width of A4 */
+        max-width: 210mm; /* Set the max width to match A4 width */
+        margin: 0 auto;
+        padding: 20px;
+        background-color: white;
+        box-sizing: border-box; /* Ensure padding is included in the width */
+        page-break-before: always; /* Ensure a new page for each content section */
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 18pt; /* Adjust the font size as needed */
+    }
+
+    h3 {
+        text-align: left;
+    }
+
+    #watermark {
+        display: block; /* Show the watermark when printing */
+    }
+
+    #watermark img {
+        width: 80%; /* Set the width of the image to 100% of the container */
+        opacity: 0.3; /* Adjust the opacity for printing */
+    }
+}

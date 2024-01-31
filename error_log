@@ -1,0 +1,869 @@
+[13-Jan-2024 10:04:49 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/home.php on line 11
+[13-Jan-2024 10:05:10 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/home.php on line 11
+[13-Jan-2024 10:09:26 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/home.php on line 11
+[13-Jan-2024 10:09:36 Asia/Jakarta] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/ambil_data.php on line 8
+[13-Jan-2024 10:09:40 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 12
+[13-Jan-2024 10:10:03 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 7
+[13-Jan-2024 10:10:03 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 16
+[13-Jan-2024 10:10:22 Asia/Jakarta] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/ambil_data.php on line 8
+[13-Jan-2024 10:13:58 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/update_password.php on line 11
+[15-Jan-2024 09:12:33 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/home.php on line 11
+[15-Jan-2024 09:16:27 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'issk2531_btr'@'2001:df0:27b:2::4:170' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/home.php on line 11
+[15-Jan-2024 09:17:55 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'issk2531'@'2001:df0:27b:2::4:170' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/home.php on line 11
+[15-Jan-2024 09:17:56 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'issk2531'@'2001:df0:27b:2::4:170' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/home.php on line 11
+[15-Jan-2024 09:18:55 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'issk2531'@'2001:df0:27b:2::4:170' (using password: YES) in /home/issk2531/public_html/btr.issmedika.com/login.php on line 15
+[15-Jan-2024 09:19:01 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'issk2531'@'2001:df0:27b:2::4:170' (using password: YES) in /home/issk2531/public_html/btr.issmedika.com/login.php on line 15
+[15-Jan-2024 09:20:06 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'issk2531'@'2001:df0:27b:2::4:170' (using password: YES) in /home/issk2531/public_html/btr.issmedika.com/login.php on line 15
+[15-Jan-2024 09:20:07 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'issk2531'@'2001:df0:27b:2::4:170' (using password: YES) in /home/issk2531/public_html/btr.issmedika.com/login.php on line 15
+[15-Jan-2024 09:20:07 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'issk2531'@'2001:df0:27b:2::4:170' (using password: YES) in /home/issk2531/public_html/btr.issmedika.com/login.php on line 15
+[15-Jan-2024 09:20:53 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'issk2531'@'localhost' (using password: YES) in /home/issk2531/public_html/btr.issmedika.com/login.php on line 15
+[15-Jan-2024 09:21:55 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'issk2531'@'localhost' (using password: YES) in /home/issk2531/public_html/btr.issmedika.com/login.php on line 15
+[15-Jan-2024 09:22:00 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'issk2531'@'localhost' (using password: YES) in /home/issk2531/public_html/btr.issmedika.com/login.php on line 15
+[15-Jan-2024 09:24:51 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'issk2531'@'localhost' (using password: YES) in /home/issk2531/public_html/btr.issmedika.com/login.php on line 15
+[15-Jan-2024 09:25:00 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'issk2531'@'localhost' (using password: YES) in /home/issk2531/public_html/btr.issmedika.com/login.php on line 15
+[15-Jan-2024 09:25:08 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'issk2531'@'localhost' (using password: YES) in /home/issk2531/public_html/btr.issmedika.com/login.php on line 15
+[15-Jan-2024 09:25:09 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'issk2531'@'localhost' (using password: YES) in /home/issk2531/public_html/btr.issmedika.com/login.php on line 15
+[15-Jan-2024 09:25:09 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'issk2531'@'localhost' (using password: YES) in /home/issk2531/public_html/btr.issmedika.com/login.php on line 15
+[15-Jan-2024 09:25:09 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'issk2531'@'localhost' (using password: YES) in /home/issk2531/public_html/btr.issmedika.com/login.php on line 15
+[15-Jan-2024 09:25:13 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'issk2531'@'localhost' (using password: YES) in /home/issk2531/public_html/btr.issmedika.com/login.php on line 15
+[15-Jan-2024 09:25:13 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'issk2531'@'localhost' (using password: YES) in /home/issk2531/public_html/btr.issmedika.com/login.php on line 15
+[15-Jan-2024 09:25:13 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'issk2531'@'localhost' (using password: YES) in /home/issk2531/public_html/btr.issmedika.com/login.php on line 15
+[15-Jan-2024 09:37:07 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/login.php:40) in /home/issk2531/public_html/btr.issmedika.com/login.php on line 45
+[15-Jan-2024 09:37:20 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/login.php:40) in /home/issk2531/public_html/btr.issmedika.com/login.php on line 45
+[15-Jan-2024 09:37:56 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'issk2531_btr'@'localhost' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/home.php on line 11
+[15-Jan-2024 09:38:33 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'issk2531_btr'@'localhost' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/home.php on line 11
+[15-Jan-2024 09:38:33 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'issk2531_btr'@'localhost' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/home.php on line 11
+[15-Jan-2024 09:38:33 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'issk2531_btr'@'localhost' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/home.php on line 11
+[15-Jan-2024 09:38:33 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'issk2531_btr'@'localhost' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/home.php on line 11
+[15-Jan-2024 09:38:34 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'issk2531_btr'@'localhost' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/home.php on line 11
+[15-Jan-2024 09:40:25 Asia/Jakarta] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/ambil_data.php on line 8
+[15-Jan-2024 10:10:32 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 7
+[15-Jan-2024 10:10:32 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 25
+[15-Jan-2024 10:10:36 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 7
+[15-Jan-2024 10:10:36 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 25
+[15-Jan-2024 10:10:37 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 7
+[15-Jan-2024 10:10:37 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 25
+[15-Jan-2024 10:11:02 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 7
+[15-Jan-2024 10:11:02 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 25
+[15-Jan-2024 10:11:27 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 7
+[15-Jan-2024 10:11:27 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 25
+[15-Jan-2024 10:13:39 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 7
+[15-Jan-2024 10:13:39 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 25
+[15-Jan-2024 10:13:40 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 7
+[15-Jan-2024 10:13:40 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 25
+[15-Jan-2024 10:13:45 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 7
+[15-Jan-2024 10:13:45 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 25
+[15-Jan-2024 10:13:49 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 7
+[15-Jan-2024 10:13:49 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 25
+[15-Jan-2024 10:13:59 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 7
+[15-Jan-2024 10:13:59 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 25
+[15-Jan-2024 10:14:00 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 7
+[15-Jan-2024 10:14:00 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 25
+[15-Jan-2024 10:14:49 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/internalMemo.php on line 59
+[15-Jan-2024 10:14:49 Asia/Jakarta] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home/issk2531/public_html/btr.issmedika.com/internalMemo.php on line 63
+[15-Jan-2024 10:14:49 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/issk2531/public_html/btr.issmedika.com/internalMemo.php:64
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/internalMemo.php on line 64
+[15-Jan-2024 10:17:02 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/internalMemo.php on line 59
+[15-Jan-2024 10:17:02 Asia/Jakarta] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home/issk2531/public_html/btr.issmedika.com/internalMemo.php on line 63
+[15-Jan-2024 10:17:02 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/issk2531/public_html/btr.issmedika.com/internalMemo.php:64
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/internalMemo.php on line 64
+[15-Jan-2024 10:17:07 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 8
+[15-Jan-2024 10:17:07 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 26
+[15-Jan-2024 10:17:17 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 8
+[15-Jan-2024 10:17:17 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 26
+[15-Jan-2024 10:17:18 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 8
+[15-Jan-2024 10:17:18 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 26
+[15-Jan-2024 10:17:19 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 8
+[15-Jan-2024 10:17:19 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 26
+[15-Jan-2024 10:17:35 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 8
+[15-Jan-2024 10:17:35 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 26
+[15-Jan-2024 10:17:35 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 8
+[15-Jan-2024 10:17:35 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 26
+[15-Jan-2024 10:17:36 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 8
+[15-Jan-2024 10:17:36 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 26
+[15-Jan-2024 10:17:38 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 8
+[15-Jan-2024 10:17:38 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 26
+[15-Jan-2024 10:17:39 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 8
+[15-Jan-2024 10:17:39 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 26
+[15-Jan-2024 10:17:49 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 8
+[15-Jan-2024 10:17:49 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 26
+[15-Jan-2024 10:17:53 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/internalMemo.php on line 59
+[15-Jan-2024 10:17:53 Asia/Jakarta] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home/issk2531/public_html/btr.issmedika.com/internalMemo.php on line 63
+[15-Jan-2024 10:17:53 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/issk2531/public_html/btr.issmedika.com/internalMemo.php:64
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/internalMemo.php on line 64
+[15-Jan-2024 10:19:48 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 8
+[15-Jan-2024 10:19:48 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 26
+[15-Jan-2024 10:19:53 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 8
+[15-Jan-2024 10:19:53 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 26
+[15-Jan-2024 10:20:17 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 8
+[15-Jan-2024 10:20:17 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 26
+[15-Jan-2024 10:20:21 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 8
+[15-Jan-2024 10:20:21 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 26
+[15-Jan-2024 10:22:49 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/formPr.php on line 57
+[15-Jan-2024 10:22:49 Asia/Jakarta] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home/issk2531/public_html/btr.issmedika.com/formPr.php on line 59
+[15-Jan-2024 10:22:49 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/issk2531/public_html/btr.issmedika.com/formPr.php:60
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/formPr.php on line 60
+[15-Jan-2024 10:23:21 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/formPr.php on line 90
+[15-Jan-2024 10:23:21 Asia/Jakarta] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home/issk2531/public_html/btr.issmedika.com/formPr.php on line 94
+[15-Jan-2024 10:23:21 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/issk2531/public_html/btr.issmedika.com/formPr.php:95
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/formPr.php on line 95
+[15-Jan-2024 10:23:22 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/formPr.php on line 90
+[15-Jan-2024 10:23:22 Asia/Jakarta] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home/issk2531/public_html/btr.issmedika.com/formPr.php on line 94
+[15-Jan-2024 10:23:22 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/issk2531/public_html/btr.issmedika.com/formPr.php:95
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/formPr.php on line 95
+[15-Jan-2024 10:23:23 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/formPr.php on line 90
+[15-Jan-2024 10:23:23 Asia/Jakarta] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home/issk2531/public_html/btr.issmedika.com/formPr.php on line 94
+[15-Jan-2024 10:23:23 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/issk2531/public_html/btr.issmedika.com/formPr.php:95
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/formPr.php on line 95
+[15-Jan-2024 10:23:42 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/closing.php on line 36
+[15-Jan-2024 10:23:42 Asia/Jakarta] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home/issk2531/public_html/btr.issmedika.com/closing.php on line 38
+[15-Jan-2024 10:23:42 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/issk2531/public_html/btr.issmedika.com/closing.php:39
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/closing.php on line 39
+[15-Jan-2024 10:24:43 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 8
+[15-Jan-2024 10:24:43 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 26
+[15-Jan-2024 10:24:56 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 8
+[15-Jan-2024 10:24:56 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 26
+[15-Jan-2024 10:25:30 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 8
+[15-Jan-2024 10:25:30 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 26
+[15-Jan-2024 10:28:24 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 8
+[15-Jan-2024 10:28:24 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 26
+[15-Jan-2024 10:28:24 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 8
+[15-Jan-2024 10:28:24 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 26
+[15-Jan-2024 10:28:24 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 8
+[15-Jan-2024 10:28:24 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 26
+[15-Jan-2024 10:28:24 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 8
+[15-Jan-2024 10:28:24 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 26
+[15-Jan-2024 10:28:25 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 8
+[15-Jan-2024 10:28:25 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 26
+[19-Jan-2024 11:32:54 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/issk2531/public_html/btr.issmedika.com/closing.php:7
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/closing.php(32): getFinalStatusFromDatabase('1')
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/closing.php on line 7
+[19-Jan-2024 11:32:57 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/issk2531/public_html/btr.issmedika.com/closing.php:7
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/closing.php(32): getFinalStatusFromDatabase('1')
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/closing.php on line 7
+[19-Jan-2024 11:33:04 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/issk2531/public_html/btr.issmedika.com/closing.php:7
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/closing.php(32): getFinalStatusFromDatabase('1')
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/closing.php on line 7
+[19-Jan-2024 11:33:25 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/issk2531/public_html/btr.issmedika.com/closing.php:7
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/closing.php(32): getFinalStatusFromDatabase('1')
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/closing.php on line 7
+[19-Jan-2024 11:35:16 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/issk2531/public_html/btr.issmedika.com/closing.php:7
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/closing.php(32): getFinalStatusFromDatabase('1')
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/closing.php on line 7
+[19-Jan-2024 11:35:17 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/issk2531/public_html/btr.issmedika.com/closing.php:7
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/closing.php(32): getFinalStatusFromDatabase('1')
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/closing.php on line 7
+[19-Jan-2024 11:35:18 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/issk2531/public_html/btr.issmedika.com/closing.php:7
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/closing.php(32): getFinalStatusFromDatabase('1')
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/closing.php on line 7
+[19-Jan-2024 11:35:19 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/issk2531/public_html/btr.issmedika.com/closing.php:7
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/closing.php(32): getFinalStatusFromDatabase('1')
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/closing.php on line 7
+[19-Jan-2024 11:35:20 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/issk2531/public_html/btr.issmedika.com/closing.php:7
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/closing.php(32): getFinalStatusFromDatabase('1')
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/closing.php on line 7
+[19-Jan-2024 11:35:39 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/issk2531/public_html/btr.issmedika.com/closing.php:7
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/closing.php(32): getFinalStatusFromDatabase('1')
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/closing.php on line 7
+[19-Jan-2024 11:36:51 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/issk2531/public_html/btr.issmedika.com/closing.php:7
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/closing.php(32): getFinalStatusFromDatabase('1')
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/closing.php on line 7
+[19-Jan-2024 11:44:49 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/issk2531/public_html/btr.issmedika.com/get_requestor_name.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/get_requestor_name.php on line 12
+[19-Jan-2024 11:44:51 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/issk2531/public_html/btr.issmedika.com/get_requestor_name.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/get_requestor_name.php on line 12
+[19-Jan-2024 12:23:34 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/issk2531/public_html/btr.issmedika.com/get_requestor_name.php:22
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/get_requestor_name.php on line 22
+[19-Jan-2024 12:24:15 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/issk2531/public_html/btr.issmedika.com/get_requestor_name.php:22
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/get_requestor_name.php on line 22
+[19-Jan-2024 12:24:33 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/issk2531/public_html/btr.issmedika.com/get_requestor_name.php:22
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/get_requestor_name.php on line 22
+[19-Jan-2024 12:24:34 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/issk2531/public_html/btr.issmedika.com/get_requestor_name.php:22
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/get_requestor_name.php on line 22
+[19-Jan-2024 12:24:52 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/issk2531/public_html/btr.issmedika.com/get_requestor_name.php:22
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/get_requestor_name.php on line 22
+[19-Jan-2024 12:24:55 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/issk2531/public_html/btr.issmedika.com/get_requestor_name.php:22
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/get_requestor_name.php on line 22
+[19-Jan-2024 12:25:11 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/issk2531/public_html/btr.issmedika.com/get_requestor_name.php:22
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/get_requestor_name.php on line 22
+[19-Jan-2024 12:26:50 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/issk2531/public_html/btr.issmedika.com/get_requestor_name.php:25
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/get_requestor_name.php on line 25
+[19-Jan-2024 12:26:56 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/issk2531/public_html/btr.issmedika.com/get_requestor_name.php:25
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/get_requestor_name.php on line 25
+[19-Jan-2024 12:26:56 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/issk2531/public_html/btr.issmedika.com/get_requestor_name.php:25
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/get_requestor_name.php on line 25
+[19-Jan-2024 12:26:56 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/issk2531/public_html/btr.issmedika.com/get_requestor_name.php:25
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/get_requestor_name.php on line 25
+[19-Jan-2024 12:26:57 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/issk2531/public_html/btr.issmedika.com/get_requestor_name.php:25
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/get_requestor_name.php on line 25
+[19-Jan-2024 12:57:49 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/uploadClosing.php on line 41
+[19-Jan-2024 12:57:49 Asia/Jakarta] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home/issk2531/public_html/btr.issmedika.com/uploadClosing.php on line 48
+[19-Jan-2024 12:57:49 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/issk2531/public_html/btr.issmedika.com/uploadClosing.php:49
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/uploadClosing.php on line 49
+[19-Jan-2024 12:58:08 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/uploadClosing.php on line 41
+[19-Jan-2024 12:58:08 Asia/Jakarta] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home/issk2531/public_html/btr.issmedika.com/uploadClosing.php on line 48
+[19-Jan-2024 12:58:08 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/issk2531/public_html/btr.issmedika.com/uploadClosing.php:49
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/uploadClosing.php on line 49
+[19-Jan-2024 12:58:20 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/uploadClosing.php on line 41
+[19-Jan-2024 12:58:20 Asia/Jakarta] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home/issk2531/public_html/btr.issmedika.com/uploadClosing.php on line 48
+[19-Jan-2024 12:58:20 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/issk2531/public_html/btr.issmedika.com/uploadClosing.php:49
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/uploadClosing.php on line 49
+[19-Jan-2024 12:58:45 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/uploadClosing.php on line 41
+[19-Jan-2024 12:58:45 Asia/Jakarta] PHP Warning:  mysqli::prepare(): Couldn't fetch mysqli in /home/issk2531/public_html/btr.issmedika.com/uploadClosing.php on line 48
+[19-Jan-2024 12:58:45 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/issk2531/public_html/btr.issmedika.com/uploadClosing.php:49
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/uploadClosing.php on line 49
+[19-Jan-2024 13:00:50 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/uploadClosing.php:52) in /home/issk2531/public_html/btr.issmedika.com/uploadClosing.php on line 78
+[19-Jan-2024 13:01:01 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/uploadClosing.php:52) in /home/issk2531/public_html/btr.issmedika.com/uploadClosing.php on line 78
+[19-Jan-2024 13:01:39 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/uploadClosing.php:52) in /home/issk2531/public_html/btr.issmedika.com/uploadClosing.php on line 78
+[19-Jan-2024 13:02:41 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/uploadClosing.php:52) in /home/issk2531/public_html/btr.issmedika.com/uploadClosing.php on line 53
+[19-Jan-2024 14:11:05 Asia/Jakarta] PHP Parse error:  syntax error, unexpected '=' in /home/issk2531/public_html/btr.issmedika.com/home.php on line 492
+[19-Jan-2024 14:11:07 Asia/Jakarta] PHP Parse error:  syntax error, unexpected '=' in /home/issk2531/public_html/btr.issmedika.com/home.php on line 492
+[19-Jan-2024 15:01:12 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 7
+[19-Jan-2024 15:01:12 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 16
+[19-Jan-2024 15:01:36 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 7
+[19-Jan-2024 15:01:36 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 25
+[19-Jan-2024 15:01:37 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 7
+[19-Jan-2024 15:01:37 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 25
+[19-Jan-2024 15:01:39 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 7
+[19-Jan-2024 15:01:39 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 25
+[19-Jan-2024 15:01:43 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 7
+[19-Jan-2024 15:01:43 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 25
+[19-Jan-2024 15:01:44 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 7
+[19-Jan-2024 15:01:44 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 25
+[19-Jan-2024 15:01:44 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 7
+[19-Jan-2024 15:01:44 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 25
+[19-Jan-2024 15:01:44 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 7
+[19-Jan-2024 15:01:44 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 25
+[19-Jan-2024 15:01:44 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 7
+[19-Jan-2024 15:01:44 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 25
+[19-Jan-2024 15:01:44 Asia/Jakarta] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 7
+[19-Jan-2024 15:01:44 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/issk2531/public_html/btr.issmedika.com/view_requests.php:1) in /home/issk2531/public_html/btr.issmedika.com/view_requests.php on line 25
+[22-Jan-2024 09:41:09 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/issk2531/public_html/btr.issmedika.com/home.php on line 11
+[23-Jan-2024 12:41:14 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:43:10 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:43:11 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:43:12 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:43:12 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:43:12 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:43:12 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:43:12 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:43:13 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:44:02 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:44:02 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:44:15 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:46:36 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:46:37 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:46:37 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:46:38 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:46:38 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:48:01 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:52:17 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:52:17 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:52:18 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:52:18 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:52:18 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:52:18 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:52:18 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:52:18 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:52:19 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:52:19 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:52:19 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:52:20 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:52:20 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:52:21 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:52:21 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:52:22 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:52:22 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:52:23 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:52:23 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:52:23 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:52:23 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:52:54 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:57:27 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 8.0.30. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 12:58:04 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class "PDO" not found in /home/issk2531/public_html/btr.issmedika.com/test.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/test.php on line 14
+[23-Jan-2024 12:58:10 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class "PDO" not found in /home/issk2531/public_html/btr.issmedika.com/test.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/test.php on line 14
+[23-Jan-2024 12:58:11 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class "PDO" not found in /home/issk2531/public_html/btr.issmedika.com/test.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/test.php on line 14
+[23-Jan-2024 13:02:05 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 13:02:08 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 13:02:08 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 13:05:42 Asia/Jakarta] PHP Deprecated:  Optional parameter $isunicode declared before required parameter $currentfont is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_fonts.php on line 1997
+[23-Jan-2024 13:05:42 Asia/Jakarta] PHP Deprecated:  Optional parameter $isunicode declared before required parameter $currentfont is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_fonts.php on line 2023
+[23-Jan-2024 13:05:42 Asia/Jakarta] PHP Deprecated:  Optional parameter $setbom declared before required parameter $currentfont is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_fonts.php on line 2039
+[23-Jan-2024 13:05:42 Asia/Jakarta] PHP Deprecated:  Optional parameter $isunicode declared before required parameter $currentfont is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_fonts.php on line 2039
+[23-Jan-2024 13:05:42 Asia/Jakarta] PHP Deprecated:  Optional parameter $setbom declared before required parameter $currentfont is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_fonts.php on line 2059
+[23-Jan-2024 13:05:42 Asia/Jakarta] PHP Deprecated:  Optional parameter $forcertl declared before required parameter $currentfont is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_fonts.php on line 2059
+[23-Jan-2024 13:05:42 Asia/Jakarta] PHP Deprecated:  Optional parameter $isunicode declared before required parameter $currentfont is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_fonts.php on line 2059
+[23-Jan-2024 13:05:42 Asia/Jakarta] PHP Deprecated:  Optional parameter $str declared before required parameter $currentfont is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_fonts.php on line 2076
+[23-Jan-2024 13:05:42 Asia/Jakarta] PHP Deprecated:  Optional parameter $setbom declared before required parameter $currentfont is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_fonts.php on line 2076
+[23-Jan-2024 13:05:42 Asia/Jakarta] PHP Deprecated:  Optional parameter $forcertl declared before required parameter $currentfont is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_fonts.php on line 2076
+[23-Jan-2024 13:05:42 Asia/Jakarta] PHP Deprecated:  Optional parameter $isunicode declared before required parameter $currentfont is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_fonts.php on line 2076
+[23-Jan-2024 13:05:42 Asia/Jakarta] PHP Deprecated:  Optional parameter $str declared before required parameter $currentfont is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_fonts.php on line 2092
+[23-Jan-2024 13:05:42 Asia/Jakarta] PHP Deprecated:  Optional parameter $forcertl declared before required parameter $currentfont is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_fonts.php on line 2092
+[23-Jan-2024 13:05:42 Asia/Jakarta] PHP Deprecated:  Optional parameter $isunicode declared before required parameter $currentfont is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_fonts.php on line 2092
+[23-Jan-2024 13:05:42 Asia/Jakarta] PHP Deprecated:  Optional parameter $default_css declared before required parameter $tagvspaces is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_static.php on line 1139
+[23-Jan-2024 13:05:42 Asia/Jakarta] PHP Deprecated:  Optional parameter $tagvs declared before required parameter $tagvspaces is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_static.php on line 1139
+[23-Jan-2024 13:05:42 Asia/Jakarta] PHP Deprecated:  Optional parameter $tidy_options declared before required parameter $tagvspaces is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_static.php on line 1139
+[23-Jan-2024 13:05:42 Asia/Jakarta] PHP Deprecated:  Optional parameter $points declared before required parameter $k is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_static.php on line 2488
+[23-Jan-2024 13:10:54 Asia/Jakarta] PHP Deprecated:  Optional parameter $isunicode declared before required parameter $currentfont is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_fonts.php on line 1997
+[23-Jan-2024 13:10:54 Asia/Jakarta] PHP Deprecated:  Optional parameter $isunicode declared before required parameter $currentfont is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_fonts.php on line 2023
+[23-Jan-2024 13:10:54 Asia/Jakarta] PHP Deprecated:  Optional parameter $setbom declared before required parameter $currentfont is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_fonts.php on line 2039
+[23-Jan-2024 13:10:54 Asia/Jakarta] PHP Deprecated:  Optional parameter $isunicode declared before required parameter $currentfont is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_fonts.php on line 2039
+[23-Jan-2024 13:10:54 Asia/Jakarta] PHP Deprecated:  Optional parameter $setbom declared before required parameter $currentfont is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_fonts.php on line 2059
+[23-Jan-2024 13:10:54 Asia/Jakarta] PHP Deprecated:  Optional parameter $forcertl declared before required parameter $currentfont is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_fonts.php on line 2059
+[23-Jan-2024 13:10:54 Asia/Jakarta] PHP Deprecated:  Optional parameter $isunicode declared before required parameter $currentfont is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_fonts.php on line 2059
+[23-Jan-2024 13:10:54 Asia/Jakarta] PHP Deprecated:  Optional parameter $str declared before required parameter $currentfont is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_fonts.php on line 2076
+[23-Jan-2024 13:10:54 Asia/Jakarta] PHP Deprecated:  Optional parameter $setbom declared before required parameter $currentfont is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_fonts.php on line 2076
+[23-Jan-2024 13:10:54 Asia/Jakarta] PHP Deprecated:  Optional parameter $forcertl declared before required parameter $currentfont is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_fonts.php on line 2076
+[23-Jan-2024 13:10:54 Asia/Jakarta] PHP Deprecated:  Optional parameter $isunicode declared before required parameter $currentfont is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_fonts.php on line 2076
+[23-Jan-2024 13:10:54 Asia/Jakarta] PHP Deprecated:  Optional parameter $str declared before required parameter $currentfont is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_fonts.php on line 2092
+[23-Jan-2024 13:10:54 Asia/Jakarta] PHP Deprecated:  Optional parameter $forcertl declared before required parameter $currentfont is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_fonts.php on line 2092
+[23-Jan-2024 13:10:54 Asia/Jakarta] PHP Deprecated:  Optional parameter $isunicode declared before required parameter $currentfont is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_fonts.php on line 2092
+[23-Jan-2024 13:10:54 Asia/Jakarta] PHP Deprecated:  Optional parameter $default_css declared before required parameter $tagvspaces is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_static.php on line 1139
+[23-Jan-2024 13:10:54 Asia/Jakarta] PHP Deprecated:  Optional parameter $tagvs declared before required parameter $tagvspaces is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_static.php on line 1139
+[23-Jan-2024 13:10:54 Asia/Jakarta] PHP Deprecated:  Optional parameter $tidy_options declared before required parameter $tagvspaces is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_static.php on line 1139
+[23-Jan-2024 13:10:54 Asia/Jakarta] PHP Deprecated:  Optional parameter $points declared before required parameter $k is implicitly treated as a required parameter in /home/issk2531/public_html/btr.issmedika.com/vendor/tecnickcom/tcpdf/include/tcpdf_static.php on line 2488
+[23-Jan-2024 13:12:48 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 8.0.30. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 13:13:54 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 8.0.30. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 13:13:56 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 8.0.30. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 13:13:57 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 8.0.30. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 13:16:01 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 8.0.30. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 13:16:02 Asia/Jakarta] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 8.0.30. in /home/issk2531/public_html/btr.issmedika.com/vendor/composer/platform_check.php on line 28
+[23-Jan-2024 13:19:39 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/issk2531/public_html/btr.issmedika.com/home.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/home.php on line 11
+[23-Jan-2024 13:19:42 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/issk2531/public_html/btr.issmedika.com/request.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/request.php on line 10
+[23-Jan-2024 13:19:43 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/issk2531/public_html/btr.issmedika.com/request.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/request.php on line 10
+[23-Jan-2024 13:19:44 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/issk2531/public_html/btr.issmedika.com/request.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/request.php on line 10
+[23-Jan-2024 13:20:02 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/issk2531/public_html/btr.issmedika.com/request.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/request.php on line 10
+[23-Jan-2024 13:20:03 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/issk2531/public_html/btr.issmedika.com/request.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/request.php on line 10
+[23-Jan-2024 13:20:03 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/issk2531/public_html/btr.issmedika.com/request.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/request.php on line 10
+[23-Jan-2024 13:20:03 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/issk2531/public_html/btr.issmedika.com/request.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/request.php on line 10
+[23-Jan-2024 13:20:04 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/issk2531/public_html/btr.issmedika.com/request.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/request.php on line 10
+[23-Jan-2024 13:20:05 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/issk2531/public_html/btr.issmedika.com/home.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/home.php on line 11
+[23-Jan-2024 13:20:06 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/issk2531/public_html/btr.issmedika.com/request.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/request.php on line 10
+[23-Jan-2024 13:20:06 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/issk2531/public_html/btr.issmedika.com/home.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/home.php on line 11
+[23-Jan-2024 13:20:07 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/issk2531/public_html/btr.issmedika.com/home.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/home.php on line 11
+[23-Jan-2024 13:21:37 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class "PDO" not found in /home/issk2531/public_html/btr.issmedika.com/test.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/test.php on line 14
+[23-Jan-2024 13:21:55 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class "PDO" not found in /home/issk2531/public_html/btr.issmedika.com/test.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/test.php on line 14
+[23-Jan-2024 13:22:08 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class "PDO" not found in /home/issk2531/public_html/btr.issmedika.com/test.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/test.php on line 14
+[23-Jan-2024 13:22:58 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class "PDO" not found in /home/issk2531/public_html/btr.issmedika.com/test.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/test.php on line 14
+[23-Jan-2024 13:23:21 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class "PDO" not found in /home/issk2531/public_html/btr.issmedika.com/test.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/test.php on line 14
+[23-Jan-2024 13:27:26 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class "PDO" not found in /home/issk2531/public_html/btr.issmedika.com/test.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/test.php on line 14
+[23-Jan-2024 14:06:55 Asia/Jakarta] PHP Fatal error:  Uncaught ArgumentCountError: The number of variables must match the number of parameters in the prepared statement in /home/issk2531/public_html/btr.issmedika.com/home.php:359
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/home.php(359): mysqli_stmt->bind_param()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/home.php on line 359
+[23-Jan-2024 14:06:57 Asia/Jakarta] PHP Fatal error:  Uncaught ArgumentCountError: The number of variables must match the number of parameters in the prepared statement in /home/issk2531/public_html/btr.issmedika.com/home.php:359
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/home.php(359): mysqli_stmt->bind_param()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/home.php on line 359
+[23-Jan-2024 14:06:59 Asia/Jakarta] PHP Fatal error:  Uncaught ArgumentCountError: The number of variables must match the number of parameters in the prepared statement in /home/issk2531/public_html/btr.issmedika.com/home.php:359
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/home.php(359): mysqli_stmt->bind_param()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/home.php on line 359
+[23-Jan-2024 14:06:59 Asia/Jakarta] PHP Fatal error:  Uncaught ArgumentCountError: The number of variables must match the number of parameters in the prepared statement in /home/issk2531/public_html/btr.issmedika.com/home.php:359
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/home.php(359): mysqli_stmt->bind_param()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/home.php on line 359
+[23-Jan-2024 14:07:19 Asia/Jakarta] PHP Fatal error:  Uncaught ArgumentCountError: The number of variables must match the number of parameters in the prepared statement in /home/issk2531/public_html/btr.issmedika.com/home.php:353
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/home.php(353): mysqli_stmt->bind_param()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/home.php on line 353
+[23-Jan-2024 14:07:20 Asia/Jakarta] PHP Fatal error:  Uncaught ArgumentCountError: The number of variables must match the number of parameters in the prepared statement in /home/issk2531/public_html/btr.issmedika.com/home.php:353
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/home.php(353): mysqli_stmt->bind_param()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/home.php on line 353
+[23-Jan-2024 14:15:14 Asia/Jakarta] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/home.php:288
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/home.php(288): mysqli->prepare()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/home.php on line 288
+[23-Jan-2024 14:15:37 Asia/Jakarta] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/home.php:296
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/home.php(296): mysqli->prepare()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/home.php on line 296
+[23-Jan-2024 14:15:38 Asia/Jakarta] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/home.php:296
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/home.php(296): mysqli->prepare()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/home.php on line 296
+[23-Jan-2024 14:15:39 Asia/Jakarta] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/home.php:296
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/home.php(296): mysqli->prepare()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/home.php on line 296
+[23-Jan-2024 14:15:51 Asia/Jakarta] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/home.php:296
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/home.php(296): mysqli->prepare()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/home.php on line 296
+[23-Jan-2024 14:15:51 Asia/Jakarta] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/home.php:296
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/home.php(296): mysqli->prepare()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/home.php on line 296
+[23-Jan-2024 14:15:52 Asia/Jakarta] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/home.php:296
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/home.php(296): mysqli->prepare()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/home.php on line 296
+[23-Jan-2024 14:16:59 Asia/Jakarta] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/home.php:296
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/home.php(296): mysqli->prepare()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/home.php on line 296
+[23-Jan-2024 14:20:13 Asia/Jakarta] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/home.php:290
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/home.php(290): mysqli->prepare()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/home.php on line 290
+[23-Jan-2024 14:38:42 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:38:42 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:38:43 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:38:43 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:38:44 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:38:45 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:39:24 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:39:25 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:39:26 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:39:26 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:39:29 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:39:30 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:42:37 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:42:37 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:42:38 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:42:38 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:42:39 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:42:39 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:42:42 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:42:43 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:42:43 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:43:20 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:43:20 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:43:21 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:43:21 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:43:21 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:43:24 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:43:24 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:43:25 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:43:25 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:43:25 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:43:25 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:44:29 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:44:29 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:44:30 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:44:30 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:44:30 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:44:31 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:44:32 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:45:19 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[23-Jan-2024 14:47:17 Asia/Jakarta] PHP Warning:  Undefined variable $status in /home/issk2531/public_html/btr.issmedika.com/home.php on line 298
+[24-Jan-2024 10:38:16 Asia/Jakarta] PHP Warning:  Undefined variable $isFinalized in /home/issk2531/public_html/btr.issmedika.com/internalMemo.php on line 47
+[25-Jan-2024 08:48:20 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.totAmount' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/test.php:43
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/test.php(43): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/test.php on line 43
+[25-Jan-2024 08:50:34 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.totAmount' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/test.php:43
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/test.php(43): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/test.php on line 43
+[25-Jan-2024 08:50:53 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.totAmount' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/test.php:43
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/test.php(43): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/test.php on line 43
+[25-Jan-2024 08:52:22 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.totAmount' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/test.php:43
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/test.php(43): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/test.php on line 43
+[25-Jan-2024 09:12:40 Asia/Jakarta] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'totAmount' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/update_status.php:30
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/update_status.php(30): mysqli->prepare()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/update_status.php on line 30
+[25-Jan-2024 09:14:09 Asia/Jakarta] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'totAmount' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/update_status.php:30
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/update_status.php(30): mysqli->prepare()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/update_status.php on line 30
+[25-Jan-2024 09:15:43 Asia/Jakarta] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'totAmount' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/update_status.php:30
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/update_status.php(30): mysqli->prepare()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/update_status.php on line 30
+[25-Jan-2024 09:16:05 Asia/Jakarta] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'totAmount' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/update_status.php:30
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/update_status.php(30): mysqli->prepare()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/update_status.php on line 30
+[25-Jan-2024 09:18:23 Asia/Jakarta] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'totAmount' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/update_status.php:30
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/update_status.php(30): mysqli->prepare()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/update_status.php on line 30
+[25-Jan-2024 09:19:12 Asia/Jakarta] PHP Warning:  Undefined array key "reference" in /home/issk2531/public_html/btr.issmedika.com/update_status.php on line 7
+[25-Jan-2024 09:19:12 Asia/Jakarta] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'totAmount' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/update_status.php:30
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/update_status.php(30): mysqli->prepare()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/update_status.php on line 30
+[25-Jan-2024 09:20:52 Asia/Jakarta] PHP Warning:  Undefined array key "reference" in /home/issk2531/public_html/btr.issmedika.com/update_status.php on line 7
+[25-Jan-2024 09:20:52 Asia/Jakarta] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'totAmount' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/update_status.php:30
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/update_status.php(30): mysqli->prepare()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/update_status.php on line 30
+[25-Jan-2024 09:22:57 Asia/Jakarta] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'totAmount' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/update_status.php:30
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/update_status.php(30): mysqli->prepare()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/update_status.php on line 30
+[25-Jan-2024 09:24:09 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:40
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 40
+[25-Jan-2024 09:26:23 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:40
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 40
+[25-Jan-2024 09:27:01 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:40
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 40
+[25-Jan-2024 09:29:29 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:40
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 40
+[25-Jan-2024 09:31:18 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:40
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 40
+[25-Jan-2024 09:44:38 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:40
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 40
+[25-Jan-2024 09:44:51 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:40
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 40
+[25-Jan-2024 09:48:12 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:40
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 40
+[25-Jan-2024 09:49:15 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:40
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 40
+[25-Jan-2024 09:49:17 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:40
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 40
+[25-Jan-2024 09:49:17 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:40
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 40
+[25-Jan-2024 09:49:17 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:40
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 40
+[25-Jan-2024 09:49:23 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:40
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 40
+[25-Jan-2024 09:49:27 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:40
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 40
+[25-Jan-2024 09:49:34 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:40
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 40
+[25-Jan-2024 09:50:52 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:40
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 40
+[25-Jan-2024 09:50:55 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:40
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 40
+[25-Jan-2024 09:50:55 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:40
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 40
+[25-Jan-2024 09:50:55 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:40
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 40
+[25-Jan-2024 09:50:56 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:40
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 40
+[25-Jan-2024 09:51:22 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:40
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 40
+[25-Jan-2024 09:52:08 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:40
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 40
+[25-Jan-2024 09:52:26 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:40
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 40
+[25-Jan-2024 09:52:38 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:40
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 40
+[25-Jan-2024 09:52:39 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:40
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 40
+[25-Jan-2024 09:52:40 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:40
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 40
+[25-Jan-2024 09:55:14 Asia/Jakarta] PHP Warning:  Array to string conversion in /home/issk2531/public_html/btr.issmedika.com/update_status.php on line 34
+[25-Jan-2024 09:55:14 Asia/Jakarta] PHP Fatal error:  Uncaught TypeError: urlencode(): Argument #1 ($string) must be of type string, array given in /home/issk2531/public_html/btr.issmedika.com/update_status.php:44
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/update_status.php(44): urlencode()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/update_status.php on line 44
+[25-Jan-2024 09:56:27 Asia/Jakarta] PHP Fatal error:  Uncaught TypeError: urlencode(): Argument #1 ($string) must be of type string, array given in /home/issk2531/public_html/btr.issmedika.com/update_status.php:44
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/update_status.php(44): urlencode()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/update_status.php on line 44
+[25-Jan-2024 09:56:55 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:40
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 40
+[25-Jan-2024 09:59:35 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:40
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 40
+[25-Jan-2024 09:59:41 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:40
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 40
+[25-Jan-2024 10:02:58 Asia/Jakarta] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'totAmount' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/update_status.php:30
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/update_status.php(30): mysqli->prepare()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/update_status.php on line 30
+[25-Jan-2024 10:03:27 Asia/Jakarta] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'totAmount' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/update_status.php:30
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/update_status.php(30): mysqli->prepare()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/update_status.php on line 30
+[25-Jan-2024 10:03:32 Asia/Jakarta] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'totAmount' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/update_status.php:30
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/update_status.php(30): mysqli->prepare()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/update_status.php on line 30
+[25-Jan-2024 10:03:39 Asia/Jakarta] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'totAmount' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/update_status.php:30
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/update_status.php(30): mysqli->prepare()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/update_status.php on line 30
+[25-Jan-2024 10:04:48 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:40
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 40
+[25-Jan-2024 10:18:07 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:42
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(42): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 42
+[25-Jan-2024 10:18:12 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.status' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:42
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(42): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 42
+[25-Jan-2024 10:35:18 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.requestor_id' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:42
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(42): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 42
+[25-Jan-2024 10:35:33 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.requestor_id' in 'field list' in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php:42
+Stack trace:
+#0 /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php(42): PDOStatement->execute()
+#1 {main}
+  thrown in /home/issk2531/public_html/btr.issmedika.com/kirimEmail.php on line 42
