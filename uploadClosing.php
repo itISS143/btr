@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $comment = isset($_POST['comment']) ? $_POST['comment'] : '';
 
     // Database connection
-    $conn = new mysqli("127.0.0.1", "issk2531_btr", "aHDjmM2sqbmc", "issk2531_btr");
+    $conn = new mysqli("localhost", "root", "", "btr");
 
     // Check if 'reference' is set in the URL
     if (isset($_GET['reference'])) {

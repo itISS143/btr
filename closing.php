@@ -42,8 +42,6 @@ $stmtComment->bind_result($existingComment);
 $stmtComment->fetch();
 $stmtComment->close();
 $conn->close();
-
-
 ?>
 
 <!DOCTYPE html>

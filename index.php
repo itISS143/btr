@@ -101,9 +101,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
             });
     
-            // Convert inputs to uppercase
-            convertToUppercase("email");
-            convertToUppercase("password");
         });
     </script>
     
