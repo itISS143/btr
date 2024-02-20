@@ -7,7 +7,7 @@ $dbname = "btr";
 
 $loginError = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["email"]) && isset($_POST["password"])) {
     $email = $_POST["email"];
     $user_password = $_POST["password"];
     
@@ -37,12 +37,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Verify the email and password
             if ($email === $dbEmail && $user_password === $dbPassword) {
 
-    $_SESSION['email'] = $dbEmail;
-    $_SESSION['user_name'] = $name; // Store the username in the session
-    $_SESSION['id_number'] = $idNumber;
-    $_SESSION['company'] = $company;
-    header("Location: home.php");
-    exit();
+                $_SESSION['email'] = $dbEmail;
+                $_SESSION['user_name'] = $name; // Store the username in the session
+                $_SESSION['id_number'] = $idNumber;
+                $_SESSION['company'] = $company;
+                header("Location: home.php");
+                exit();
             } else {
                 $loginError = "Login failed. Please check your email and password.";
             }
@@ -57,7 +57,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">

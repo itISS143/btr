@@ -75,22 +75,18 @@ try {
 
     // Check totAmount and add appropriate message
     if ($totAmount > 20000000) {
-        // If totAmount is more than 20000000, send to rian.andrian@issmedika.com as well
+    // If totAmount is more than 20000000, send to rian.andrian@issmedika.com as well
         $mail->addAddress('rian_andrian@issmedika.com', 'Rian Andrian');
         $mail->Body = 'Hello Rian Andrian' . ',<br><br>' .
-                      'User ' . $userName . ' has made a BTR with a total amount of more than 20,000,000. The requestor is ' . $requestorName . '.<br><br>' .
-                      'To login, use the following credentials:<br>' .
-                      'Email: <a href="https://btr.issmedika.com/login.php?email=' . urlencode($requestorEmail) . '&password=' . urlencode($requestorPassword) . '">' . $requestorEmail . '</a><br>' .
-                      'Password: ' . $requestorPassword . '<br><br>' .
-                      'Visit <a href="https://btr.issmedika.com">BTR Portal</a> for more details.';
+                    'User ' . $userName . ' has made a BTR with a total amount of more than 20,000,000. The requestor is ' . $requestorName . '.<br><br>' .
+                    'To login, click the following link:<br>' .
+                    '<a href="https://btr.issmedika.com/index.php?email=' . urlencode($requestorEmail) . '&password=' . urlencode($requestorPassword) . '">Login to BTR Portal</a><br><br>' .
     } else {
         // If totAmount is not more than 20000000, send the standard message
         $mail->Body = 'Hello ' . $selectedManagerName . ',<br><br>' .
-                      'User ' . $userName . ' has made a BTR. The requestor is ' . $requestorName . '.<br><br>' .
-                      'To login, use the following credentials:<br>' .
-                      'Email: <a href="https://btr.issmedika.com/login.php?email=' . urlencode($requestorEmail) . '&password=' . urlencode($requestorPassword) . '">' . $requestorEmail . '</a><br>' .
-                      'Password: ' . $requestorPassword . '<br><br>' .
-                      'Visit <a href="https://btr.issmedika.com">BTR Portal</a> for more details.';
+                    'User ' . $userName . ' has made a BTR. The requestor is ' . $requestorName . '.<br><br>' .
+                    'To login, click the following link:<br>' .
+                    '<a href="https://btr.issmedika.com/index.php?email=' . urlencode($requestorEmail) . '&password=' . urlencode($requestorPassword) . '">Login to BTR Portal</a><br><br>' .
     }
 
     $mail->send();

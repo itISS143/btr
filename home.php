@@ -316,11 +316,11 @@ if ($stmtManagerName->execute()) {
         // Fetch all data for users with the same manager name and requestor name
         if (!empty($loggedInManagerName)) { // Check if manager name is not empty
             $fetchAllDataQuery = "SELECT s.*, r.requestorName 
-    FROM submitted_requestorform s
-    JOIN requestor_forms r ON s.requestor_id = r.idNumber
-    WHERE s.manager_name = ? OR r.requestorName = ?";
-$stmtFetchData = $conn->prepare($fetchAllDataQuery);
-$stmtFetchData->bind_param('ss', $loggedInManagerName, $loggedInUserName);
+                FROM submitted_requestorform s
+                JOIN requestor_forms r ON s.requestor_id = r.idNumber
+                WHERE s.manager_name = ? OR r.requestorName = ?";
+            $stmtFetchData = $conn->prepare($fetchAllDataQuery);
+            $stmtFetchData->bind_param('ss', $loggedInManagerName, $loggedInUserName);
         } else {
             // If manager_name is null, fetch all data for the requestor name
             $fetchAllDataQuery = "SELECT s.*, r.requestorName 
