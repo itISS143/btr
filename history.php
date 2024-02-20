@@ -21,8 +21,8 @@ function getAllDataFromDatabase() {
     // Fetch all rows from the database with a join to get requestor name
     $sql = "SELECT sr.*, rf.requestorName AS requestor_name, rf2.requestorName AS initiated_name
             FROM submitted_requestorform sr
-            LEFT JOIN requestor_form rf ON sr.requestor_id = rf.idNumber
-            LEFT JOIN requestor_form rf2 ON sr.initiated_by_id = rf2.idNumber";
+            LEFT JOIN requestor_forms rf ON sr.requestor_id = rf.idNumber
+            LEFT JOIN requestor_forms rf2 ON sr.initiated_by_id = rf2.idNumber";
     $result = $conn->query($sql);
 
     // Fetch data into an associative array

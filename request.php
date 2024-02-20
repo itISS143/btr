@@ -114,7 +114,6 @@ $conn->close();
 
     <div class="container" id="pdf-content">
     <div id="gambar-container"></div>
-    <td><input type="text" name="company" id="company" readonly></td>
     <h2>Business Travel Request</h2>
     <form id="formRequest" action="home.php" enctype="multipart/form-data" method="POST">
         <table class="request" name="tableRequest" id="tableRequest" border="1">
@@ -133,21 +132,21 @@ $conn->close();
                 <td><input type="text" id="dateId" name="Date" readonly></td>
             </tr>
             <tr>
-                <th class="title">Document Title</th>
+                <th class="title">Document Title <span style="color:red; font-size: 20px;">*</span></th>
                 <td><input type="text" id="titleId" name="title" value="" placeholder="Input Document Title" required></td>
             </tr>
             <tr>
-                <th class="purpose">Trip Purpose</th>
+                <th class="purpose">Trip Purpose <span style="color:red; font-size: 20px;">*</span></th>
                 <td><input type="text" id="purposeId" name="purpose" value="" placeholder="Input Trip Purpose" required></td>
             </tr>
             <tr>
-                <th class="requestor">Requestor</th>
+                <th class="requestor">Requestor <span style="color:red; font-size: 20px;">*</span></th>
                 <td>
                     <select class="select-style" name="requestor" id="requestor" onchange="detail()" required>
                         <option value="">Choose Requestor</option>
                         <?php
                         include "ambil_data.php";
-                        $query = mysqli_query($Open, "SELECT * FROM requestor_form ORDER BY requestorName");
+                        $query = mysqli_query($Open, "SELECT * FROM requestor_forms ORDER BY requestorName");
                         while ($data = mysqli_fetch_array($query)) {
                         ?>
                         <option value="<?php echo $data['requestorName']; ?>"><?php echo $data['requestorName']; ?></option>
@@ -173,7 +172,7 @@ $conn->close();
                 <td><input type="text" name="phoneNumber" id="phoneNumber" readonly></td>
             </tr>
             <tr>
-                <th class="managerName">Manager Name</th>
+                <th class="managerName">Manager Name <span style="color:red; font-size: 20px;">*</span></th>
                 <td><select class="select-style" aria-label="State" id="manDropdown" name="manager" required>
                     <option value="">Select Manager Name</option>
                     <option value="Adinda Yuliawati">Adinda Yuliawati</option>
@@ -189,13 +188,13 @@ $conn->close();
                 </td>
             </tr>
             <tr>
-                <th>Start Date</th>
+                <th>Start Date <span style="color:red; font-size: 20px;">*</span></th>
                 <td><input type="date" id="startDate" name="startDate" required></td>
-                <th>Return Date</th>
+                <th>Return Date <span style="color:red; font-size: 20px;">*</span></th>
                 <td><input type="date" id="returnDate" name="returnDate" required></td>
             </tr>
             <tr>
-                <th class="destination">Destination</th>
+                <th class="destination">Destination <span style="color:red; font-size: 20px;">*</span></th>
                 <td><select class="select-style" aria-label="State" id="desDropdown" name="destination" required>
                     <option value="">Choose Your Destination</option>
                     <option value="International">International</option>
@@ -208,7 +207,7 @@ $conn->close();
             <tr>
                 <th class="amount">Advance Amount</th>
                 <td><input type="number" id="totalAmount" name="amount" value="0" readonly></td>
-                <th class="currency">Currency</th>
+                <th class="currency">Currency <span style="color:red; font-size: 20px;">*</span></th>
                 <td><select class="select-style" name="currency" id="currency" onchange="change()" required>
                     <option value="">Choose Currency</option>
                     <?php
@@ -235,7 +234,7 @@ $conn->close();
         <th class="namaPassenger">Full Name</th>
         <th class="type">Division</th>
         <th class="gender">Gender</th>
-        <th class="hotel">Hotel Booking</th>
+        <th class="hotel">Hotel Booking <span style="color:red; font-size: 20px;">*</span></th>
         <th class="comment1">Comment</th>
     </thead>
     <tbody>
@@ -262,10 +261,10 @@ $conn->close();
 
 <table class="routing" id="tableRouting" border="1">
     <thead>
-        <th class="from">From</th>
-        <th class="to">To</th>
-        <th class="class">Trip Class</th>
-        <th class="flightDate">Flight Date</th>
+        <th class="from">From <span style="color:red; font-size: 20px;">*</span></th>
+        <th class="to">To <span style="color:red; font-size: 20px;">*</span></th>
+        <th class="class">Trip Class <span style="color:red; font-size: 20px;">*</span></th>
+        <th class="flightDate">Flight Date <span style="color:red; font-size: 20px;">*</span></th>
         <th class="comment2">Comment</th>
     </thead>
     <tbody>
@@ -360,9 +359,9 @@ $conn->close();
 <h2>Hotel Information</h2>
 <table class="hotel" id="tableHotel" border="1">
     <thead>
-        <th class="hotelName">Hotel Name</th>
-        <th class="hotelAddress">Hotel Address</th>
-        <th class="telephone">Hotel Phone Number</th>
+        <th class="hotelName">Hotel Name <span style="color:red; font-size: 20px;">*</span></th>
+        <th class="hotelAddress">Hotel Address <span style="color:red; font-size: 20px;">*</span></th>
+        <th class="telephone">Hotel Phone Number <span style="color:red; font-size: 20px;">*</span></th>
         <th class="Remarks2">Remarks</th>
     </thead>
 <tbody>
@@ -397,40 +396,25 @@ $conn->close();
 </body>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Function to update the logo based on the company value
-    function updateLogo(company) {
-        const img = document.createElement('img');
-        img.alt = 'Deskripsi gambar';
-        const container = document.getElementById('gambar-container');
-        
-        // Determine the image source based on the company value
-        if (company === 'Medika' || company === 'Promed') {
-            img.src = 'logo-imi medika.png';
-            img.classList.add('medika-logo');
-        } else if (company === 'Iss') {
-            img.src = 'logo-ISS.png';
-        } else {
-            // Set default logo or handle other companies
-            img.src = 'default-logo.png';
-        }
 
-        // Clear existing logo before adding the new one
-        container.innerHTML = '';
-        container.appendChild(img);
+function updateLogo(company) {
+    const img = document.createElement('img');
+    const container = document.getElementById('gambar-container');
+    
+    // Determine the image source based on the company value
+    if (company === 'Medika' || company === 'Promed') {
+        img.src = 'logo-imi medika.png';
+        img.classList.add('medika-logo');
+    } else if (company === 'Iss') {
+        img.src = 'logo-ISS.png';
+    } else {
     }
 
-    // Get the company input field
-    const companyInput = document.getElementById('company');
+    // Clear existing logo before adding the new one
+    container.innerHTML = '';
+    container.appendChild(img);
+}
 
-    // Initial update based on the current value
-    updateLogo(companyInput.value);
-
-    // Add event listener to update the logo when the company value changes
-    companyInput.addEventListener('input', function() {
-        updateLogo(this.value);
-    });
-});
 
 function goBack() {
     window.history.back();
@@ -440,9 +424,6 @@ function goBack() {
 </script>
 
 <style>
-body{
-    margin-top: 40px;
-}
 
 img {
     max-width: 300px;
@@ -451,10 +432,14 @@ img {
 }
 
 .medika-logo {
-    max-width: 180px;
+    max-width: 160px;
     width: 70%;
     margin-left: 10px;
     padding: 10px
+}
+
+body{
+    margin-top: 40px;
 }
 
     #goBackButton {

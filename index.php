@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             throw new Exception("Connection failed: " . $conn->connect_error);
         }
 
-        $stmt = $conn->prepare("SELECT email, password, requestorName, idNumber, company FROM requestor_form WHERE email = ?");
+        $stmt = $conn->prepare("SELECT email, password, requestorName, idNumber, company FROM requestor_forms WHERE email = ?");
         if (!$stmt) {
             throw new Exception("Error in SQL statement: " . $conn->error);
         }

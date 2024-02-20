@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Update the database
     $conn = new mysqli("localhost", "root", "", "btr");
-    $sql = "UPDATE submitted_requestorform SET approvalSls = ? WHERE reference = ?";
+    $sql = "UPDATE submitted_requestorforms SET approvalSls = ? WHERE reference = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("si", $approval, $reference);
     $stmt->execute();

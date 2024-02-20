@@ -11,7 +11,7 @@ $password = "";
 $dbname = "btr";
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Set PDO to throw exceptions on errors
 } catch (PDOException $e) {
     die("Database connection failed: " . $e->getMessage());
@@ -36,7 +36,7 @@ try {
 
     // First query to get manager email and requestor_id
     $stmt = $pdo->prepare("SELECT r.email, s.requestor_id
-                           FROM requestor_form r
+                           FROM requestor_forms r
                            JOIN submitted_requestorform s ON r.requestorName = s.manager_name
                            WHERE s.manager_name = :selectedManagerName");
     $stmt->bindParam(':selectedManagerName', $selectedManagerName, PDO::PARAM_STR);
@@ -51,8 +51,8 @@ try {
     $requestorId = $result['requestor_id'];
 
     // Second query to get requestorName based on requestor_id
-    $stmt = $pdo->prepare("SELECT r.email, r.requestorName
-                           FROM requestor_form r
+    $stmt = $pdo->prepare("SELECT r.email, r.requestorName, r.password
+                           FROM requestor_forms r
                            WHERE r.idNumber = :requestorId");
     $stmt->bindParam(':requestorId', $requestorId, PDO::PARAM_STR);
     $stmt->execute();
@@ -63,6 +63,8 @@ try {
     }
 
     $requestorName = $result['requestorName'];
+    $requestorEmail = $result['email'];
+    $requestorPassword = $result['password'];
 
     // Sending email to manager
     $mail->setFrom('itiss2024@gmail.com', 'admin');
@@ -77,11 +79,17 @@ try {
         $mail->addAddress('rian_andrian@issmedika.com', 'Rian Andrian');
         $mail->Body = 'Hello Rian Andrian' . ',<br><br>' .
                       'User ' . $userName . ' has made a BTR with a total amount of more than 20,000,000. The requestor is ' . $requestorName . '.<br><br>' .
+                      'To login, use the following credentials:<br>' .
+                      'Email: <a href="https://btr.issmedika.com/login.php?email=' . urlencode($requestorEmail) . '&password=' . urlencode($requestorPassword) . '">' . $requestorEmail . '</a><br>' .
+                      'Password: ' . $requestorPassword . '<br><br>' .
                       'Visit <a href="https://btr.issmedika.com">BTR Portal</a> for more details.';
     } else {
         // If totAmount is not more than 20000000, send the standard message
         $mail->Body = 'Hello ' . $selectedManagerName . ',<br><br>' .
                       'User ' . $userName . ' has made a BTR. The requestor is ' . $requestorName . '.<br><br>' .
+                      'To login, use the following credentials:<br>' .
+                      'Email: <a href="https://btr.issmedika.com/login.php?email=' . urlencode($requestorEmail) . '&password=' . urlencode($requestorPassword) . '">' . $requestorEmail . '</a><br>' .
+                      'Password: ' . $requestorPassword . '<br><br>' .
                       'Visit <a href="https://btr.issmedika.com">BTR Portal</a> for more details.';
     }
 

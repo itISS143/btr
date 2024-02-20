@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reference'])) {
     // Perform the second database query to get requestorName based on requestor_id
     $conn2 = new mysqli("localhost", "root", "", "btr");
 
-    $sql2 = "SELECT requestorName FROM requestor_form WHERE idNumber = ?";
+    $sql2 = "SELECT requestorName FROM requestor_forms WHERE idNumber = ?";
     $stmt2 = $conn2->prepare($sql2);
     $stmt2->bind_param('s', $requestor_id);
     $stmt2->execute();

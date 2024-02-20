@@ -28,6 +28,7 @@ $company = isset($_SESSION['company']) ? $_SESSION['company'] : '';
 $reference = $_GET['ref'];
 
 // Fetch and display travel requests from the database
+// Fetch and display travel requests from the database
 $sql = "SELECT 
     s.*,
     r.requestorName as initiatedByName,
@@ -37,10 +38,11 @@ $sql = "SELECT
     r1.departement as requestorDepartement,
     r1.phoneNumber as requestorPhoneNumber,
     r1.idCard as requestorIdCard,
-    r1.gender as requestorGender
+    r1.gender as requestorGender,
+    r1.company as requestorCompany
 FROM submitted_requestorform s
-LEFT JOIN requestor_form r ON s.initiated_by_id = r.idNumber
-LEFT JOIN requestor_form r1 ON s.requestor_id = r1.idNumber
+LEFT JOIN requestor_forms r ON s.initiated_by_id = r.idNumber
+LEFT JOIN requestor_forms r1 ON s.requestor_id = r1.idNumber
 WHERE s.id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('s', $reference);
@@ -48,7 +50,7 @@ $stmt->bind_param('s', $reference);
 if ($stmt->execute()) {
     $result = $stmt->get_result();
 
-    if ($result->num_rows > 0) {
+if ($result->num_rows > 0) {
         // Display requests in a table
         echo "<a id='goBackButton' href='#' onclick='goBack()' style='text-decoration:none;'>Back</a>";
         echo "<div class='container' id='pdf-content'>";
@@ -58,6 +60,22 @@ if ($stmt->execute()) {
         while ($row = $result->fetch_assoc()) {
             $approval = $row['approval'];
             $attachmentFilePath = $row['attachment_file'];
+            
+            // Check the company from requestorName and set image source accordingly
+            $companyLogo = '';
+            if ($row['requestorCompany'] === 'Medika' && $row['requestorCompany'] !== 'Iss') {
+                $companyLogo = 'logo-imi medika.png';
+            } elseif ($row['requestorCompany'] === 'Iss' && $row['requestorCompany'] !== 'Medika') {
+                $companyLogo = 'logo-ISS.png';
+            }
+            
+            echo "<script>
+                    const img = document.createElement('img');
+                    img.src = '$companyLogo';
+                    img.alt = 'Company Logo';
+                    document.getElementById('gambar-container').appendChild(img);
+                  </script>";
+                  
             echo "<tr>
                     <th>Reference</th>
                     <td>{$row['reference']}</td>

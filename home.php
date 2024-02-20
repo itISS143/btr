@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $initiatedBy = isset($rowRequestorName['requestorName']) ? $rowRequestorName['requestorName'] : '';
     $idNumber = isset($_POST['idNumber']) ? sanitizeInput($_POST['idNumber']) : '';
     // Fetch the requestorName based on idNumber
-    $requestorNameQuery = 'SELECT requestorName FROM requestor_form WHERE idNumber = ?';
+    $requestorNameQuery = 'SELECT requestorName FROM requestor_forms WHERE idNumber = ?';
     $stmtRequestorName = $conn->prepare($requestorNameQuery);
     $stmtRequestorName->bind_param('s', $idNumber);
     
@@ -99,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $stmtRequestorName->close();
 
-    $requestorIdQuery = 'SELECT idNumber FROM requestor_form WHERE requestorName = ?';
+    $requestorIdQuery = 'SELECT idNumber FROM requestor_forms WHERE requestorName = ?';
     $stmt = $conn->prepare($requestorIdQuery);
     $stmt->bind_param('s', $requestor);
 
@@ -301,7 +301,7 @@ $loggedInUserName = $_SESSION['user_name'];
 
 
 // Fetch the manager_name based on the user_name
-$managerNameQuery = 'SELECT manager_name FROM requestor_form WHERE requestorName = ?';
+$managerNameQuery = 'SELECT manager_name FROM requestor_forms WHERE requestorName = ?';
 $stmtManagerName = $conn->prepare($managerNameQuery);
 $stmtManagerName->bind_param('s', $loggedInUserName);
 
@@ -317,7 +317,7 @@ if ($stmtManagerName->execute()) {
         if (!empty($loggedInManagerName)) { // Check if manager name is not empty
             $fetchAllDataQuery = "SELECT s.*, r.requestorName 
     FROM submitted_requestorform s
-    JOIN requestor_form r ON s.requestor_id = r.idNumber
+    JOIN requestor_forms r ON s.requestor_id = r.idNumber
     WHERE s.manager_name = ? OR r.requestorName = ?";
 $stmtFetchData = $conn->prepare($fetchAllDataQuery);
 $stmtFetchData->bind_param('ss', $loggedInManagerName, $loggedInUserName);
@@ -325,7 +325,7 @@ $stmtFetchData->bind_param('ss', $loggedInManagerName, $loggedInUserName);
             // If manager_name is null, fetch all data for the requestor name
             $fetchAllDataQuery = "SELECT s.*, r.requestorName 
                 FROM submitted_requestorform s
-                JOIN requestor_form r ON s.requestor_id = r.idNumber";
+                JOIN requestor_forms r ON s.requestor_id = r.idNumber";
             $stmtFetchData = $conn->prepare($fetchAllDataQuery);
         }
     } else {
@@ -343,7 +343,7 @@ $stmtFetchData->bind_param('ss', $loggedInManagerName, $loggedInUserName);
             $initiatedById = $row['initiated_by_id'];
 
             // Add a query to get the initiated name
-            $initiatedNameQuery = 'SELECT requestorName FROM requestor_form WHERE idNumber = ?';
+            $initiatedNameQuery = 'SELECT requestorName FROM requestor_forms WHERE idNumber = ?';
             $stmtInitiatedName = $conn->prepare($initiatedNameQuery);
             $stmtInitiatedName->bind_param('s', $initiatedById);
 
@@ -407,8 +407,9 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -462,22 +463,22 @@ $conn->close();
                     <table id="tableDisplay" class="table table-bordered table-width">
                         <thead class="table-dark">
                             <tr class="text-nowrap">
-                                <th><input type="checkbox" id="selectAllCheckbox"> Select All</th>
-                                <th class="initiated">Initiated By</th>
-                                <th class="approval">Status</th>
-                                <th class="dateInitiated">Date Initiated</th>
-                                <th class="title">Document Title</th>
-                                <th class="requestor">Requestor</th>
-                                <th class="manager">Manager Name</th>
-                                <th class="time">Time Approved / Declined</th>
-                                <th>Detail</th>
-                                <th>Estimated Cost</th>
-                                <th>Purchase Form</th>
-                                <th>Closing</th>
-                                <th>Validate Admin Sales</th>
-                                <th>Validate Finance</th>
-                                <th>Validate Kasir</th>
-                                <th>Final Status</th>
+                                <th style="text-align: center;"><input type="checkbox" id="selectAllCheckbox"> Select All</th>
+                                <th style="text-align: center;" class="initiated">Initiated By</th>
+                                <th style="text-align: center;" class="approval">Status</th>
+                                <th style="text-align: center;" class="dateInitiated">Date Initiated</th>
+                                <th style="text-align: center;" class="title">Document Title</th>
+                                <th style="text-align: center;" class="requestor">Requestor</th>
+                                <th style="text-align: center;" class="manager">Manager Name</th>
+                                <th style="text-align: center;" class="time">Time Approved / Declined</th>
+                                <th style="text-align: center;">Detail</th>
+                                <th style="text-align: center;">Estimated Cost</th>
+                                <th style="text-align: center;">Purchase Form</th>
+                                <th style="text-align: center;">Closing</th>
+                                <th style="text-align: center;">Validate Admin Sales</th>
+                                <th style="text-align: center;">Validate Finance</th>
+                                <th style="text-align: center;">Validate Kasir</th>
+                                <th style="text-align: center;">Final Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -514,7 +515,7 @@ $conn->close();
                                             <td colspan="1"></td>
                                         <?php endif; ?>
                                     </td>
-                                    <td>
+                                    <td style="text-align: center;">
                                         <?php if ($row['closing'] === null): ?>
                                             <?php else: ?>
                                                 <?php if ($row['validateSls'] === null): ?>
@@ -523,14 +524,14 @@ $conn->close();
                                                     $elementId = 'penyerahanDateInput' . $row['reference'];
                                                     $onclick = "updateTerima('$elementId', '{$row['reference']}')";
                                                     ?>
-                                                    <input type="button" class="validate-button" value="Terima" onclick="<?php echo $onclick; ?>">
+                                                    <input type="button" class="validate-button" value="Validate" onclick="<?php echo $onclick; ?>">
                                                     <?php endif; ?>
                                                 <?php else: ?>
                                                 <?php echo date('d/m/Y', strtotime($row['validateSls'])); ?>
                                                 <?php endif; ?>
                                         <?php endif; ?>
                                     </td>
-                                    <td>
+                                    <td style="text-align: center;">
                                         <?php if ($row['validateSls'] === null): ?>
                                             <?php else: ?>
                                                 <?php if ($row['validateFin'] === null): ?>
@@ -539,14 +540,14 @@ $conn->close();
                                                     $elementId = 'penyerahanDateInput' . $row['reference'];
                                                     $onclick = "updateTerima1('$elementId', '{$row['reference']}')";
                                                     ?>
-                                                    <input type="button" class="validate-button" value="Terima" onclick="<?php echo $onclick; ?>">
+                                                    <input type="button" class="validate-button" value="Validate" onclick="<?php echo $onclick; ?>">
                                                     <?php endif; ?>
                                                 <?php else: ?>
                                                 <?php echo date('d/m/Y', strtotime($row['validateFin'])); ?>
                                             <?php endif; ?>
                                         <?php endif; ?>
                                     </td>
-                                    <td>
+                                    <td style="text-align: center;">
                                         <?php if ($row['validateFin'] === null): ?>
                                             <?php else: ?>
                                                 <?php if ($row['validateKas'] === null): ?>
@@ -555,7 +556,7 @@ $conn->close();
                                                     $elementId = 'penyerahanDateInput' . $row['reference'];
                                                     $onclick = "updateTerima2('$elementId', '{$row['reference']}')";
                                                     ?>
-                                                    <input type="button" class="validate-button" value="Terima" onclick="<?php echo $onclick; ?>">
+                                                    <input type="button" class="validate-button" value="Validate" onclick="<?php echo $onclick; ?>">
                                                     <?php endif; ?>
                                                 <?php else: ?>
                                                 <?php echo date('d/m/Y', strtotime($row['validateKas'])); ?>
@@ -583,9 +584,6 @@ $conn->close();
         <a href="request.php" class="fixed-button">+ Request</a>
     </div>
     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
-
     <script>
      // Function to perform search
     function performSearch() {
@@ -787,7 +785,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Create the image element
     const img = document.createElement('img');
-    img.alt = 'Deskripsi gambar';
 
     // Determine the image source based on the company from session
     if (sessionCompany === 'Medika' || sessionCompany === 'Promed') {
