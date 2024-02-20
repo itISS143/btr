@@ -127,14 +127,6 @@ $('#requestorId').on('change', function() {
     displayRequestorData(selectedRequestor);
 });
 
-/*const img = document.createElement('img');
-        img.src = 'logo-ISS.png'; // Ganti dengan URL/path gambar yang sesuai
-        img.alt = 'Deskripsi gambar';
-
-        // Menambahkan gambar ke dalam elemen dengan id "gambar-container"
-        const container = document.getElementById('gambar-container');
-        container.appendChild(img);*/
-
 // Initiated Date
 const date = new Date();
 const tanggal = date.toLocaleDateString();

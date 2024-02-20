@@ -36,7 +36,7 @@ try {
         // Query to get manager_name, status, and requestor_id based on reference from submitted_requestorform
         $stmt = $pdo->prepare("SELECT s.manager_name, s.approval, s.requestor_id, r.idNumber, r.email as requestorEmail, r.requestorName
                             FROM submitted_requestorform s
-                            JOIN requestor_forms r ON s.requestor_id = r.idNumber
+                            JOIN requestor_form r ON s.requestor_id = r.idNumber
                             WHERE s.reference = :reference");
         $stmt->bindParam(':reference', $reference, PDO::PARAM_STR);
         $stmt->execute();

@@ -18,8 +18,8 @@ function getFinalStatusFromDatabase($reference) {
 // Check if the user is logged in
 session_start();
 if (!isset($_SESSION['user_name'])) {
-    // Redirect to the login page if not logged in
-    header('Location: login.php');
+    // Redirect to the index page if not logged in
+    header('Location: index.php');
     exit();
 }
 

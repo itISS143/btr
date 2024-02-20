@@ -32,8 +32,8 @@ $query = $Open->query("SELECT s.*, r.requestorName as initiatedByName,
                         t.trip_from, t.trip_to, t.trip_class, t.flight_date, t.comments as trip_comments,
                         h.hotel_name, h.hotel_address, h.hotel_phonenumber, h.remarks as hotel_remarks
                         FROM submitted_requestorform s
-                        LEFT JOIN requestor_forms r ON s.initiated_by_id = r.idNumber
-                        LEFT JOIN requestor_forms r1 ON s.requestor_id = r1.idNumber
+                        LEFT JOIN requestor_form r ON s.initiated_by_id = r.idNumber
+                        LEFT JOIN requestor_form r1 ON s.requestor_id = r1.idNumber
                         LEFT JOIN trip_routing t ON s.id = t.submitted_id
                         LEFT JOIN hotel_information h ON s.id = h.submitted_id
                         ORDER BY s.reference ASC"); 

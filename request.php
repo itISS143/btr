@@ -15,12 +15,13 @@ if ($conn->connect_error) {
 }
 
 if (!isset($_SESSION['user_name'])) {
-    // Redirect to the login page if not logged in
-    header("Location: login.php");
+    // Redirect to the index page if not logged in
+    header("Location: index.php");
     exit();
 }
 $userName = $_SESSION['user_name'];
 $idNumber = $_SESSION['id_number'];
+$company = isset($_SESSION['company']) ? $_SESSION['company'] : '';
 
 // Function to get the latest reference number
 function getLatestReferenceNumber($conn) {
@@ -112,6 +113,8 @@ $conn->close();
     <a id="goBackButton" href="#" onclick="goBack()" style="text-decoration:none;">Back</a>
 
     <div class="container" id="pdf-content">
+    <div id="gambar-container"></div>
+    <td><input type="text" name="company" id="company" readonly></td>
     <h2>Business Travel Request</h2>
     <form id="formRequest" action="home.php" enctype="multipart/form-data" method="POST">
         <table class="request" name="tableRequest" id="tableRequest" border="1">
@@ -144,7 +147,7 @@ $conn->close();
                         <option value="">Choose Requestor</option>
                         <?php
                         include "ambil_data.php";
-                        $query = mysqli_query($Open, "SELECT * FROM requestor_forms ORDER BY requestorName");
+                        $query = mysqli_query($Open, "SELECT * FROM requestor_form ORDER BY requestorName");
                         while ($data = mysqli_fetch_array($query)) {
                         ?>
                         <option value="<?php echo $data['requestorName']; ?>"><?php echo $data['requestorName']; ?></option>
@@ -394,15 +397,64 @@ $conn->close();
 </body>
 
 <script>
-    function goBack() {
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to update the logo based on the company value
+    function updateLogo(company) {
+        const img = document.createElement('img');
+        img.alt = 'Deskripsi gambar';
+        const container = document.getElementById('gambar-container');
+        
+        // Determine the image source based on the company value
+        if (company === 'Medika' || company === 'Promed') {
+            img.src = 'logo-imi medika.png';
+            img.classList.add('medika-logo');
+        } else if (company === 'Iss') {
+            img.src = 'logo-ISS.png';
+        } else {
+            // Set default logo or handle other companies
+            img.src = 'default-logo.png';
+        }
+
+        // Clear existing logo before adding the new one
+        container.innerHTML = '';
+        container.appendChild(img);
+    }
+
+    // Get the company input field
+    const companyInput = document.getElementById('company');
+
+    // Initial update based on the current value
+    updateLogo(companyInput.value);
+
+    // Add event listener to update the logo when the company value changes
+    companyInput.addEventListener('input', function() {
+        updateLogo(this.value);
+    });
+});
+
+function goBack() {
     window.history.back();
     return false; // Prevents the default behavior of the link
 }
+
 </script>
 
 <style>
 body{
     margin-top: 40px;
+}
+
+img {
+    max-width: 300px;
+    width: 90%;
+    margin-left: 10px;
+}
+
+.medika-logo {
+    max-width: 180px;
+    width: 70%;
+    margin-left: 10px;
+    padding: 10px
 }
 
     #goBackButton {

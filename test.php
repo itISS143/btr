@@ -36,7 +36,7 @@ try {
 
     // First query to get manager email and requestor_id
     $stmt = $pdo->prepare("SELECT r.email, s.requestor_id
-                           FROM requestor_forms r
+                           FROM requestor_form r
                            JOIN submitted_requestorform s ON r.requestorName = s.manager_name
                            WHERE s.manager_name = :selectedManagerName");
     $stmt->bindParam(':selectedManagerName', $selectedManagerName, PDO::PARAM_STR);
@@ -52,7 +52,7 @@ try {
 
     // Second query to get requestorName based on requestor_id
     $stmt = $pdo->prepare("SELECT r.email, r.requestorName
-                           FROM requestor_forms r
+                           FROM requestor_form r
                            WHERE r.idNumber = :requestorId");
     $stmt->bindParam(':requestorId', $requestorId, PDO::PARAM_STR);
     $stmt->execute();

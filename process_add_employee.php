@@ -14,18 +14,19 @@ if ($conn->connect_error) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve form data and convert to uppercase
-    $name = strtoupper($_POST['name']);
-    $division = strtoupper($_POST['division']);
-    $department = strtoupper($_POST['department']);
-    $phone = strtoupper($_POST['phone']);
-    $id_card = strtoupper($_POST['id_card']);
-    $email = strtoupper($_POST['email']);
-    $gender = strtoupper($_POST['gender']);
-    $password = strtoupper($_POST['password']); // Hash the password
-    $manager_name = strtoupper($_POST['manager_name']);
+    $name = $_POST['name'];
+    $division = $_POST['division'];
+    $department = $_POST['department'];
+    $phone = $_POST['phone'];
+    $id_card = $_POST['id_card'];
+    $email = $_POST['email'];
+    $gender = $_POST['gender'];
+    $password = $_POST['password']; // Hash the password
+    $manager_name = $_POST['manager_name'];
+    $company = $_POST['company'];
 
     // Query the current maximum idNumber
-    $maxIdResult = $conn->query("SELECT MAX(idNumber) AS maxId FROM requestor_forms");
+    $maxIdResult = $conn->query("SELECT MAX(idNumber) AS maxId FROM requestor_form");
     $row = $maxIdResult->fetch_assoc();
     $maxId = $row['maxId'];
 
@@ -33,8 +34,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $idNumber = $maxId + 1;
 
     // Update SQL query to include idNumber
-    $sql = "INSERT INTO requestor_forms (idNumber, requestorName, division, departement, phoneNumber, idCard, email, gender, password, manager_name)
-            VALUES ('$idNumber', '$name', '$division', '$department', '$phone', '$id_card', '$email', '$gender', '$password', '$manager_name')";
+    $sql = "INSERT INTO requestor_form (idNumber, requestorName, division, departement, phoneNumber, idCard, email, gender, password, manager_name, company)
+            VALUES ('$idNumber', '$name', '$division', '$department', '$phone', '$id_card', '$email', '$gender', '$password', '$manager_name', '$company')";
 
     if ($conn->query($sql) === TRUE) {
         $_SESSION['add_employee'] = true;

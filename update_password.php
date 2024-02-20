@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_SESSION['user_name'];
 
     // Fetch user data using the username
-    $sql = "SELECT * FROM requestor_forms WHERE requestorName = '$username'";
+    $sql = "SELECT * FROM requestor_form WHERE requestorName = '$username'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($currentPassword === $storedPassword) {
 
                 // Update the password in the database
-                $updateSql = "UPDATE requestor_forms SET password = '$newPassword' WHERE idNumber = $userId";
+                $updateSql = "UPDATE requestor_form SET password = '$newPassword' WHERE idNumber = $userId";
                 if ($conn->query($updateSql) === TRUE) {
                     // Password updated successfully
                     $_SESSION['password_updated'] = true;

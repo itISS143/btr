@@ -5,7 +5,7 @@ $allowedUsers = ['Anindhita Prameswari']; // Add other allowed users as needed
 
 if (!isset($_SESSION['user_name']) || !in_array($_SESSION['user_name'], $allowedUsers)) {
     // Redirect or show an error message
-    header('Location: login.php');
+    header('Location: index.php');
     exit();
 }
 
@@ -64,8 +64,16 @@ if (!isset($_SESSION['user_name']) || !in_array($_SESSION['user_name'], $allowed
         <option value="Santono">Santono</option>
         <option value="Suwarno">Suwarno</option>
     </select>
-<br>
-<br>
+    <br>
+    <label for="company">Company :</label>
+    <select name="company" required>
+        <option value="">Select Company</option>
+        <option value="Medika">Interskala Medika Indonesia</option>
+        <option value="Iss">Interskala Sehat Sejahtera</option>
+        <option value="Promed">Produksi Medika</option>
+    </select>
+    <br>
+    <br>
     <button type="submit">Add Employee</button>
 </form>
 

@@ -23,13 +23,14 @@ function sanitizeInput($input)
 
 // Check if the user is logged in
 if (!isset($_SESSION['user_name'])) {
-    // Redirect to the login page if not logged in
-    header('Location: login.php');
+    // Redirect to the index page if not logged in
+    header('Location: index.php');
     exit();
 }
 
 $allSubmittedData = [];
 $userName = isset($_SESSION['user_name']) ? $_SESSION['user_name'] : '';
+$company = isset($_SESSION['company']) ? $_SESSION['company'] : '';
 
 // Check if the form was submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -76,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $initiatedBy = isset($rowRequestorName['requestorName']) ? $rowRequestorName['requestorName'] : '';
     $idNumber = isset($_POST['idNumber']) ? sanitizeInput($_POST['idNumber']) : '';
     // Fetch the requestorName based on idNumber
-    $requestorNameQuery = 'SELECT requestorName FROM requestor_forms WHERE idNumber = ?';
+    $requestorNameQuery = 'SELECT requestorName FROM requestor_form WHERE idNumber = ?';
     $stmtRequestorName = $conn->prepare($requestorNameQuery);
     $stmtRequestorName->bind_param('s', $idNumber);
     
@@ -98,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $stmtRequestorName->close();
 
-    $requestorIdQuery = 'SELECT idNumber FROM requestor_forms WHERE requestorName = ?';
+    $requestorIdQuery = 'SELECT idNumber FROM requestor_form WHERE requestorName = ?';
     $stmt = $conn->prepare($requestorIdQuery);
     $stmt->bind_param('s', $requestor);
 
@@ -300,7 +301,7 @@ $loggedInUserName = $_SESSION['user_name'];
 
 
 // Fetch the manager_name based on the user_name
-$managerNameQuery = 'SELECT manager_name FROM requestor_forms WHERE requestorName = ?';
+$managerNameQuery = 'SELECT manager_name FROM requestor_form WHERE requestorName = ?';
 $stmtManagerName = $conn->prepare($managerNameQuery);
 $stmtManagerName->bind_param('s', $loggedInUserName);
 
@@ -316,7 +317,7 @@ if ($stmtManagerName->execute()) {
         if (!empty($loggedInManagerName)) { // Check if manager name is not empty
             $fetchAllDataQuery = "SELECT s.*, r.requestorName 
     FROM submitted_requestorform s
-    JOIN requestor_forms r ON s.requestor_id = r.idNumber
+    JOIN requestor_form r ON s.requestor_id = r.idNumber
     WHERE s.manager_name = ? OR r.requestorName = ?";
 $stmtFetchData = $conn->prepare($fetchAllDataQuery);
 $stmtFetchData->bind_param('ss', $loggedInManagerName, $loggedInUserName);
@@ -324,7 +325,7 @@ $stmtFetchData->bind_param('ss', $loggedInManagerName, $loggedInUserName);
             // If manager_name is null, fetch all data for the requestor name
             $fetchAllDataQuery = "SELECT s.*, r.requestorName 
                 FROM submitted_requestorform s
-                JOIN requestor_forms r ON s.requestor_id = r.idNumber";
+                JOIN requestor_form r ON s.requestor_id = r.idNumber";
             $stmtFetchData = $conn->prepare($fetchAllDataQuery);
         }
     } else {
@@ -342,7 +343,7 @@ $stmtFetchData->bind_param('ss', $loggedInManagerName, $loggedInUserName);
             $initiatedById = $row['initiated_by_id'];
 
             // Add a query to get the initiated name
-            $initiatedNameQuery = 'SELECT requestorName FROM requestor_forms WHERE idNumber = ?';
+            $initiatedNameQuery = 'SELECT requestorName FROM requestor_form WHERE idNumber = ?';
             $stmtInitiatedName = $conn->prepare($initiatedNameQuery);
             $stmtInitiatedName->bind_param('s', $initiatedById);
 
@@ -438,7 +439,7 @@ $conn->close();
                       </li>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="login.php" id="logoutLink">Log Out</a>
+                      <a class="nav-link" href="index.php" id="logoutLink">Log Out</a>
                     </li>
                 </ul>
               </div>
@@ -447,7 +448,7 @@ $conn->close();
     </header>
     <main>
         <div class="container">
-<!--            <div id="gambar-container"></div>-->
+          <div id="gambar-container"></div>
             <h2>Home</h2>
             <br>
             <h3>Welcome, <?php echo $userName; ?></h3>
@@ -656,7 +657,7 @@ $conn->close();
         function logout() {
             const userConfirmed = window.confirm('Apakah Anda yakin ingin logout?');
             if (userConfirmed) {
-                window.location.href = 'login.php';
+                window.location.href = 'index.php';
             }
         }
 
@@ -780,15 +781,27 @@ function redirectToFormPR(reference, validateSls) {
     });
 }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const img = document.createElement('img');
-            img.src = 'logo-ISS.png'; // Ganti dengan URL/path gambar yang sesuai
-            img.alt = 'Deskripsi gambar';
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the company from session (using PHP to pass the value to JavaScript)
+    const sessionCompany = "<?php echo isset($_SESSION['company']) ? $_SESSION['company'] : ''; ?>";
 
-            // Menambahkan gambar ke dalam elemen dengan id "gambar-container"
-            const container = document.getElementById('gambar-container');
-            container.appendChild(img);
-        });
+    // Create the image element
+    const img = document.createElement('img');
+    img.alt = 'Deskripsi gambar';
+
+    // Determine the image source based on the company from session
+    if (sessionCompany === 'Medika' || sessionCompany === 'Promed') {
+        img.src = 'logo-imi medika.png';
+        img.classList.add('medika-logo'); // Add a class if the company is Medika
+    } else if (sessionCompany === 'Iss') {
+        img.src = 'logo-ISS.png';
+    } else {
+    }
+
+    // Add the image to the container
+    const container = document.getElementById('gambar-container');
+    container.appendChild(img);
+});
 
         // Add the following script for handling the "Select All" checkbox
         document.addEventListener('DOMContentLoaded', function() {
@@ -939,8 +952,16 @@ document.addEventListener('DOMContentLoaded', function () {
     </script>
 
     <style>
+
+.medika-logo {
+    max-width: 200px;
+    width: 70%;
+    margin-left: 10px;
+    padding: 10px
+}
         img {
-            width: 300px;
+            max-width: 300px;
+            width: 90%;
             margin-left: 10px;
         }
 

@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             throw new Exception("Connection failed: " . $conn->connect_error);
         }
 
-        $stmt = $conn->prepare("SELECT email, password, requestorName, idNumber FROM requestor_forms WHERE email = ?");
+        $stmt = $conn->prepare("SELECT email, password, requestorName, idNumber, company FROM requestor_form WHERE email = ?");
         if (!$stmt) {
             throw new Exception("Error in SQL statement: " . $conn->error);
         }
@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->store_result();
 
         if ($stmt->num_rows > 0) {
-            $stmt->bind_result($dbEmail, $dbPassword, $name, $idNumber);
+            $stmt->bind_result($dbEmail, $dbPassword, $name, $idNumber, $company);
             $stmt->fetch();
 
             // Verify the email and password
@@ -40,6 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION['email'] = $dbEmail;
     $_SESSION['user_name'] = $name; // Store the username in the session
     $_SESSION['id_number'] = $idNumber;
+    $_SESSION['company'] = $company;
     header("Location: home.php");
     exit();
             } else {

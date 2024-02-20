@@ -16,13 +16,14 @@ if ($conn->connect_error) {
 }
 
 if (!isset($_SESSION['user_name'])) {
-    // Redirect to the login page if not logged in
-    header('Location: login.php');
+    // Redirect to the index page if not logged in
+    header('Location: index.php');
     exit();
 }
 
 $userName = $_SESSION['user_name'];
 $idNumber = $_SESSION['id_number'];
+$company = isset($_SESSION['company']) ? $_SESSION['company'] : '';
 
 $reference = $_GET['ref'];
 
@@ -38,8 +39,8 @@ $sql = "SELECT
     r1.idCard as requestorIdCard,
     r1.gender as requestorGender
 FROM submitted_requestorform s
-LEFT JOIN requestor_forms r ON s.initiated_by_id = r.idNumber
-LEFT JOIN requestor_forms r1 ON s.requestor_id = r1.idNumber
+LEFT JOIN requestor_form r ON s.initiated_by_id = r.idNumber
+LEFT JOIN requestor_form r1 ON s.requestor_id = r1.idNumber
 WHERE s.id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('s', $reference);
@@ -51,6 +52,7 @@ if ($stmt->execute()) {
         // Display requests in a table
         echo "<a id='goBackButton' href='#' onclick='goBack()' style='text-decoration:none;'>Back</a>";
         echo "<div class='container' id='pdf-content'>";
+        echo "<div id='gambar-container'></div>";
         echo "<h1>Business Travel Request</h1>";
         echo '<table>';
         while ($row = $result->fetch_assoc()) {
@@ -289,6 +291,28 @@ $conn->close();
 <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
 
 <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the company from session (using PHP to pass the value to JavaScript)
+    const sessionCompany = "<?php echo isset($_SESSION['company']) ? $_SESSION['company'] : ''; ?>";
+
+    // Create the image element
+    const img1 = document.createElement('img1');
+    img1.alt = 'Deskripsi gambar';
+
+    // Determine the image source based on the company from session
+    if (sessionCompany === 'Medika' || sessionCompany === 'Promed') {
+        img1.src = 'logo-imi medika.png';
+        img1.classList.add('medika-logo'); // Add a class if the company is Medika
+    } else if (sessionCompany === 'Iss') {
+        img1.src = 'logo-ISS.png';
+    } else {
+    }
+
+    // Add the image to the container
+    const container = document.getElementById('gambar-container');
+    container.appendChild(img1);
+});
+
     function goBack() {
     window.history.back();
     return false; // Prevents the default behavior of the link
@@ -297,6 +321,19 @@ $conn->close();
 </script>
 
 <style>
+img1 {
+    max-width: 300px;
+    width: 90%;
+    margin-left: 10px;
+}
+
+.medika-logo {
+    max-width: 180px;
+    width: 70%;
+    margin-left: 10px;
+    padding: 10px
+}
+
     table {
         width: 100%;
         border-collapse: collapse;

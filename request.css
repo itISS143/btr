@@ -145,11 +145,6 @@ button:hover {
     background-color: #4172ce;
 }
 
-img {
-    width: 200px; /* Adjust image size as needed */
-    margin-left: 10px;
-}
-
 .container {
     justify-content: center;
     align-items: center;
