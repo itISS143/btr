@@ -5,13 +5,13 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 // Assuming you have a database connection, replace these values with your actual database credentials
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "btr";
+$host = 'localhost';
+$dbname = 'btr';
+$username = 'root';
+$password = '';
 
 try {
-    $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Set PDO to throw exceptions on errors
 } catch (PDOException $e) {
     die("Database connection failed: " . $e->getMessage());
@@ -35,7 +35,7 @@ try {
     $status = isset($_GET['status']) ? $_GET['status'] : '';
 
     // First query to get manager email and requestor_id
-    $stmt = $pdo->prepare("SELECT r.email, s.requestor_id
+    $stmt = $pdo->prepare("SELECT r.email, s.requestor_id, r.password
                            FROM requestor_forms r
                            JOIN submitted_requestorform s ON r.requestorName = s.manager_name
                            WHERE s.manager_name = :selectedManagerName");
@@ -49,9 +49,10 @@ try {
 
     $managerEmail = $result['email'];
     $requestorId = $result['requestor_id'];
+    $managerPassword = $result['password'];
 
     // Second query to get requestorName based on requestor_id
-    $stmt = $pdo->prepare("SELECT r.email, r.requestorName, r.password
+    $stmt = $pdo->prepare("SELECT r.email, r.requestorName
                            FROM requestor_forms r
                            WHERE r.idNumber = :requestorId");
     $stmt->bindParam(':requestorId', $requestorId, PDO::PARAM_STR);
@@ -63,8 +64,6 @@ try {
     }
 
     $requestorName = $result['requestorName'];
-    $requestorEmail = $result['email'];
-    $requestorPassword = $result['password'];
 
     // Sending email to manager
     $mail->setFrom('itiss2024@gmail.com', 'admin');
@@ -80,13 +79,13 @@ try {
         $mail->Body = 'Hello Rian Andrian' . ',<br><br>' .
                     'User ' . $userName . ' has made a BTR with a total amount of more than 20,000,000. The requestor is ' . $requestorName . '.<br><br>' .
                     'To login, click the following link:<br>' .
-                    '<a href="https://btr.issmedika.com/index.php?email=' . urlencode($requestorEmail) . '&password=' . urlencode($requestorPassword) . '">Login to BTR Portal</a><br><br>' .
+                    '<a href="https://btr.issmedika.com/index.php?email=' . urlencode($managerEmail) . '&password=' . urlencode($managerPassword) . '">Login to BTR Portal</a><br><br>';
     } else {
         // If totAmount is not more than 20000000, send the standard message
         $mail->Body = 'Hello ' . $selectedManagerName . ',<br><br>' .
                     'User ' . $userName . ' has made a BTR. The requestor is ' . $requestorName . '.<br><br>' .
                     'To login, click the following link:<br>' .
-                    '<a href="https://btr.issmedika.com/index.php?email=' . urlencode($requestorEmail) . '&password=' . urlencode($requestorPassword) . '">Login to BTR Portal</a><br><br>' .
+                    '<a href="https://btr.issmedika.com/index.php?email=' . urlencode($managerEmail) . '&password=' . urlencode($managerPassword) . '">Login to BTR Portal</a><br><br>';
     }
 
     $mail->send();
