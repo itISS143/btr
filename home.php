@@ -452,7 +452,7 @@ $conn->close();
           <div id="gambar-container"></div>
             <h2>Home</h2>
             <br>
-            <h3>Welcome, <?php echo $userName; ?></h3>
+            <h3 id="welcomeMessage">Welcome, <?php echo $userName; ?></h3>
             <br>
             <div class="search-container">
                 <label for="searchInput">Search:</label>
@@ -585,6 +585,31 @@ $conn->close();
     </div>
     
     <script>
+  document.addEventListener('DOMContentLoaded', function () {
+        const welcomeMessage = document.getElementById('welcomeMessage');
+        const rtlStyle = { direction: 'rtl', unicodeBidi: 'bidi-override', textAlign: 'left' };
+        const ltrStyle = { direction: 'ltr', unicodeBidi: 'normal', textAlign: 'right' };
+        const easterEggFlag = 'easterEggTriggered';
+
+        // Check if the easter egg has been triggered before
+        const isEasterEggTriggered = localStorage.getItem(easterEggFlag);
+
+        if (!isEasterEggTriggered) {
+            // Generate a random number (either 0 or 1)
+            const randomNumber = Math.floor(Math.random() * 100);
+
+            // Apply RTL style if random number is 1
+            if (randomNumber === 1) {
+                Object.assign(welcomeMessage.style, rtlStyle);
+                // Set the easter egg flag in local storage
+                localStorage.setItem(easterEggFlag, 'true');
+            }
+        } else {
+            // Reset the easter egg flag if it's already triggered
+            localStorage.removeItem(easterEggFlag);
+        }
+    });
+
      // Function to perform search
     function performSearch() {
         const searchInput = document.getElementById('searchInput');
@@ -798,6 +823,44 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add the image to the container
     const container = document.getElementById('gambar-container');
     container.appendChild(img);
+
+    let isAfk = false; // Assume user is AFK initially
+    let rotationTimer; // Variable to store timer reference
+
+    // Function to start rotation after 1 minute of inactivity
+    function startRotation() {
+        const container = document.getElementById('gambar-container');
+        if (container && isAfk) {
+            container.classList.add('rotate-image'); // Apply rotation animation if AFK
+        }
+    }
+
+    // Function to reset rotation after user activity
+    function resetRotation() {
+        isAfk = false; // User is active
+        clearTimeout(rotationTimer); // Clear previous timer
+        const container = document.getElementById('gambar-container');
+        if (container) {
+            container.classList.remove('rotate-image'); // Remove rotation animation
+        }
+        rotationTimer = setTimeout(() => {
+            isAfk = true; // Set back to AFK after 1 minute of inactivity
+            startRotation(); // Start rotation if still AFK after timeout
+        }, 60000); // 1 minute in milliseconds
+    }
+
+    // Start the timer initially
+    rotationTimer = setTimeout(() => {
+        startRotation(); // Start rotation after 1 minute if still AFK
+    }, 60000); // 1 minute in milliseconds
+
+    // Event listeners for user activity
+    document.addEventListener('mousemove', resetRotation);
+    document.addEventListener('keypress', resetRotation);
+    document.addEventListener('scroll', resetRotation);
+
+    // Start rotation after DOMContentLoaded
+    startRotation();
 });
 
         // Add the following script for handling the "Select All" checkbox
@@ -946,9 +1009,46 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Get all rows in the table body
+    var rows = document.querySelectorAll('#tableDisplay tbody tr');
+
+    // Iterate over each row
+    rows.forEach(function (row) {
+        // Your existing code to handle rows
+
+        // After appending the image to the container
+        const container = document.getElementById('gambar-container');
+        container.appendChild(img);
+
+        // Add the rotate-image class to the image element
+        img.classList.add('rotate-image');
+    });
+});
+
     </script>
 
     <style>
+
+@keyframes rotate360 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Apply rotation animation to the image */
+.rotate-image {
+    animation: rotate360 10s linear infinite; /* Change duration and timing function as needed */
+}
+
+/* Stop rotation on hover */
+.rotate-image:hover {
+    animation-play-state: paused;
+}
 
 .medika-logo {
     max-width: 200px;
