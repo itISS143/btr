@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["email"]) && isset($_PO
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="login-container">
+    <div class="login-container" id="login-container">
         <h1>Login</h1>
         <form id="login-form" method="post">
             <label for="email">Email:</label>
@@ -88,6 +88,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["email"]) && isset($_PO
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            const loginContainer = document.getElementById("login-container");
+
+            // Function to generate random RGB color
+            function getRandomColor() {
+                const r = Math.floor(Math.random() * 256);
+                const g = Math.floor(Math.random() * 256);
+                const b = Math.floor(Math.random() * 256);
+                return `rgb(${r},${g},${b})`;
+            }
+
+            loginContainer.style.boxShadow = `0px 0px 10px black`;
+
+            setTimeout(function() {
+                setInterval(function() {
+                    loginContainer.style.boxShadow = `0px 0px 10px ${getRandomColor()}`;
+                }, 800);
+            }, 60000); // 60000 milliseconds = 1 minute
+
             const showPasswordCheckbox = document.getElementById("show-password");
             const emailInput = document.getElementById("email");
             const passwordInput = document.getElementById("password");
@@ -100,7 +118,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["email"]) && isset($_PO
                     passwordInput.type = "password";
                 }
             });
-    
         });
     </script>
     
@@ -123,8 +140,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["email"]) && isset($_PO
             border-radius: 5px;
             padding: 20px;
             text-align: center;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             width: 300px;
+            transition: box-shadow 0.7s ease-in-out; /* Smooth transition */
         }
 
         h1 {
