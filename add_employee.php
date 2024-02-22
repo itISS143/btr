@@ -76,6 +76,8 @@ if (!isset($_SESSION['user_name']) || !in_array($_SESSION['user_name'], $allowed
     <br>
     <button type="submit">Add Employee</button>
 </form>
+<br>
+<br>
 
 </body>
 <style>

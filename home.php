@@ -637,17 +637,19 @@ function getFinalStatusText($row)
         }
     });
 
-     // Function to perform search
+    document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('searchInput');
+    const rows = document.querySelectorAll('#tableDisplay tbody tr');
+
+    // Function to perform search
     function performSearch() {
-        const searchInput = document.getElementById('searchInput');
-        const rows = document.querySelectorAll('#tableDisplay tbody tr');
+        const searchTerm = searchInput.value.toLowerCase();
 
         rows.forEach(row => {
             let isMatch = false;
 
             row.querySelectorAll('td').forEach(cell => {
                 const cellText = cell.textContent.toLowerCase();
-                const searchTerm = searchInput.value.toLowerCase();
 
                 if (cellText.includes(searchTerm)) {
                     isMatch = true;
@@ -657,8 +659,6 @@ function getFinalStatusText($row)
             row.style.display = isMatch ? 'table-row' : 'none';
         });
     }
-
-    document.addEventListener('DOMContentLoaded', function () {
         const approvedUsernames = [
             'Rian Andrian', 'Robby Ardyan', 'Santono',
             'Heriyanto', 'Anindhita Prameswari',
@@ -697,8 +697,6 @@ function getFinalStatusText($row)
             }
         }
 
-        // Attach the performSearch function to the input event
-        const searchInput = document.getElementById('searchInput');
         if (searchInput) {
             searchInput.addEventListener('input', performSearch);
         }
