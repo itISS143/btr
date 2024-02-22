@@ -78,13 +78,13 @@ try {
         $mail->addAddress('rian_andrian@issmedika.com', 'Rian Andrian');
         $mail->Body = 'Hello Rian Andrian' . ',<br><br>' .
                     'User ' . $userName . ' has made a BTR with a total amount of more than 20,000,000. The requestor is ' . $requestorName . '.<br><br>' .
-                    'To login, click the following link:<br>' .
+                    'To check, click the following link:<br>' .
                     '<a href="https://btr.issmedika.com/index.php?email=' . urlencode($managerEmail) . '&password=' . urlencode($managerPassword) . '">Login to BTR Portal</a><br><br>';
     } else {
         // If totAmount is not more than 20000000, send the standard message
         $mail->Body = 'Hello ' . $selectedManagerName . ',<br><br>' .
                     'User ' . $userName . ' has made a BTR. The requestor is ' . $requestorName . '.<br><br>' .
-                    'To login, click the following link:<br>' .
+                    'To check, click the following link:<br>' .
                     '<a href="https://btr.issmedika.com/index.php?email=' . urlencode($managerEmail) . '&password=' . urlencode($managerPassword) . '">Login to BTR Portal</a><br><br>';
     }
 

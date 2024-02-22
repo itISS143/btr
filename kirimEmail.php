@@ -66,12 +66,12 @@ try {
         if ($status == 'Approved') {
             $mail->Body = 'Hello ' . $requestorDisplayName . '<br><br>' .
                 'Your BTR has been approved by ' . $managerDisplayName . '.<br><br>' .
-                'To login, click the following link:<br>' .
+                'To check, click the following link:<br>' .
                 '<a href="https://btr.issmedika.com/index.php?email=' . urlencode($requestorEmail) . '&password=' . urlencode($requestorPassword) . '">Login to BTR Portal</a><br><br>';
         } elseif ($status == 'Rejected') {
             $mail->Body = 'Hello ' . $requestorDisplayName . '<br><br>' .
                 'Your BTR has been declined by ' . $managerDisplayName . '.<br><br>' .
-                'To login, click the following link:<br>' .
+                'To check, click the following link:<br>' .
                 '<a href="https://btr.issmedika.com/index.php?email=' . urlencode($requestorEmail) . '&password=' . urlencode($requestorPassword) . '">Login to BTR Portal</a><br><br>';
         } else {
             // Handle other status scenarios here
