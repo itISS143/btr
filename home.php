@@ -313,19 +313,23 @@ if ($stmtManagerName->execute()) {
         // Use the manager name fetched from the database
         $loggedInManagerName = $rowManagerName['manager_name'];
 
+        $limit = 100; // Number of items per page
+        $page = isset($_GET['page']) ? $_GET['page'] : 1; // Current page number, default is 1
+        $start = ($page - 1) * $limit; // Starting index for fetching data
+
         // Fetch all data for users with the same manager name and requestor name
         if (!empty($loggedInManagerName)) { // Check if manager name is not empty
             $fetchAllDataQuery = "SELECT s.*, r.requestorName 
                 FROM submitted_requestorform s
                 JOIN requestor_forms r ON s.requestor_id = r.idNumber
-                WHERE s.manager_name = ? OR r.requestorName = ?";
+                WHERE s.manager_name = ? OR r.requestorName = ? LIMIT $start, $limit";
             $stmtFetchData = $conn->prepare($fetchAllDataQuery);
             $stmtFetchData->bind_param('ss', $loggedInManagerName, $loggedInUserName);
         } else {
             // If manager_name is null, fetch all data for the requestor name
             $fetchAllDataQuery = "SELECT s.*, r.requestorName 
                 FROM submitted_requestorform s
-                JOIN requestor_forms r ON s.requestor_id = r.idNumber";
+                JOIN requestor_forms r ON s.requestor_id = r.idNumber LIMIT $start, $limit";
             $stmtFetchData = $conn->prepare($fetchAllDataQuery);
         }
     } else {
@@ -396,7 +400,7 @@ function getFinalStatusText($row)
     }
 }
 
-$conn->close();
+
 ?>
 
 <!DOCTYPE html>
@@ -575,6 +579,28 @@ $conn->close();
                 <div class="button-container">
                     <button type="button" id="approveButton" onclick="updateStatus('Approved')" data-status="Approved" class="accept-button">Approve</button>
                     <button type="button" id="declineButton" onclick="updateStatus('Rejected')" data-status="Rejected" class="reject-button">Reject</button>
+                </div>
+            </div>
+            <?php
+            $sql = "SELECT COUNT(*) AS total FROM submitted_requestorform";
+            $result = $conn->query($sql);
+            $row = $result->fetch_assoc();
+            $total_records = $row['total'];
+            $total_pages = ceil($total_records / $limit);
+            $prev_page = max(1, $page - 1);
+            $next_page = min($total_pages, $page + 1);
+            ?>
+        
+            <div class="pagination-wrapper">
+                <div class="pagination-container">
+                    <a href="?page=<?php echo $prev_page; ?>" class="pagination-link">Previous</a>
+                    <?php
+                    for ($i = 1; $i <= $total_pages; $i++) {
+                        $active_class = ($page == $i) ? 'active' : '';
+                        echo "<a href='?page=$i' class='pagination-link $active_class'>$i</a>";
+                    }
+                    ?>
+                    <a href="?page=<?php echo $next_page; ?>" class="pagination-link">Next</a>
                 </div>
             </div>
         </div>
@@ -1030,6 +1056,34 @@ document.addEventListener('DOMContentLoaded', function () {
     </script>
 
     <style>
+
+.pagination-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .pagination-container {
+        display: inline-block;
+    }
+
+    .pagination-link {
+        padding: 5px 10px;
+        margin-right: 5px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        text-decoration: none;
+        color: #333;
+    }
+
+    .pagination-link:hover {
+        background-color: #f0f0f0;
+    }
+
+    .pagination-link.active {
+        background-color: #007bff;
+        color: #fff;
+    }
 
 @keyframes rotate360 {
     from {
