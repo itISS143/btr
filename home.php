@@ -576,31 +576,32 @@ function getFinalStatusText($row)
                     </table>
                 </div>
             
+                <?php
+                $sql = "SELECT COUNT(*) AS total FROM submitted_requestorform";
+                $result = $conn->query($sql);
+                $row = $result->fetch_assoc();
+                $total_records = $row['total'];
+                $total_pages = ceil($total_records / $limit);
+                $prev_page = max(1, $page - 1);
+                $next_page = min($total_pages, $page + 1);
+                ?>
+            
+                <div class="pagination-wrapper">
+                    <div class="pagination-container">
+                        <a href="?page=<?php echo $prev_page; ?>" class="pagination-link">Previous</a>
+                        <?php
+                        for ($i = 1; $i <= $total_pages; $i++) {
+                            $active_class = ($page == $i) ? 'active' : '';
+                            echo "<a href='?page=$i' class='pagination-link $active_class'>$i</a>";
+                        }
+                        ?>
+                        <a href="?page=<?php echo $next_page; ?>" class="pagination-link">Next</a>
+                    </div>
+                </div>
+
                 <div class="button-container">
                     <button type="button" id="approveButton" onclick="updateStatus('Approved')" data-status="Approved" class="accept-button">Approve</button>
                     <button type="button" id="declineButton" onclick="updateStatus('Rejected')" data-status="Rejected" class="reject-button">Reject</button>
-                </div>
-            </div>
-            <?php
-            $sql = "SELECT COUNT(*) AS total FROM submitted_requestorform";
-            $result = $conn->query($sql);
-            $row = $result->fetch_assoc();
-            $total_records = $row['total'];
-            $total_pages = ceil($total_records / $limit);
-            $prev_page = max(1, $page - 1);
-            $next_page = min($total_pages, $page + 1);
-            ?>
-        
-            <div class="pagination-wrapper">
-                <div class="pagination-container">
-                    <a href="?page=<?php echo $prev_page; ?>" class="pagination-link">Previous</a>
-                    <?php
-                    for ($i = 1; $i <= $total_pages; $i++) {
-                        $active_class = ($page == $i) ? 'active' : '';
-                        echo "<a href='?page=$i' class='pagination-link $active_class'>$i</a>";
-                    }
-                    ?>
-                    <a href="?page=<?php echo $next_page; ?>" class="pagination-link">Next</a>
                 </div>
             </div>
         </div>

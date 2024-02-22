@@ -1,5 +1,12 @@
 <?php
 session_start();
+
+$conn = new mysqli("localhost", "root", "", "btr");
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
 if (!isset($_SESSION['user_name'])) {
     // Redirect to the index page if not logged in
     header('Location: index.php');
@@ -9,33 +16,43 @@ if (!isset($_SESSION['user_name'])) {
 // Fetch the userName from the session
 $userName = $_SESSION['user_name'];
 
+// Define the limit for pagination
+$limit = 100; // Number of items per page
+
 // Assuming you have a function to fetch all rows from the database
 function getAllDataFromDatabase() {
-    // Database connection
-    $conn = new mysqli("localhost", "root", "", "btr");
+    global $conn, $limit;
 
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+    $page = isset($_GET['page']) ? $_GET['page'] : 1; // Current page number, default is 1
+    $start = ($page - 1) * $limit; // Starting index for fetching data
 
     // Fetch all rows from the database with a join to get requestor name
     $sql = "SELECT sr.*, rf.requestorName AS requestor_name, rf2.requestorName AS initiated_name
             FROM submitted_requestorform sr
             LEFT JOIN requestor_forms rf ON sr.requestor_id = rf.idNumber
-            LEFT JOIN requestor_forms rf2 ON sr.initiated_by_id = rf2.idNumber";
+            LEFT JOIN requestor_forms rf2 ON sr.initiated_by_id = rf2.idNumber LIMIT $start, $limit";
     $result = $conn->query($sql);
 
-    // Fetch data into an associative array
-    $data = [];
-    while ($row = $result->fetch_assoc()) {
-        $data[] = $row;
+    // Check if there are any rows returned
+    if ($result->num_rows > 0) {
+        // Fetch data into an associative array
+        $data = [];
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+    } else {
+        // If no rows are returned, return an empty array
+        $data = [];
     }
 
-    // Close the connection
-    $conn->close();
-
-    return $data;
+    // Return data and page number
+    return ['data' => $data, 'page' => $page];
 }
+
+// Fetch all data from the database
+$dataAndPage = getAllDataFromDatabase();
+$allData = $dataAndPage['data'];
+$page = $dataAndPage['page'];
 
 function getFinalStatusText($row)
 {
@@ -45,10 +62,8 @@ function getFinalStatusText($row)
         return '';
     }
 }
-
-// Fetch all data from the database
-$allData = getAllDataFromDatabase();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -183,6 +198,28 @@ $allData = getAllDataFromDatabase();
                 </tbody>
             </table>
         </div>
+        <?php
+        $sql = "SELECT COUNT(*) AS total FROM submitted_requestorform";
+        $result = $conn->query($sql);
+        $row = $result->fetch_assoc();
+        $total_records = $row['total'];
+        $total_pages = ceil($total_records / $limit);
+        $prev_page = max(1, $page - 1);
+        $next_page = min($total_pages, $page + 1);
+        ?>
+    
+        <div class="pagination-wrapper">
+            <div class="pagination-container">
+                <a href="?page=<?php echo $prev_page; ?>" class="pagination-link">Previous</a>
+                <?php
+                for ($i = 1; $i <= $total_pages; $i++) {
+                    $active_class = ($page == $i) ? 'active' : '';
+                    echo "<a href='?page=$i' class='pagination-link $active_class'>$i</a>";
+                }
+                ?>
+                <a href="?page=<?php echo $next_page; ?>" class="pagination-link">Next</a>
+            </div>
+        </div>
     </div>  
 </main>
 
@@ -229,6 +266,34 @@ $allData = getAllDataFromDatabase();
         
 </script>
 <style>
+
+.pagination-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .pagination-container {
+        display: inline-block;
+    }
+
+    .pagination-link {
+        padding: 5px 10px;
+        margin-right: 5px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        text-decoration: none;
+        color: #333;
+    }
+
+    .pagination-link:hover {
+        background-color: #f0f0f0;
+    }
+
+    .pagination-link.active {
+        background-color: #007bff;
+        color: #fff;
+    }
 
 .export-button-container {
   top: 170px; /* Adjust the top position as needed */
