@@ -2,7 +2,7 @@
 function getFinalStatusFromDatabase($reference) {
     $conn = new mysqli("localhost", "root", "", "btr");
 
-    $sql = "SELECT validateSls FROM submitted_requestorforms WHERE reference = ?";
+    $sql = "SELECT validateSls FROM submitted_requestorform WHERE reference = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $reference); 
     $stmt->execute();
@@ -34,7 +34,7 @@ $requestorName = isset($_GET['requestorName']) ? $_GET['requestorName'] : '';
 
 // Fetch the existing comment from the database
     $conn = new mysqli("localhost", "root", "", "btr");
-$sqlComment = "SELECT closingComment FROM submitted_requestorforms WHERE reference = ?";
+$sqlComment = "SELECT closingComment FROM submitted_requestorform WHERE reference = ?";
 $stmtComment = $conn->prepare($sqlComment);
 $stmtComment->bind_param("i", $referenceFromURL);
 $stmtComment->execute();
@@ -42,6 +42,8 @@ $stmtComment->bind_result($existingComment);
 $stmtComment->fetch();
 $stmtComment->close();
 $conn->close();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -74,7 +76,7 @@ $conn->close();
         <?php
     $conn = new mysqli("localhost", "root", "", "btr");
 
-        $sqlFiles = "SELECT closing FROM submitted_requestorforms WHERE reference = ?";
+        $sqlFiles = "SELECT closing FROM submitted_requestorform WHERE reference = ?";
         $stmtFiles = $conn->prepare($sqlFiles);
         $stmtFiles->bind_param("i", $referenceFromURL);  
         $stmtFiles->execute();

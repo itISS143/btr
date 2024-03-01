@@ -56,7 +56,7 @@ $requestorName = isset($_GET['requestorName']) ? $_GET['requestorName'] : '';
     <div>
         <?php
         // Database connection
-    $conn = new mysqli("127.0.0.1", "issk2531_btr", "aHDjmM2sqbmc", "issk2531_btr");
+    $conn = new mysqli("localhost", "root", "", "btr");
 
         // Fetch and display uploaded files from the database
         $sqlFiles = "SELECT internalMemo FROM submitted_requestorform WHERE reference = ?";

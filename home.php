@@ -60,16 +60,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $tripClass = isset($_POST['tripClass']) ? sanitizeInput($_POST['tripClass']) : '';
     $flightDate = isset($_POST['flightDate']) ? sanitizeInput($_POST['flightDate']) : '';
     $flightComment = isset($_POST['flightComment']) ? sanitizeInput($_POST['flightComment']) : '';
-    $accAmount = isset($_POST['accomodationAmount']) ? sanitizeInput($_POST['accomodationAmount']) : '';
-    $meaAmount = isset($_POST['mealAmount']) ? sanitizeInput($_POST['mealAmount']) : '';
-    $traAmount = isset($_POST['transportationAmount']) ? sanitizeInput($_POST['transportationAmount']) : '';
-    $othAmount = isset($_POST['otherAmount']) ? sanitizeInput($_POST['otherAmount']) : '';
-    $totAmount = isset($_POST['totalAmount']) ? sanitizeInput($_POST['totalAmount']) : '';
-    $accRemark = isset($_POST['accomodationRemark']) ? sanitizeInput($_POST['accomodationRemark']) : '';
-    $meaRemark = isset($_POST['mealRemark']) ? sanitizeInput($_POST['mealRemark']) : '';
-    $traRemark = isset($_POST['transportationRemark']) ? sanitizeInput($_POST['transportationRemark']) : '';
-    $othRemark = isset($_POST['otherRemark']) ? sanitizeInput($_POST['otherRemark']) : '';
-    $totRemark = isset($_POST['totalRemark']) ? sanitizeInput($_POST['totalRemark']) : '';
+    $totalAmount = isset($_POST['totalAmount']) ? sanitizeInput($_POST['totalAmount']) : '';
+    $totalCurrency = isset($_POST['totalCurrency']) ? sanitizeInput($_POST['totalCurrency']) : '';
+    $totalRemark = isset($_POST['totalRemark']) ? sanitizeInput($_POST['totalRemark']) : '';
     $hotelName = isset($_POST['hotelName']) ? sanitizeInput($_POST['hotelName']) : '';
     $hotelAddress = isset($_POST['hotelAddress']) ? sanitizeInput($_POST['hotelAddress']) : '';
     $hotelPhone = isset($_POST['hotelPhone']) ? sanitizeInput($_POST['hotelPhone']) : '';
@@ -192,7 +185,8 @@ if ($stmtCheckReference->execute()) {
 
                 if ($stmt) {
                 // Assuming all parameters are strings ('s'). You can change the types as needed.
-                $stmt->bind_param('ssissssssssiisssiiiiissssss', $idNumber, $DateAndTime, $reference, $status, $requestorId, $title, $purpose, $managerName, $startDate, $returnDate, $destination, $totalDays, $amount, $currency, $hotelBooking, $passComm, $accAmount, $meaAmount, $traAmount, $othAmount, $totAmount, $accRemark, $meaRemark, $traRemark, $othRemark, $totRemark, $filepath);
+                // $stmt->bind_param('ssissssssssiisssiiiiissssss', $idNumber, $DateAndTime, $reference, $status, $requestorId, $title, $purpose, $managerName, $startDate, $returnDate, $destination, $totalDays, $amount, $currency, $hotelBooking, $passComm, $accAmount, $meaAmount, $traAmount, $othAmount, $totAmount, $accRemark, $meaRemark, $traRemark, $othRemark, $totRemark, $filepath);
+                $stmt->bind_param('ssissssssssisssssssssssssss', $idNumber, $DateAndTime, $reference, $status, $requestorId, $title, $purpose, $managerName, $startDate, $returnDate, $destination, $totalDays, $amount, $currency, $hotelBooking, $passComm, $accAmount, $meaAmount, $traAmount, $othAmount, $totAmount, $accRemark, $meaRemark, $traRemark, $othRemark, $totRemark, $filepath);
 
                 if ($stmt->execute()) {
                     // File uploaded and data inserted successfully
@@ -203,44 +197,38 @@ if (isset($_POST['tripData']) && is_array($_POST['tripData'])) {
     $tripDataArray = $_POST['tripData'];
 
     if ($tripDataArray) {
-    $flightFrom = $tripDataArray['flightFrom'];
-    $flightTo = $tripDataArray['flightTo'];
-    $tripClass = $tripDataArray['tripClass'];
-    $flightDate = $tripDataArray['flightDate'];
-    $flightComment = $tripDataArray['flightComment'];
+        $flightFrom = $tripDataArray['flightFrom'];
+        $flightTo = $tripDataArray['flightTo'];
+        $tripClass = $tripDataArray['tripClass'];
+        $flightDate = $tripDataArray['flightDate'];
+        $flightComment = $tripDataArray['flightComment'];
 
+        foreach ($flightFrom as $index => $value) {
+            // Access corresponding values from other arrays using the same index
+            $currentFlightFrom = $flightFrom[$index];
+            $currentFlightTo = $flightTo[$index];
+            $currentTripClass = $tripClass[$index];
+            $currentFlightDate = $flightDate[$index];
+            $currentFlightComment = $flightComment[$index];
 
-    foreach ($flightFrom as $index => $value) {
-        // Access corresponding values from other arrays using the same index
-        $currentFlightFrom = $flightFrom[$index];
-        $currentFlightTo = $flightTo[$index];
-        $currentTripClass = $tripClass[$index];
-        $currentFlightDate = $flightDate[$index];
-        $currentFlightComment = $flightComment[$index];
+            // Continue with the insert operation
+            $tripSql = 'INSERT INTO trip_routing (submitted_id, trip_from, trip_to, trip_class, flight_date, comments) VALUES (?, ?, ?, ?, ?, ?)';
+            $tripStmt = $conn->prepare($tripSql);
 
-        if ($tripDataArray) {
-    // Make sure flightFrom is not null
-    if ($flightFrom !== null) {
-        // Continue with the insert operation for trip data
-        $tripSql = 'INSERT INTO trip_routing (submitted_id, trip_from, trip_to, trip_class, flight_date, comments) VALUES (?, ?, ?, ?, ?, ?)';
-        $tripStmt = $conn->prepare($tripSql);
+            if ($tripStmt) {
+                $tripStmt->bind_param('isssss', $lastInsertId, $currentFlightFrom, $currentFlightTo, $currentTripClass, $currentFlightDate, $currentFlightComment);
 
-        if ($tripStmt) {
-            $tripStmt->bind_param('isssss', $lastInsertId, $flightFrom[$index], $flightTo[$index], $tripClass[$index], $flightDate[$index], $flightComment[$index]);
+                if (!$tripStmt->execute()) {
+                    echo 'Failed to execute trip query: ' . $tripStmt->error;
+                }
 
-
-            if (!$tripStmt->execute()) {
-                echo 'Failed to execute trip query: ' . $tripStmt->error;
+                $tripStmt->close();
+            } else {
+                echo 'Failed to prepare trip statement: ' . $conn->error;
             }
-
-            $tripStmt->close();
-        } else {
-            echo 'Failed to prepare trip statement: ' . $conn->error;
         }
-    } else {
-        echo 'Error: flightFrom is null';
     }
-}}}}
+}
 
 // Continue with the insert operation for hotel
 if (isset($_POST['hotelData']) && is_array($_POST['hotelData'])) {
@@ -259,34 +247,69 @@ if ($hotelDataArray) {
         $currentHotelRemark = $hotelRemark[$index];
 
         if ($hotelDataArray) {
-            if ($hotelName !== null) {
+            if ($hotelName !== null) { // Add this condition to check if hotelName is not null
                 $hotelSql = 'INSERT INTO hotel_information (submitted_id, hotel_name, hotel_address, hotel_phonenumber, remarks) VALUES (?, ?, ?, ?, ?)';
                 $hotelStmt = $conn->prepare($hotelSql);
-
+        
                 if ($hotelStmt) {
                     $hotelStmt->bind_param('issss', $lastInsertId, $hotelName[$index], $hotelAddress[$index], $hotelPhone[$index], $hotelRemark[$index]);
-
+        
                     if (!$hotelStmt->execute()) {
-                echo 'Failed to execute trip query: ' . $hotelStmt->error;
-            }
+                        echo 'Failed to execute hotel query: ' . $hotelStmt->error;
+                    }
+                } else {
+                    echo 'Failed to prepare hotel statement: ' . $conn->error;
                 }
             }
         }
     }
-
-
-} else {
-echo 'Failed to execute query: ' . $stmt->error;
+}    
 }
+    
+if (isset($_POST['costData']) && is_array($_POST['costData'])) {
+    $costDataArray = $_POST['costData'];
+
+    if ($costDataArray) {
+        $category = $costDataArray['category'];
+        $amount = $costDataArray['amountTravel']; // Updated variable name to match the HTML input name
+        $currency = $costDataArray['currency'];
+        $remark = $costDataArray['remark'];
+
+        foreach ($category as $index => $value) {
+            $currentCategory = $category[$index];
+            $currentAmount = $amount[$index];
+            $currentCurrency = $currency[$index];
+            $currentRemark = $remark[$index];
+
+            // Assuming $lastInsertId is set somewhere in your code
+            if (isset($lastInsertId)) {
+                // Assuming $conn is your database connection
+                $travelSql = 'INSERT INTO travel_cost (submitted_id, category, amount, currency, remark) VALUES (?, ?, ?, ?, ?)';
+                $travelStmt = $conn->prepare($travelSql);
+
+                if ($travelStmt) {
+                    $travelStmt->bind_param('issss', $lastInsertId, $currentCategory, $currentAmount, $currentCurrency, $currentRemark);
+
+                    if (!$travelStmt->execute()) {
+                        echo 'Failed to execute travel query: ' . $travelStmt->error;
+                    }
+                } else {
+                    echo 'Failed to prepare travel statement: ' . $conn->error;
+                }
+            } else {
+                echo 'Error: $lastInsertId is not set.';
+            }
+        }
+    }
+}
+
 
 $stmt->close();
-}
 }
 } else {
 echo 'Failed to execute query: ' . $stmtCheckReference->error;
 }
 
-header('Location: test.php?reference=' . urlencode($reference) . '&managerName=' . urlencode($managerName) . '&user_name=' . urlencode($userName) . '&requestor_id=' . urlencode($requestorId) . '&total_amount=' . urlencode($totAmount) . '&status=' . urlencode($status));
 
 $stmtCheckReference->close();
 }
@@ -400,7 +423,6 @@ function getFinalStatusText($row)
     }
 }
 
-
 ?>
 
 <!DOCTYPE html>
@@ -492,11 +514,11 @@ function getFinalStatusText($row)
                                 <td class="checkbox-td"><input type="checkbox" data-reference="<?php echo $row['reference']; ?>" /></td>
                                 <td><?php echo $row['initiated_name']; ?></td>
                                 <td class="approval" data-status="<?php echo $row['approval']; ?>"><?php echo $row['approval'] ?? ''; ?></td>
-                                <td><?php echo $row['date_initiated_by'] ?? ''; ?></td>
+                                <td><?php echo date('d-m-Y h:i:s A', strtotime($row['date_initiated_by'])) ?? ''; ?></td>
                                 <td><?php echo $row['document_title'] ?? ''; ?></td>
                                 <td><?php echo $row['requestorName']; ?></td>
                                 <td><?php echo $row['manager_name']; ?></td>
-                                <td class="time"><?php echo $row['status_date_time'] ?? ''; ?></td>
+                                <td class="time"><?php echo !empty($row['status_date_time']) ? date('d-m-Y h:i:s A', strtotime($row['status_date_time'])) : ''; ?></td>
                                 <td><button type="button" class="btn btn-sm btn-primary detail-button" onclick="showDetail('<?php echo $row['id']; ?>')">Detail</button></td>
                                     <td class="<?php echo (($userName === 'Lisna Suradi' || $userName === 'Ludi Krisnanda' || $userName === 'Wiwiet Widya Ningrum' || $userName === 'Darwati' || $userName === 'Rian Andrian' || $userName === $row['requestorName'] || $userName === $row['manager_name']) && $row['approval'] === 'Approved') ? 'show-cell' : 'hide-cell'; ?>">
                                         <?php if (($userName === 'Lisna Suradi' || $userName === 'Ludi Krisnanda' || $userName === 'Wiwiet Widya Ningrum' || $userName === 'Darwati' || $userName === 'Rian Andrian' || $userName === $row['requestorName'] || $userName === $row['manager_name']) && $row['approval'] === 'Approved') : ?>
@@ -598,7 +620,7 @@ function getFinalStatusText($row)
                         <a href="?page=<?php echo $next_page; ?>" class="pagination-link">Next</a>
                     </div>
                 </div>
-
+            
                 <div class="button-container">
                     <button type="button" id="approveButton" onclick="updateStatus('Approved')" data-status="Approved" class="accept-button">Approve</button>
                     <button type="button" id="declineButton" onclick="updateStatus('Rejected')" data-status="Rejected" class="reject-button">Reject</button>
@@ -870,14 +892,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         rotationTimer = setTimeout(() => {
             isAfk = true; // Set back to AFK after 1 minute of inactivity
-            startRotation(); // Start rotation if still AFK after timeout
-        }, 60000); // 1 minute in milliseconds
+        }, 6000000); // 1 minute in milliseconds
     }
 
     // Start the timer initially
     rotationTimer = setTimeout(() => {
         startRotation(); // Start rotation after 1 minute if still AFK
-    }, 60000); // 1 minute in milliseconds
+    }, 6000000); // 1 minute in milliseconds
 
     // Event listeners for user activity
     document.addEventListener('mousemove', resetRotation);
@@ -885,7 +906,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('scroll', resetRotation);
 
     // Start rotation after DOMContentLoaded
-    startRotation();
 });
 
         // Add the following script for handling the "Select All" checkbox
@@ -916,6 +936,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Move the updateStatus function declaration to the top
 function updateStatus(status) {
     const references = getSelectedReferences();
+    const username = '<?php echo isset($_SESSION["user_name"]) ? addslashes($_SESSION["user_name"]) : ""; ?>';
 
     if (references.length > 0) {
         // Check the current status of the selected requests
@@ -923,7 +944,7 @@ function updateStatus(status) {
 
         // Check if any request has a status other than 'Pending'
         if (currentStatuses.some(s => s !== 'Pending')) {
-            alert('Selected request already have a final status and cannot be changed.');
+            alert('Selected request already has a final status and cannot be changed.');
             return;
         }
 
@@ -934,6 +955,7 @@ function updateStatus(status) {
             data: {
                 references: references,
                 status: status,
+                username: username // Include the username in the data sent to update_status.php
             },
             success: function(response) {
                 // Update the UI

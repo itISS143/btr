@@ -241,23 +241,33 @@ function getFinalStatusText($row)
             window.location.href = `view_requests.php?ref=${reference}`
         }
 
-        function performSearch() {
-            const searchInput = document.getElementById('searchInput').value.toLowerCase();
-            const rows = document.querySelectorAll('#tableDisplay tbody tr');
+    document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('searchInput');
+    const rows = document.querySelectorAll('#tableDisplay tbody tr');
 
-            rows.forEach(row => {
-                let isMatch = false;
+    // Function to perform search
+    function performSearch() {
+        const searchTerm = searchInput.value.toLowerCase();
 
-                row.querySelectorAll('td').forEach(cell => {
-                    const cellText = cell.textContent.toLowerCase();
-                    if (cellText.includes(searchInput)) {
-                        isMatch = true;
-                    }
-                });
+        rows.forEach(row => {
+            let isMatch = false;
 
-                row.style.display = isMatch ? 'table-row' : 'none';
+            row.querySelectorAll('td').forEach(cell => {
+                const cellText = cell.textContent.toLowerCase();
+
+                if (cellText.includes(searchTerm)) {
+                    isMatch = true;
+                }
             });
-        };
+
+            row.style.display = isMatch ? 'table-row' : 'none';
+        });
+    }
+
+        if (searchInput) {
+            searchInput.addEventListener('input', performSearch);
+        }
+    });
 
         function goBack() {
             window.history.back();

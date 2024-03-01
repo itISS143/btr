@@ -23,11 +23,9 @@ if (!isset($_SESSION['user_name'])) {
 
 $userName = $_SESSION['user_name'];
 $idNumber = $_SESSION['id_number'];
-$company = isset($_SESSION['company']) ? $_SESSION['company'] : '';
 
 $reference = $_GET['ref'];
 
-// Fetch and display travel requests from the database
 // Fetch and display travel requests from the database
 $sql = "SELECT 
     s.*,
@@ -63,9 +61,9 @@ if ($result->num_rows > 0) {
             
             // Check the company from requestorName and set image source accordingly
             $companyLogo = '';
-            if ($row['requestorCompany'] === 'Medika' && $row['requestorCompany'] !== 'Iss') {
+            if (($row['requestorCompany'] === 'Medika' || $row['requestorCompany'] === 'Promed') && $row['requestorCompany'] !== 'Iss') {
                 $companyLogo = 'logo-imi medika.png';
-            } elseif ($row['requestorCompany'] === 'Iss' && $row['requestorCompany'] !== 'Medika') {
+            } elseif ($row['requestorCompany'] === 'Iss' && ($row['requestorCompany'] !== 'Medika' || $row['requestorCompany'] !== 'Promed')) {
                 $companyLogo = 'logo-ISS.png';
             }
             
@@ -86,7 +84,7 @@ if ($result->num_rows > 0) {
                     <th>Status</th>
                     <td>{$row['approval']}</td>
                     <th>Date Initiated</th>
-                    <td>{$row['date_initiated_by']}</td>
+                    <td>" . date('d-m-Y', strtotime($row['date_initiated_by'])) . "</td>
                   </tr>
                   <tr>
                   <th>Document Title</th>
@@ -120,9 +118,9 @@ if ($result->num_rows > 0) {
               </tr>
               <tr>
                   <th>Start Date</th>
-                  <td>{$row['start_date']}</td>
+                  <td>" . date('d-m-Y', strtotime($row['start_date'])) . "</td>
                   <th>Return Date</th>
-                  <td>{$row['return_date']}</td>
+                  <td>" . date('d-m-Y', strtotime($row['return_date'])) . "</td>
               </tr>
               <tr>
                   <th>Destination</th>
@@ -181,7 +179,7 @@ if ($result->num_rows > 0) {
                         echo "<td>{$row2['trip_from']}</td>
                         <td>{$row2['trip_to']}</td>
                         <td>{$row2['trip_class']}</td>
-                        <td>{$row2['flight_date']}</td>
+                        <td>" . date('d-m-Y', strtotime($row2['flight_date'])) . "</td>
                         <td>{$row2['comments']}</td>";
                         echo '</tr>';
                     }
@@ -189,7 +187,7 @@ if ($result->num_rows > 0) {
             }
             echo '</tbody>';
             echo '</table>';
-            echo '<h2>Estimated Cost</h2>';
+            echo '<h2>Travel Cost</h2>';
             echo '<table>';
             echo '<thead>';
             echo "<th>Category</th>
@@ -205,7 +203,7 @@ if ($result->num_rows > 0) {
                     <td>{$row['accommodation_remarks']}</td>
                     </tr>
                     <tr>
-                    <td>Meal</td>
+                    <td>Entertain</td>
                     <td>{$row['meals_amount']}</td>
                     <td>{$row['currency']}</td>
                     <td>{$row['meals_remarks']}</td>
@@ -258,7 +256,10 @@ if ($result->num_rows > 0) {
                 echo '<tbody>';
                 echo '</table>';
             }
-            echo "TIME {$row['approval']} : {$row['status_date_time']}";
+            echo "Time Created : {$row['date_initiated_by']} <br>";
+            echo "Created By : {$row['initiatedByName']} <br>";
+            echo "Time {$row['approval']} : {$row['status_date_time']} <br>";
+            echo "{$row['approval']} By : {$row['approvedBy']}";
         }
 
         echo '</table>';
@@ -309,28 +310,6 @@ $conn->close();
 <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Get the company from session (using PHP to pass the value to JavaScript)
-    const sessionCompany = "<?php echo isset($_SESSION['company']) ? $_SESSION['company'] : ''; ?>";
-
-    // Create the image element
-    const img1 = document.createElement('img1');
-    img1.alt = 'Deskripsi gambar';
-
-    // Determine the image source based on the company from session
-    if (sessionCompany === 'Medika' || sessionCompany === 'Promed') {
-        img1.src = 'logo-imi medika.png';
-        img1.classList.add('medika-logo'); // Add a class if the company is Medika
-    } else if (sessionCompany === 'Iss') {
-        img1.src = 'logo-ISS.png';
-    } else {
-    }
-
-    // Add the image to the container
-    const container = document.getElementById('gambar-container');
-    container.appendChild(img1);
-});
-
     function goBack() {
     window.history.back();
     return false; // Prevents the default behavior of the link
@@ -339,18 +318,18 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <style>
-img1 {
-    max-width: 300px;
-    width: 90%;
-    margin-left: 10px;
-}
-
-.medika-logo {
-    max-width: 180px;
-    width: 70%;
-    margin-left: 10px;
-    padding: 10px
-}
+    img1 {
+        max-width: 170px;
+        width: 90%;
+        margin-left: 10px;
+    }
+    
+    .medika-logo {
+        max-width: 160px;
+        width: 70%;
+        margin-left: 10px;
+        padding: 10px
+    }
 
     table {
         width: 100%;

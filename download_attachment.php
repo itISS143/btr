@@ -14,7 +14,7 @@ if (isset($_GET['id'])) {
     $attachmentId = $_GET['id'];
 
     // Fetch the attachment from the database based on the ID
-    $attachmentQuery = 'SELECT attachment_file FROM submitted_requestorforms WHERE id = ?';
+    $attachmentQuery = 'SELECT attachment_file FROM submitted_requestorform WHERE id = ?';
     $stmtAttachment = $conn->prepare($attachmentQuery);
     $stmtAttachment->bind_param('i', $attachmentId);
 

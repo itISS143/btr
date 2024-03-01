@@ -64,7 +64,7 @@ if (!isset($_SESSION['user_name']) || !in_array($_SESSION['user_name'], $allowed
         <option value="Santono">Santono</option>
         <option value="Suwarno">Suwarno</option>
     </select>
-    <br>
+        <br>
     <label for="company">Company :</label>
     <select name="company" required>
         <option value="">Select Company</option>
@@ -76,6 +76,7 @@ if (!isset($_SESSION['user_name']) || !in_array($_SESSION['user_name'], $allowed
     <br>
     <button type="submit">Add Employee</button>
 </form>
+<br>
 <br>
 <br>
 

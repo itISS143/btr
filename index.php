@@ -7,10 +7,15 @@ $dbname = "btr";
 
 $loginError = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["email"]) && isset($_POST["password"])) {
+if (isset($_GET["email"]) && isset($_GET["password"])) {
+    $email = $_GET["email"];
+    $password = $_GET["password"];
+} elseif ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["email"]) && isset($_POST["password"])) {
     $email = $_POST["email"];
-    $user_password = $_POST["password"];
-    
+    $password = $_POST["password"];
+}
+
+if (isset($email) && isset($password)) {
     try {
         $conn = new mysqli($servername, $username, $db_password, $dbname);
 
@@ -35,8 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["email"]) && isset($_PO
             $stmt->fetch();
 
             // Verify the email and password
-            if ($email === $dbEmail && $user_password === $dbPassword) {
-
+            if (strtolower($email) === strtolower($dbEmail) && $password === $dbPassword) {
                 $_SESSION['email'] = $dbEmail;
                 $_SESSION['user_name'] = $name; // Store the username in the session
                 $_SESSION['id_number'] = $idNumber;

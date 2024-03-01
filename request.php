@@ -45,7 +45,7 @@ $newReference = $latestReference + 1;
 // Assuming the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Continue with the insert operation
-    $DateAndTime = date('Y-m-d H:i:s'); // Assuming you want to use the current date and time
+    $DateAndTime = date('d-m-y H:i:s'); // Assuming you want to use the current date and time
     $status = "Ongoing"; // You need to define the appropriate status
     $requestorId = $_POST['requestor']; // Assuming the requestor is selected from the form
     $title = $_POST['title'];
@@ -133,11 +133,11 @@ $conn->close();
             </tr>
             <tr>
                 <th class="title">Document Title <span style="color:red; font-size: 20px;">*</span></th>
-                <td><input type="text" id="titleId" name="title" value="" placeholder="Input Document Title" required></td>
+                <td><input style="width:75%;" type="text" id="titleId" name="title" value="" placeholder="Input Document Title" required></td>
             </tr>
             <tr>
                 <th class="purpose">Trip Purpose <span style="color:red; font-size: 20px;">*</span></th>
-                <td><input type="text" id="purposeId" name="purpose" value="" placeholder="Input Trip Purpose" required></td>
+                <td><input style="width:75%;" type="text" id="purposeId" name="purpose" value="" placeholder="Input Trip Purpose" required></td>
             </tr>
             <tr>
                 <th class="requestor">Requestor <span style="color:red; font-size: 20px;">*</span></th>
@@ -206,7 +206,8 @@ $conn->close();
             </tr>
             <tr>
                 <th class="amount">Advance Amount</th>
-                <td><input type="number" id="totalAmount" name="amount" value="0" readonly></td>
+                <!--<td><input type="number" id="totalAmount" name="amount" value="0" readonly></td>-->
+                <td><input id="totalAmount" name="amount" value="0" readonly></td>
                 <th class="currency">Currency <span style="color:red; font-size: 20px;">*</span></th>
                 <td><select class="select-style" name="currency" id="currency" onchange="change()" required>
                     <option value="">Choose Currency</option>
@@ -244,11 +245,11 @@ $conn->close();
         <td><input type="text" name="gender" id="gender"></td>
         <td>
             <div class="radio-container">
-                <input type="radio" id="hotelYes" name="hotel" value="YES" class="custom-radio" onclick="toggleHotelField(true)">
+                <input type="radio" id="hotelYes" name="hotel" value="Yes" class="custom-radio" onclick="toggleHotelField(true)" required>
                 <label for="hotelYes" class="radio-label">Yes</label>
-                <input type="radio" id="hotelNo" name="hotel" value="NO" class="custom-radio" onclick="toggleHotelField(false)">
+                <input type="radio" id="hotelNo" name="hotel" value="No" class="custom-radio" onclick="toggleHotelField(false)" required>
                 <label for="hotelNo" class="radio-label">No</label>
-            </div>            
+            </div>
         </td>
         <td><input name="passengerComment" type="text" id="comment1Id" placeholder="Input Your Comments"></td>
     </tr>
@@ -264,7 +265,7 @@ $conn->close();
         <th class="from">From <span style="color:red; font-size: 20px;">*</span></th>
         <th class="to">To <span style="color:red; font-size: 20px;">*</span></th>
         <th class="class">Trip Class <span style="color:red; font-size: 20px;">*</span></th>
-        <th class="flightDate">Flight Date <span style="color:red; font-size: 20px;">*</span></th>
+        <th class="flightDate">Deparature <span style="color:red; font-size: 20px;">*</span></th>
         <th class="comment2">Comment</th>
     </thead>
     <tbody>
@@ -277,7 +278,7 @@ $conn->close();
                     <option value="Train - Economy">Train - Economy</option>
                     <option value="Airplane - Economy">Airplane - Economy</option>
                     <option value="Private Transportation">Private Transportation</option>
-                    <option value="Public Transportation (Bus)">Public Transportation (Bus)</option>
+                    <option value="Public Transportation">Public Transportation</option>
                 </select>
             </td>
             <td><input name="tripData[flightDate][]" type="date" placeholder="Input Flight Date" oninput="validateFlightDate(this)" required></td>
@@ -291,69 +292,61 @@ $conn->close();
 </div>
 <br>
 
-<h2>Estimated Cost</h2>
+<h2>Travel Cost</h2>
 
 <table class="cost" id="tableCost" border="1">
     <thead>
         <th class="category">Category</th>
         <th class="amount">Amount</th>
         <th class="currency">Currency</th>
-        <th class="remarks1">Remarks</th>
+        <th class="remarks1">Remarks<span style="color:red; font-size: 20px;">*</span></th>
     </thead>
     <tbody>
-        <tr>
-            <td>Accomodation
+        <tr class="travelCostRow">
+            <td>
+                <select class="select-style" name="costData[category][]" required>
+                    <option value="">Select Category</option>
+                    <option value="Accomodation" selected>Accomodation</option>
+                    <option value="Entertain">Entertain</option>
+                    <option value="Transportation">Transportation</option>
+                    <option value="Visa/Pasport">Visa/Pasport</option>
+                    <option value="Flight">Flight</option>
+                    <option value="Others">Others</option>
+                </select>
             </td>
-            <td><input name="accomodationAmount" type="number" class="amountInput" id="amountId0" placeholder="Input Cost Amount" min="0">
+            <td><input type="text" name="costData[amountTravel][]" class="amountInput" placeholder="Input Cost Amount" value="0"></td>
+            <td><input type="text" name="costData[currency][]" class="currencyInput"></td>
+            <td><input type="text" name="costData[remark][]" placeholder="Input Remarks" required></td>
+        </tr>
+        <tr class="travelCostRow">
+            <td>
+                <select class="select-style" name="costData[category][]" required>
+                    <option value="">Select Category</option>
+                    <option value="Accomodation">Accomodation</option>
+                    <option value="Entertain">Entertain</option>
+                    <option value="Transportation" selected>Transportation</option>
+                    <option value="Visa/Pasport">Visa/Pasport</option>
+                    <option value="Flight">Flight</option>
+                    <option value="Others">Others</option>
+                </select>
             </td>
-            <td><input type="text" name="Currency" id="Currency">
-            </td>
-            <td><input name="accomodationRemark" type="text" id="remarksId0">
-            </td>
+            <td><input type="text" name="costData[amountTravel][]" class="amountInput" placeholder="Input Cost Amount" value="0"></td>
+            <td><input type="text" name="costData[currency][]" class="currencyInput"></td>
+            <td><input type="text" name="costData[remark][]" placeholder="Input Remarks" required></td>
         </tr>
         <tr>
-            <td>Meal
-            </td>
-            <td><input name="mealAmount" type="number" class="amountInput" id="amountId1" placeholder="Input Cost Amount" min="0">
-            </td>
-            <td><input type="text" name="Currency1" id="Currency1">
-            </td>
-            <td><input name="mealRemark" type="text" id="remarksId1">
-            </td>
-        </tr>
-        <tr>
-            <td>Transportation
-            </td>
-            <td><input name="transportationAmount" type="number" class="amountInput" id="amountId2" placeholder="Input Cost Amount" min="0">
-            </td>
-            <td><input type="text" name="Currency2" id="Currency2">
-            </td>
-            <td><input name="transportationRemark" type="text" id="remarksId2">
-            </td>
-        </tr>
-        <tr>
-            <td>Others
-            </td>
-            <td><input name="otherAmount" type="number" class="amountInput" id="amountId3" placeholder="Input Cost Amount" min="0">
-            </td>
-            <td><input type="text" name="Currency3" id="Currency3">
-            </td>
-            <td><input name="otherRemark" type="text" id="remarksId3">
-            </td>
-        </tr>
-        <tr>
-            <td>Total Amount
-            </td>
-            <td><input name="totalAmount" type="text" id="totalAmount1" readonly>
-            </td>
-            <td><input type="text" name="Currency4" id="Currency4">
-            </td>
-            <td><input name="totalRemark" type="text" id="remarks1Id">
-            </td>
+            <td>Total Amount</td>
+            <td><input name="totalAmount" type="text" id="totalAmount1" readonly></td>
+            <td><input type="text" name="totalCurrency" class="currencyInput"></td>
+            <td><input name="totalRemark" type="text" id="remarks1Id" placeholder="Input Remarks" required></td>
         </tr>
     </tbody>
 </table>
 <br>
+<div>
+    <button type="button" onclick="tambahCost()"> + Travel Cost</button>
+</div>
+
 
 <div id="hotelInformation" style="display: none;">
 <h2>Hotel Information</h2>
@@ -369,7 +362,7 @@ $conn->close();
         <td><input name="hotelData[hotelName][]" id="hotelName" type="text" class="hotelName" placeholder="Input Hotel Name" required></td>
         <td><input name="hotelData[hotelAddress][]" id="hotelAddress" type="text" class="hotelAddress" placeholder="Input Hotel Address" required></td>
         <td><input name="hotelData[hotelPhone][]" id="hotelPhone" type="string" class="telephone" placeholder="Input Hotel Phone Number" required></td>
-        <td><input name="hotelData[hotelRemark][]" id="hotelRemark" type="text"></td>
+        <td><input name="hotelData[hotelRemark][]" id="hotelRemark" type="text" placeholder="Input Remarks"></td>
     </tr>
 </tbody>
 </table>
@@ -453,6 +446,12 @@ body{
   border-radius: 4px;
   cursor: pointer;
 }
+
+input, select {
+    border-radius: 5px;
+    border-width: 1px;
+}
+
 
 </style>
 </html>
