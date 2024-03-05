@@ -9,7 +9,7 @@ function populateFormFields(data) {
     $('#phoneNumber').val(data.phoneNumber);
     $('#gender').val(data.gender);
     $('#company').val(data.company);
-    $('#manDropdown').val(data.manager_name);
+    $('#manDropdown').val(data.manager);
 }
 
 // Assuming you're already fetching data and calling this function when data is available

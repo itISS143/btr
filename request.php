@@ -181,7 +181,6 @@ $conn->close();
                     <option value="Harry Hindriana">Harry Hindriana</option>
                     <option value="Hendrawanto">Hendrawanto</option>
                     <option value="Heriyanto">Heriyanto</option>
-                    <option value="Jasyntha Angelia">Jasyntha Angelia</option>
                     <option value="Rian Andrian">Rian Andrian</option>
                     <option value="Robby Ardyan">Robby Ardyan</option>
                     <option value="Santono">Santono</option>
