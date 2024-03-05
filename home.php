@@ -60,9 +60,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $tripClass = isset($_POST['tripClass']) ? sanitizeInput($_POST['tripClass']) : '';
     $flightDate = isset($_POST['flightDate']) ? sanitizeInput($_POST['flightDate']) : '';
     $flightComment = isset($_POST['flightComment']) ? sanitizeInput($_POST['flightComment']) : '';
-    $totalAmount = isset($_POST['totalAmount']) ? sanitizeInput($_POST['totalAmount']) : '';
-    $totalCurrency = isset($_POST['totalCurrency']) ? sanitizeInput($_POST['totalCurrency']) : '';
-    $totalRemark = isset($_POST['totalRemark']) ? sanitizeInput($_POST['totalRemark']) : '';
+    $totAmount = isset($_POST['totalAmount']) ? sanitizeInput($_POST['totalAmount']) : '';
+    $totRemark = isset($_POST['totalRemark']) ? sanitizeInput($_POST['totalRemark']) : '';
     $hotelName = isset($_POST['hotelName']) ? sanitizeInput($_POST['hotelName']) : '';
     $hotelAddress = isset($_POST['hotelAddress']) ? sanitizeInput($_POST['hotelAddress']) : '';
     $hotelPhone = isset($_POST['hotelPhone']) ? sanitizeInput($_POST['hotelPhone']) : '';
@@ -340,26 +339,45 @@ if ($stmtManagerName->execute()) {
         $page = isset($_GET['page']) ? $_GET['page'] : 1; // Current page number, default is 1
         $start = ($page - 1) * $limit; // Starting index for fetching data
 
-        // Fetch all data for users with the same manager name and requestor name
-        if (!empty($loggedInManagerName)) { // Check if manager name is not empty
-            $fetchAllDataQuery = "SELECT s.*, r.requestorName 
-                FROM submitted_requestorform s
-                JOIN requestor_forms r ON s.requestor_id = r.idNumber
-                WHERE s.manager_name = ? OR r.requestorName = ? LIMIT $start, $limit";
-            $stmtFetchData = $conn->prepare($fetchAllDataQuery);
-            $stmtFetchData->bind_param('ss', $loggedInManagerName, $loggedInUserName);
+        // Fetch display_all from the appropriate table
+        $displayAllQuery = "SELECT display FROM requestor_forms WHERE display = 1"; // Change your_table and condition accordingly
+        $stmtDisplayAll = $conn->prepare($displayAllQuery);
+        // Bind parameters if necessary
+
+        if ($stmtDisplayAll->execute()) {
+            $resultDisplayAll = $stmtDisplayAll->get_result();
+            $rowDisplayAll = $resultDisplayAll->fetch_assoc();
+            $displayAllValue = $rowDisplayAll['display'];
+
+            if ($displayAllValue == 1) {
+                // Fetch all data if display_all is set to 1
+                $fetchAllDataQuery = "SELECT s.*, r.requestorName 
+                    FROM submitted_requestorform s
+                    JOIN requestor_forms r ON s.requestor_id = r.idNumber LIMIT $start, $limit";
+                $stmtFetchData = $conn->prepare($fetchAllDataQuery);
+            } else {
+                // Fetch data based on manager name and requestor name
+                if (!empty($loggedInManagerName)) { // Check if manager name is not empty
+                    $fetchAllDataQuery = "SELECT s.*, r.requestorName 
+                        FROM submitted_requestorform s
+                        JOIN requestor_forms r ON s.requestor_id = r.idNumber
+                        WHERE s.manager_name = ? OR r.requestorName = ? LIMIT $start, $limit";
+                    $stmtFetchData = $conn->prepare($fetchAllDataQuery);
+                    $stmtFetchData->bind_param('ss', $loggedInManagerName, $loggedInUserName);
+                } else {
+                }
+            }
         } else {
-            // If manager_name is null, fetch all data for the requestor name
-            $fetchAllDataQuery = "SELECT s.*, r.requestorName 
-                FROM submitted_requestorform s
-                JOIN requestor_forms r ON s.requestor_id = r.idNumber LIMIT $start, $limit";
-            $stmtFetchData = $conn->prepare($fetchAllDataQuery);
+            // Handle the case where display_all query execution fails
+            echo 'Failed to execute display_all query.';
+            exit();
         }
     } else {
         // Handle the case where manager name is empty
         echo 'Manager name is empty for the logged-in user.';
         exit();
     }
+
 
     if ($stmtFetchData->execute()) {
         $resultFetchData = $stmtFetchData->get_result();

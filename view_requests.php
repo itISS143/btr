@@ -84,7 +84,7 @@ if ($result->num_rows > 0) {
                     <th>Status</th>
                     <td>{$row['approval']}</td>
                     <th>Date Initiated</th>
-                    <td>" . date('d-m-Y', strtotime($row['date_initiated_by'])) . "</td>
+                    <td>" . date('d-m-Y H:i:s', strtotime($row['date_initiated_by'])) . "</td>
                   </tr>
                   <tr>
                   <th>Document Title</th>
@@ -187,6 +187,13 @@ if ($result->num_rows > 0) {
             }
             echo '</tbody>';
             echo '</table>';
+
+            $sql4 = "SELECT * FROM travel_cost WHERE submitted_id = ?";
+            $stmt4 = $conn->prepare($sql4);
+            $stmt4->bind_param('s', $reference);
+            if ($stmt4->execute()) {
+                $result4 = $stmt4->get_result();
+
             echo '<h2>Travel Cost</h2>';
             echo '<table>';
             echo '<thead>';
@@ -196,31 +203,18 @@ if ($result->num_rows > 0) {
                     <th>Remarks</th>";
             echo '</thead>';
             echo '<tbody>';
+            if ($result4->num_rows > 0) {
+                while ($row4 = $result4->fetch_assoc()) {
+                    echo '<tr>';
+                    echo "<td>{$row4['category']}</td>
+                    <td>{$row4['amount']}</td>
+                    <td>{$row4['currency']}</td>
+                    <td>{$row4['remark']}</td>";
+                    echo '</tr>';
+                }
+            }
+        }
             echo "<tr>
-                    <td>Accommodation</td>
-                    <td>{$row['accomodation_amount']}</td>
-                    <td>{$row['currency']}</td>
-                    <td>{$row['accommodation_remarks']}</td>
-                    </tr>
-                    <tr>
-                    <td>Entertain</td>
-                    <td>{$row['meals_amount']}</td>
-                    <td>{$row['currency']}</td>
-                    <td>{$row['meals_remarks']}</td>
-                    </tr>
-                    <tr>
-                    <td>Transportation</td>
-                    <td>{$row['transportation_amount']}</td>
-                    <td>{$row['currency']}</td>
-                    <td>{$row['transportation_remarks']}</td>
-                    </tr>
-                    <tr>
-                    <td>Others</td>
-                    <td>{$row['others_amount']}</td>
-                    <td>{$row['currency']}</td>
-                    <td>{$row['others_remarks']}</td>
-                    </tr>
-                    <tr>
                     <td>Total Amount</td>
                     <td>{$row['advance_amounts']}</td>
                     <td>{$row['currency']}</td>
