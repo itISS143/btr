@@ -187,7 +187,7 @@ var fileDisplay = document.getElementById('file-display');
 fileDisplay.textContent = fileInput.files[0] ? fileInput.files[0].name : '';
 }
 
-let costRowCounter = 3; // Initialize a counter for cost rows
+let costRowCounter = 1; // Initialize a counter for cost rows
 
 // Function to add a new row for travel cost
 function tambahCost() {
@@ -442,7 +442,6 @@ input.valueAsDate = currentDate;
 }
 }
 
-
 // tambah hotel
 let hotelRowCounter = 1; // Initialize a counter for trip routing rows
 function tambahHot() {
@@ -480,9 +479,275 @@ hotelRowCounter++; // Increment the counter for the next row
 }
 
 function deleteRow(row) {
-const tbody = row.parentNode;
-tbody.removeChild(row);
+    $(row).closest('tr').remove();
 }
+
+function saveDraft() {
+    var formData = {
+        'logoHtml': $('#gambar-container').html(),
+        'referenceNumber': $('input[name="referenceNumber"]').val(),
+        'initiatedName': $('#initiatedName').text(),
+        'status': $('input[name="status"]').val(),
+        'dateInitiated': $('input[name="Date"]').val(),
+        'title': $('input[name="title"]').val(),
+        'purpose': $('input[name="purpose"]').val(),
+        'requestor': $('select[name="requestor"]').val(),
+        'email': $('input[name="Email"]').val(),
+        'division': $('input[name="division"]').val(),
+        'department': $('input[name="Departement"]').val(),
+        'idCard': $('input[name="idCard"]').val(),
+        'phoneNumber': $('input[name="phoneNumber"]').val(),
+        'manager': $('select[name="manager"]').val(),
+        'startDate': $('input[name="startDate"]').val(),
+        'returnDate': $('input[name="returnDate"]').val(),
+        'destination': $('select[name="destination"]').val(),
+        'totalDays': $('input[name="totalDays"]').val(),
+        'advanceAmount': $('input[name="amount"]').val(),
+        'currency': $('select[name="currency"]').val(),
+        'passengerName': $('#Requestor').val(),
+        'passengerDivision': $('#Division').val(),
+        'passengerGender': $('#gender').val(),
+        'hotelBooking': $('input[name="hotel"]:checked').val(),
+        'passengerComment': $('#comment1Id').val(),
+        'routing': [],
+        'cost': [],
+        'hotelInformation': [],
+        'totalAmount': $('input[name="totalAmount"]').val(),
+        'totalCurrency': $('input[name="totalCurrency"]').val(),
+        'totalRemark': $('input[name="totalRemark"]').val(),
+        'fileName': $('#file')[0].files[0] ? $('#file')[0].files[0].name : null
+    };
+
+// Remove cost objects with any undefined property
+formData.cost = formData.cost.filter(function(costData) {
+    // Check if any property of costData is undefined
+    for (var key in costData) {
+        if (costData.hasOwnProperty(key) && costData[key] === undefined) {
+            return false; // Exclude this costData object
+        }
+    }
+    return true; // Include this costData object
+});
+
+    var routingData = [];
+    $('#tableRouting tbody tr').each(function() {
+        var routingRow = {};
+        routingRow.flightFrom = $(this).find('input[name="tripData[flightFrom][]"]').val();
+        routingRow.flightTo = $(this).find('input[name="tripData[flightTo][]"]').val();
+        routingRow.tripClass = $(this).find('select[name="tripData[tripClass][]"]').val();
+        routingRow.flightDate = $(this).find('input[name="tripData[flightDate][]"]').val();
+        routingRow.flightComment = $(this).find('input[name="tripData[flightComment][]"]').val();
+        routingData.push(routingRow);
+    });
+    formData.routing = routingData;
+
+    $('#tableCost tbody tr').each(function() {
+        var costData = {
+            'category': $(this).find('select[name="costData[category][]"]').val(),
+            'amount': $(this).find('input[name="costData[amountTravel][]"]').val(),
+            'currency': $(this).find('input[name="costData[currency][]"]').val(),
+            'remark': $(this).find('input[name="costData[remark][]"]').val()
+        };
+    
+        // Check if any property in costData is undefined
+        var hasUndefined = Object.values(costData).some(value => value === undefined);
+    
+        // Only push costData if it doesn't have any undefined values
+        if (!hasUndefined) {
+            formData['cost'].push(costData);
+        }
+    });
+    
+
+    $('#tableHotel tbody tr').each(function() {
+        var hotelData = {
+            'hotelName': $(this).find('input[name="hotelData[hotelName][]"]').val(),
+            'hotelAddress': $(this).find('input[name="hotelData[hotelAddress][]"]').val(),
+            'hotelPhone': $(this).find('input[name="hotelData[hotelPhone][]"]').val(),
+            'hotelRemark': $(this).find('input[name="hotelData[hotelRemark][]"]').val()
+        };
+        formData['hotelInformation'].push(hotelData);
+    });
+
+    localStorage.setItem('draftFormData', JSON.stringify(formData));
+
+    console.log(formData);
+}
+
+// Function to load draft data from local storage
+function loadDraft() {
+    var draftData = localStorage.getItem('draftFormData');
+    if (draftData) {
+        var formData = JSON.parse(draftData);
+        
+        // Populate individual form fields
+        $('#gambar-container').html(formData.logoHtml);
+        $('input[name="company"]').val(formData.company);
+        $('input[name="referenceNumber"]').val(formData.referenceNumber);
+        $('#initiatedName').text(formData.initiatedName);
+        $('input[name="status"]').val(formData.status);
+        $('input[name="Date"]').val(formData.dateInitiated);
+        $('input[name="title"]').val(formData.title);
+        $('input[name="purpose"]').val(formData.purpose);
+        $('select[name="requestor"]').val(formData.requestor);
+        $('input[name="Email"]').val(formData.email);
+        $('input[name="division"]').val(formData.division);
+        $('input[name="Departement"]').val(formData.department);
+        $('input[name="idCard"]').val(formData.idCard);
+        $('input[name="phoneNumber"]').val(formData.phoneNumber);
+        $('select[name="manager"]').val(formData.manager);
+        $('input[name="startDate"]').val(formData.startDate);
+        $('input[name="returnDate"]').val(formData.returnDate);
+        $('select[name="destination"]').val(formData.destination);
+        $('input[name="totalDays"]').val(formData.totalDays);
+        $('input[name="amount"]').val(formData.advanceAmount);
+        $('select[name="currency"]').val(formData.currency);
+        $('#Requestor').val(formData.passengerName);
+        $('#Division').val(formData.passengerDivision);
+        $('#gender').val(formData.passengerGender);
+        $('input[name="hotel"][value="' + formData.hotelBooking + '"]').prop('checked', true);
+        $('#comment1Id').val(formData.passengerComment);
+        $('input[name="totalAmount"]').val(formData.totalAmount);
+        $('input[name="totalCurrency"]').val(formData.totalCurrency);
+        $('input[name="totalRemark"]').val(formData.totalRemark);
+        
+        // Populate routing table
+        formData.routing.forEach(function(routingData, index) {
+            var $row = $('#tableRouting tbody tr').eq(index);
+            if (index === 0) {
+                $row.find('input[name="tripData[flightFrom][]"]').val(routingData.flightFrom);
+                $row.find('input[name="tripData[flightTo][]"]').val(routingData.flightTo);
+                $row.find('select[name="tripData[tripClass][]"]').val(routingData.tripClass);
+                $row.find('input[name="tripData[flightDate][]"]').val(routingData.flightDate);
+                $row.find('input[name="tripData[flightComment][]"]').val(routingData.flightComment);
+            } else {
+                // Add a new row below the first row
+                var newRowHtml = $('#tableRouting tbody tr').eq(0).clone();
+                $('#tableRouting tbody').append(newRowHtml);
+                $row = $('#tableRouting tbody tr').eq(index);
+                $row.find('input[name="tripData[flightFrom][]"]').val(routingData.flightFrom);
+                $row.find('input[name="tripData[flightTo][]"]').val(routingData.flightTo);
+                $row.find('select[name="tripData[tripClass][]"]').val(routingData.tripClass);
+                $row.find('input[name="tripData[flightDate][]"]').val(routingData.flightDate);
+                $row.find('input[name="tripData[flightComment][]"]').val(routingData.flightComment);
+                
+                if(index > 0){
+                    const deleteButton = document.createElement('button');
+                    deleteButton.textContent = 'Delete';
+                    deleteButton.addEventListener('click', function (event) {
+                        event.preventDefault(); // Prevent the default form submission
+                        deleteRow($row);
+                    });
+                    const deleteButtonCell = document.createElement('td');
+                    deleteButtonCell.appendChild(deleteButton);
+                    $row.append(deleteButtonCell);
+                }
+            }
+        });
+        
+        // Populate cost table
+        formData.cost.forEach(function(costData, index) {
+            var $row;
+            if (index < 2) {
+                $row = $('#tableCost tbody tr').eq(index);
+            } else {
+                // Add a new row above the total amount row
+                $row = $('#tableCost tbody tr').eq(0).clone();
+                var $totalAmountRow = $('#tableCost tbody tr').filter(function() {
+                    return $(this).find('input[name="totalAmount"]').length > 0;
+                });
+                $totalAmountRow.before($row);
+            }
+            $row.find('select[name="costData[category][]"]').val(costData.category);
+            $row.find('input[name="costData[amountTravel][]"]').val(costData.amount);
+            $row.find('input[name="costData[currency][]"]').val(costData.currency);
+            $row.find('input[name="costData[remark][]"]').val(costData.remark);
+        
+            if (index >= 2) {
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+                deleteButton.addEventListener('click', function (event) {
+                    event.preventDefault(); // Prevent the default form submission
+                    deleteRow($row);
+                });
+                const deleteButtonCell = document.createElement('td');
+                deleteButtonCell.appendChild(deleteButton);
+                $row.append(deleteButtonCell);
+            }
+        });
+        
+        // Ensure only one total amount row exists
+        var $totalAmountRows = $('#tableCost tbody tr').filter(function() {
+            return $(this).find('input[name="totalAmount"]').length > 0;
+        });
+        if ($totalAmountRows.length > 1) {
+            $totalAmountRows.slice(1).remove();
+        }
+        
+        if (formData.hotelInformation && formData.hotelInformation.length >= 1) {
+            // Show the hotel information section
+            var hotelInformationDiv = document.getElementById('hotelInformation');
+            if (hotelInformationDiv) {
+                hotelInformationDiv.style.display = "block";
+            }
+        }
+
+        // Populate hotel information table
+        formData.hotelInformation.forEach(function(hotelData, index) {
+            var $row = $('#tableHotel tbody tr').eq(index);
+            if (index === 0) {
+                $row.find('input[name="hotelData[hotelName][]"]').val(hotelData.hotelName);
+                $row.find('input[name="hotelData[hotelAddress][]"]').val(hotelData.hotelAddress);
+                $row.find('input[name="hotelData[hotelPhone][]"]').val(hotelData.hotelPhone);
+                $row.find('input[name="hotelData[hotelRemark][]"]').val(hotelData.hotelRemark);
+            } else {
+                // Add a new row below the first row
+                var newRowHtml = $('#tableHotel tbody tr').eq(0).clone();
+                $('#tableHotel tbody').append(newRowHtml);
+                $row = $('#tableHotel tbody tr').eq(index);
+                $row.find('input[name="hotelData[hotelName][]"]').val(hotelData.hotelName);
+                $row.find('input[name="hotelData[hotelAddress][]"]').val(hotelData.hotelAddress);
+                $row.find('input[name="hotelData[hotelPhone][]"]').val(hotelData.hotelPhone);
+                $row.find('input[name="hotelData[hotelRemark][]"]').val(hotelData.hotelRemark);
+
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+                deleteButton.addEventListener('click', function (event) {
+                    event.preventDefault(); // Prevent the default form submission
+                    deleteRow($row);
+                });
+                const deleteButtonCell = document.createElement('td');
+                deleteButtonCell.appendChild(deleteButton);
+                $row.append(deleteButtonCell);
+            }
+        });
+        
+        // Set file name if available
+        if (formData.fileName) {
+            $('#file-display').text(formData.fileName);
+        }
+    }
+}
+
+$(document).ready(function() {
+    // Check if there is data in the draft
+    console.log(localStorage.getItem('draftFormData'));
+    if (localStorage.getItem('draftFormData')) {
+        $('#loadDraftButton').show();
+    } else {
+        $('#loadDraftButton').hide();
+    }
+
+    // Attach event listener to the button
+    $('#loadDraftButton').click(function() {
+        loadDraft(); // Call the loadDraft function when the button is clicked
+    });
+});
+
+
+// Auto-save draft every 30 seconds (adjust time interval as needed)
+setInterval(saveDraft, 30000);
+
 
 // logout
 function logout() {
