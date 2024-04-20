@@ -1,11 +1,7 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "btr";
 
 // Create connection
-$Open = mysqli_connect($servername, $username, $password, $dbname);
+$Open = mysqli_connect("localhost", "root", "", "btr");
 
 // Check connection
 if (!$Open) {

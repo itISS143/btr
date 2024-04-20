@@ -10,14 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $status = $_POST['status'];
         $username_post = $_POST['username'];
 
-        // Database connection parameters
-        $servername = "localhost";
-        $username_db = "root";
-        $password = "";
-        $dbname = "btr";
-
         // Create database connection
-        $conn = new mysqli($servername, $username_db, $password, $dbname);
+        $conn = new mysqli("localhost", "root", "", "btr");
 
         // Check database connection
         if ($conn->connect_error) {

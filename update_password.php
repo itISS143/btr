@@ -1,13 +1,8 @@
 <?php
 session_start();
 
-// Assuming you have a database connection established
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "btr";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli("localhost", "root", "", "btr");
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

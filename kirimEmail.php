@@ -5,10 +5,10 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 // Assuming you have a database connection, replace these values with your actual database credentials
-$host = "localhost";
-$username = "root";
-$password = "";
-$dbname = "btr";
+$host = 'localhost';
+$dbname = 'btr';
+$username = 'root';
+$password = '';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
@@ -80,7 +80,7 @@ try {
             // Handle other status scenarios here
         }
 
-        // Fetching password for Iyanju
+        // Fetching password for purchasing
         $stmt = $pdo->prepare("SELECT password FROM requestor_forms WHERE email = 'purchasing_btr@issmedika.com'");
         $stmt->execute();
         $iyanjuResult = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -108,7 +108,7 @@ try {
             // Handle other status scenarios here
         }
         
-        // Fetching password for Ludi
+        // Fetching password for finance
         $stmt = $pdo->prepare("SELECT password FROM requestor_forms WHERE email = 'finance_btr@issmedika.com'");
         $stmt->execute();
         $dwiResult = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -159,6 +159,34 @@ try {
                 'A BTR has been declined by ' . $managerDisplayName . '.<br><br>' .
                 'To check, click the following link:<br>' .
                 '<a href="https://btr.issmedika.com/index.php?email=Kasir@issmedika.com&password=' . urlencode($dwiPassword) . '">Login to BTR Portal</a><br><br>';
+            $mail->send();
+        } else {
+            // Handle other status scenarios here
+        }
+        
+                // Fetching password for Darwati
+        $stmt = $pdo->prepare("SELECT password FROM requestor_forms WHERE email = 'karaniyacam@gmail.com'");
+        $stmt->execute();
+        $dwiResult = $stmt->fetch(PDO::FETCH_ASSOC);
+        $dwiPassword = $dwiResult['password'];
+
+        // Sending email to Dwi
+        $mail->clearAddresses();
+        $mail->addAddress('karaniyacam@gmail.com');
+        $mail->isHTML(true);
+        $mail->Subject = 'BTR';
+
+        if ($status == 'Approved') {
+            $mail->Body = 'Hello Camelia Soebakty,<br><br>' .
+                'A BTR has been approved by ' . $managerDisplayName . '.<br><br>' .
+                'To check, click the following link:<br>' .
+                '<a href="https://btr.issmedika.com/index.php?email=karaniyacam@gmail.com&password=' . urlencode($dwiPassword) . '">Login to BTR Portal</a><br><br>';
+            $mail->send();
+        } elseif ($status == 'Rejected') {
+            $mail->Body = 'Hello Camelia Soebakty,<br><br>' .
+                'A BTR has been declined by ' . $managerDisplayName . '.<br><br>' .
+                'To check, click the following link:<br>' .
+                '<a href="https://btr.issmedika.com/index.php?email=karaniyacam@gmail.com&password=' . urlencode($dwiPassword) . '">Login to BTR Portal</a><br><br>';
             $mail->send();
         } else {
             // Handle other status scenarios here

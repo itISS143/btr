@@ -5,10 +5,10 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 // Assuming you have a database connection, replace these values with your actual database credentials
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "btr";
+$host = 'localhost';
+$dbname = 'btr';
+$username = 'root';
+$password = '';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);

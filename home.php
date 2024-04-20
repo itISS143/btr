@@ -1,14 +1,8 @@
 <?php
 session_start(); // Start the session
 
-// Replace these with your actual database credentials
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "btr";
-
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli("localhost", "root", "", "btr");
 
 // Check connection
 if ($conn->connect_error) {
@@ -104,41 +98,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Create a DateTime object using the specified format
-    $dateTime = DateTime::createFromFormat('m/d/Y g:i:s A', $date);
+    $dateTime = DateTime::createFromFormat('d/m/Y g:i:s A', $date);
     $DateAndTime = $dateTime->format('Y-m-d H:i:s'); // Output in the desired format
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-// File Upload Code (moved outside the POST check)
+$uploadOk = 1;
 $targetDir = "uploads/";
 
 if (!file_exists($targetDir)) {
     mkdir($targetDir, 0777, true);
 }
-
-$targetFile = $targetDir . basename($_FILES["file"]["name"]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
-
-// Check file size (adjust as needed)
-if ($_FILES["file"]["size"] > 500000000) {
-    echo "File size is too large.";
-    $uploadOk = 0;
-}
-
-// Allow only certain file formats (you can adjust the types as needed)
-if ($imageFileType == "") {
-    $uploadOk = 1;
-}else if (
-    $imageFileType != "jpg" &&
-    $imageFileType != "png" &&
-    $imageFileType != "jpeg" &&
-    $imageFileType != "gif" &&
-    $imageFileType != "pdf"
-) {
-    echo "";
-    $uploadOk = 0;
-} 
 
 // Handle form submissions
 if (isset($_POST['approve'])) {
@@ -165,17 +135,6 @@ if ($stmtCheckReference->execute()) {
     } else if ($uploadOk == 0) {
         // File upload failed, handle accordingly
     } else {
-        // Continue with the insert operation
-        if ($_FILES["file"]["name"] != "" && move_uploaded_file($_FILES["file"]["tmp_name"], $targetFile)) {
-                // File uploaded successfully, set the filepath
-                $filepath = $targetFile;
-            } elseif ($_FILES["file"]["name"] == "") {
-                // File attachment is null, set filepath to an empty string or null as per your database schema
-                $filepath = ""; // or null
-            } else {
-                echo "Error uploading file.";
-                $uploadOk = 0;
-            }
 
         if ($uploadOk == 1) {
                 // Continue with the insert operation
@@ -287,7 +246,7 @@ if (isset($_POST['costData']) && is_array($_POST['costData'])) {
                 $travelStmt = $conn->prepare($travelSql);
 
                 if ($travelStmt) {
-                    $travelStmt->bind_param('issss', $lastInsertId, $currentCategory, $currentAmount, $currentCurrency, $currentRemark);
+                    $travelStmt->bind_param('issss', $lastInsertId, $category[$index], $amount[$index], $currency[$index], $remark[$index]);
 
                     if (!$travelStmt->execute()) {
                         echo 'Failed to execute travel query: ' . $travelStmt->error;
@@ -302,6 +261,65 @@ if (isset($_POST['costData']) && is_array($_POST['costData'])) {
     }
 }
 
+foreach ($_FILES["file"]["name"] as $key => $value) {
+    $targetFile = $targetDir . basename($_FILES["file"]["name"][$key]);
+    $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+
+    // Check file size (adjust as needed)
+    if ($_FILES["file"]["size"][$key] > 500000000) {
+        echo "File size is too large.";
+        $uploadOk = 0;
+    }
+
+    // Allow only certain file formats (you can adjust the types as needed)
+    if ($imageFileType == "") {
+        $uploadOk = 1;
+    } else if (
+        $imageFileType != "jpg" &&
+        $imageFileType != "png" &&
+        $imageFileType != "jpeg" &&
+        $imageFileType != "gif" &&
+        $imageFileType != "pdf"
+    ) {
+        echo "";
+        $uploadOk = 0;
+    }
+
+    if ($uploadOk == 1) {
+        // Continue with the insert operation
+        if ($_FILES["file"]["name"][$key] != "" && move_uploaded_file($_FILES["file"]["tmp_name"][$key], $targetFile)) {
+            // File uploaded successfully, set the file details
+            $file_name = $_FILES["file"]["name"][$key];
+            $file_path = $targetFile;
+            $submitted_id = $lastInsertId; // Assuming $lastInsertId is the id of the submitted_requestorform entry
+
+            // Continue with the insert operation into the file_uploads table
+            $sql = "INSERT INTO file_uploads (submitted_id, file_name, file_path) VALUES (?, ?, ?)";
+            $stmt = $conn->prepare($sql);
+
+            if ($stmt) {
+                // Bind the parameters
+                $stmt->bind_param("iss", $submitted_id, $file_name, $file_path);
+
+                if ($stmt->execute()) {
+                    // File details inserted successfully
+                    echo "File details inserted into database.";
+                } else {
+                    echo "Failed to execute file details insert query: " . $stmt->error;
+                }
+            } else {
+                echo "Failed to prepare file details insert statement: " . $conn->error;
+            }
+        } elseif ($_FILES["file"]["name"][$key] == "") {
+            // File attachment is null, set file_name and file_path to empty strings or null as per your database schema
+            $file_name = ""; // or null
+            $file_path = ""; // or null
+        } else {
+            echo "Error uploading file.";
+            $uploadOk = 0;
+        }
+    }
+}
 
 $stmt->close();
 }
@@ -309,12 +327,16 @@ $stmt->close();
 echo 'Failed to execute query: ' . $stmtCheckReference->error;
 }
 
+header('Location: test.php?reference=' . urlencode($reference) . '&managerName=' . urlencode($managerName) . '&user_name=' . urlencode($userName) . '&requestor_id=' . urlencode($requestorId) . '&total_amount=' . urlencode($totAmount) . '&status=' . urlencode($status));
+
 
 $stmtCheckReference->close();
 }
 }
 }
 }
+    echo "<script>window.localStorage.removeItem('draftFormData');</script>";
+    echo "<script>window.location.href = 'home.php';</script>";
 }
 
 
@@ -339,45 +361,66 @@ if ($stmtManagerName->execute()) {
         $page = isset($_GET['page']) ? $_GET['page'] : 1; // Current page number, default is 1
         $start = ($page - 1) * $limit; // Starting index for fetching data
 
-        // Fetch display_all from the appropriate table
-        $displayAllQuery = "SELECT display FROM requestor_forms WHERE display = 1"; // Change your_table and condition accordingly
-        $stmtDisplayAll = $conn->prepare($displayAllQuery);
-        // Bind parameters if necessary
+        // Check display value for the logged-in user
+        $displayQuery = "SELECT display FROM requestor_forms WHERE requestorName = ?";
+        $stmtDisplay = $conn->prepare($displayQuery);
+        $stmtDisplay->bind_param('s', $loggedInUserName);
 
-        if ($stmtDisplayAll->execute()) {
-            $resultDisplayAll = $stmtDisplayAll->get_result();
-            $rowDisplayAll = $resultDisplayAll->fetch_assoc();
-            $displayAllValue = $rowDisplayAll['display'];
+if ($stmtDisplay->execute()) {
+    // Execution successful, continue processing
+    $resultDisplay = $stmtDisplay->get_result();
 
-            if ($displayAllValue == 1) {
-                // Fetch all data if display_all is set to 1
-                $fetchAllDataQuery = "SELECT s.*, r.requestorName 
-                    FROM submitted_requestorform s
-                    JOIN requestor_forms r ON s.requestor_id = r.idNumber LIMIT $start, $limit";
-                $stmtFetchData = $conn->prepare($fetchAllDataQuery);
-            } else {
-                // Fetch data based on manager name and requestor name
-                if (!empty($loggedInManagerName)) { // Check if manager name is not empty
-                    $fetchAllDataQuery = "SELECT s.*, r.requestorName 
-                        FROM submitted_requestorform s
-                        JOIN requestor_forms r ON s.requestor_id = r.idNumber
-                        WHERE s.manager_name = ? OR r.requestorName = ? LIMIT $start, $limit";
-                    $stmtFetchData = $conn->prepare($fetchAllDataQuery);
-                    $stmtFetchData->bind_param('ss', $loggedInManagerName, $loggedInUserName);
-                } else {
-                }
-            }
+    if ($resultDisplay->num_rows > 0) {
+        // Handle display value found
+        $rowDisplay = $resultDisplay->fetch_assoc();
+        $displayValue = $rowDisplay['display'];
+      
+        if ($displayValue == '1') {
+            // If display value is 1, fetch all data
+            $fetchDataQuery = "SELECT s.*, r.requestorName 
+                FROM submitted_requestorform s
+                JOIN requestor_forms r ON s.requestor_id = r.idNumber 
+                LIMIT $start, $limit";
+            $stmtFetchData = $conn->prepare($fetchDataQuery);
+        } elseif ($displayValue == '0'){
+            // If display value is 0, fetch data based on manager name
+            $fetchDataQuery = "SELECT s.*, r.requestorName 
+            FROM submitted_requestorform s
+            JOIN requestor_forms r ON s.requestor_id = r.idNumber 
+            WHERE r.manager_name = ? OR r.requestorName = ? 
+            LIMIT $start, $limit";
+            $stmtFetchData = $conn->prepare($fetchDataQuery);
+            $stmtFetchData->bind_param('ss', $loggedInManagerName, $loggedInUserName);
+        }
+
+        // Execute the fetch data query
+        if ($stmtFetchData->execute()) {
+            // Fetching data successful, continue processing
+            $resultFetchData = $stmtFetchData->get_result();
+
+            // Process and display data as needed
+            // For example, fetch rows from $resultFetchData and display them
         } else {
-            // Handle the case where display_all query execution fails
-            echo 'Failed to execute display_all query.';
+            // Handle the case where data fetch query execution fails
+            echo 'Failed to execute data fetch query.';
             exit();
         }
+    } else {
+        // Handle the case where no display value is found for the logged-in user
+        echo 'No display value found for the logged-in user.';
+        exit();
+    }
+} else {
+    // Handle the case where display value query execution fails
+    echo 'Failed to execute display value query.';
+    exit();
+}
+
     } else {
         // Handle the case where manager name is empty
         echo 'Manager name is empty for the logged-in user.';
         exit();
     }
-
 
     if ($stmtFetchData->execute()) {
         $resultFetchData = $stmtFetchData->get_result();
@@ -475,7 +518,7 @@ function getFinalStatusText($row)
                         <a class="nav-link" href="history.php">Show History</a>
                       </li>
                       <li class="nav-item">
-                        <?php if ($userName === 'Anindhita Prameswari') : ?>
+                        <?php if ($userName === 'Anindhita Prameswari' || $userName === 'Miko Palar' || $userName === 'Admin') : ?>
                         <a class="nav-link" aria-current="page" href="add_employee.php">Add Employee</a>
                         <?php endif; ?>
                       </li>
@@ -484,7 +527,7 @@ function getFinalStatusText($row)
                       </li>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="index.php" id="logoutLink">Log Out</a>
+                      <a class="nav-link" href="/" id="logoutLink">Log Out</a>
                     </li>
                 </ul>
               </div>
@@ -506,7 +549,7 @@ function getFinalStatusText($row)
                 <div id="container" class="scrollable-container">
                     <table id="tableDisplay" class="table table-bordered table-width">
                         <thead class="table-dark">
-                            <tr class="text-nowrap">
+                            <tr class="text-nowrap" style="position: sticky; margin-top: -1px">
                                 <th style="text-align: center;"><input type="checkbox" id="selectAllCheckbox"> Select All</th>
                                 <th style="text-align: center;" class="initiated">Initiated By</th>
                                 <th style="text-align: center;" class="approval">Status</th>
@@ -525,7 +568,7 @@ function getFinalStatusText($row)
                                 <th style="text-align: center;">Final Status</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody style="background-color: white;">
                             <?php foreach ($allSubmittedData as $row) : ?>
                             <?php if ((is_null($row['validateSls']) || is_null($row['validateFin']) || is_null($row['validateKas'])) && !($row['approval'] === 'Rejected') || ($row['approval'] === 'Pending')) : ?>
                                 <tr class="text-nowrap">
@@ -538,22 +581,22 @@ function getFinalStatusText($row)
                                 <td><?php echo $row['manager_name']; ?></td>
                                 <td class="time"><?php echo !empty($row['status_date_time']) ? date('d-m-Y h:i:s A', strtotime($row['status_date_time'])) : ''; ?></td>
                                 <td><button type="button" class="btn btn-sm btn-primary detail-button" onclick="showDetail('<?php echo $row['id']; ?>')">Detail</button></td>
-                                    <td class="<?php echo (($userName === 'Lisna Suradi' || $userName === 'Ludi Krisnanda' || $userName === 'Wiwiet Widya Ningrum' || $userName === 'Darwati' || $userName === 'Rian Andrian' || $userName === $row['requestorName'] || $userName === $row['manager_name']) && $row['approval'] === 'Approved') ? 'show-cell' : 'hide-cell'; ?>">
-                                        <?php if (($userName === 'Lisna Suradi' || $userName === 'Ludi Krisnanda' || $userName === 'Wiwiet Widya Ningrum' || $userName === 'Darwati' || $userName === 'Rian Andrian' || $userName === $row['requestorName'] || $userName === $row['manager_name']) && $row['approval'] === 'Approved') : ?>
+                                    <td class="<?php echo (($userName === 'Lisna Suradi' || $userName === 'Ludi Krisnanda' || $userName === 'Wiwiet Widya Ningrum' || $userName === 'Darwati' || $userName === 'Rian Andrian' || $userName === 'Admin' || $userName === $row['requestorName'] || $userName === $row['manager_name']) && $row['approval'] === 'Approved') ? 'show-cell' : 'hide-cell'; ?>">
+                                        <?php if (($userName === 'Lisna Suradi' || $userName === 'Ludi Krisnanda' || $userName === 'Wiwiet Widya Ningrum' || $userName === 'Darwati' || $userName === 'Rian Andrian' || $userName === 'Admin' || $userName === $row['requestorName'] || $userName === $row['manager_name']) && $row['approval'] === 'Approved') : ?>
                                             <button type="button" class="btn btn-sm btn-primary internal-memo-button" onclick="redirectToInternalMemo('<?php echo $row['reference']; ?>')">Upload Internal Memo</button>
                                         <?php else: ?>
                                             <td colspan="1"></td>
                                         <?php endif; ?>
                                     </td>
-                                    <td class="<?php echo (($userName === 'Lisna Suradi' || $userName === 'Ludi Krisnanda' || $userName === 'Wiwiet Widya Ningrum' || $userName === 'Adimas Ali Rizaqi' || $userName === 'Dwi Agustina' || $userName === 'Iyanju Manurung' || $userName === 'Rian Andrian' || $userName === $row['requestorName'] || $userName === $row['manager_name']) && $row['approval'] === 'Approved') ? 'show-cell' : 'hide-cell'; ?>">
-                                        <?php if (($userName === 'Lisna Suradi' || $userName === 'Ludi Krisnanda' || $userName === 'Wiwiet Widya Ningrum' || $userName === 'Adimas Ali Rizaqi' || $userName === 'Dwi Agustina' || $userName === 'Iyanju Manurung' || $userName === 'Rian Andrian' || $userName === $row['requestorName'] || $userName === $row['manager_name']) && $row['approval'] === 'Approved') : ?>
+                                    <td class="<?php echo (($userName === 'Lisna Suradi' || $userName === 'Ludi Krisnanda' || $userName === 'Wiwiet Widya Ningrum' || $userName === 'Dwi Agustina' || $userName === 'Iyanju Manurung' || $userName === 'Rian Andrian' || $userName === 'Admin' || $userName === $row['requestorName'] || $userName === $row['manager_name']) && $row['approval'] === 'Approved') ? 'show-cell' : 'hide-cell'; ?>">
+                                        <?php if (($userName === 'Lisna Suradi' || $userName === 'Ludi Krisnanda' || $userName === 'Wiwiet Widya Ningrum' || $userName === 'Dwi Agustina' || $userName === 'Iyanju Manurung' || $userName === 'Rian Andrian' || $userName === 'Admin' || $userName === $row['requestorName'] || $userName === $row['manager_name']) && $row['approval'] === 'Approved') : ?>
                                             <button type="button" class="btn btn-sm btn-primary form-pr-button" onclick="redirectToFormPR('<?php echo $row['reference']; ?>')">Upload Form PR</button>
                                         <?php else: ?>
                                             <td colspan="1"></td>
                                         <?php endif; ?>
                                     </td>                            
-                                    <td class="<?php echo (($userName === 'Lisna Suradi' || $userName === 'Ludi Krisnanda' || $userName === 'Wiwiet Widya Ningrum' || $userName === 'Darwati' || $userName === 'Rian Andrian' || $userName === $row['requestorName'] || $userName === $row['manager_name']) && $row['approval'] === 'Approved') ? 'show-cell' : 'hide-cell'; ?>">
-                                        <?php if (($userName === 'Lisna Suradi' || $userName === 'Ludi Krisnanda' || $userName === 'Wiwiet Widya Ningrum' || $userName === 'Darwati' || $userName === 'Rian Andrian' || $userName === $row['requestorName'] || $userName === $row['manager_name']) && $row['approval'] === 'Approved') : ?>
+                                    <td class="<?php echo (($userName === 'Lisna Suradi' || $userName === 'Ludi Krisnanda' || $userName === 'Wiwiet Widya Ningrum' || $userName === 'Darwati' || $userName === 'Rian Andrian' || $userName === 'Admin' || $userName === $row['requestorName'] || $userName === $row['manager_name']) && $row['approval'] === 'Approved') ? 'show-cell' : 'hide-cell'; ?>">
+                                        <?php if (($userName === 'Lisna Suradi' || $userName === 'Ludi Krisnanda' || $userName === 'Wiwiet Widya Ningrum' || $userName === 'Darwati' || $userName === 'Rian Andrian' || $userName === 'Admin' || $userName === $row['requestorName'] || $userName === $row['manager_name']) && $row['approval'] === 'Approved') : ?>
                                             <button type="button" class="btn btn-sm btn-primary closing-button" onclick="redirectToClosing('<?php echo $row['reference']; ?>')">Closing</button>
                                         <?php else: ?>
                                             <td colspan="1"></td>
@@ -702,7 +745,8 @@ function getFinalStatusText($row)
         const approvedUsernames = [
             'Rian Andrian', 'Robby Ardyan', 'Santono',
             'Heriyanto', 'Anindhita Prameswari',
-            'Suwarno', 'Cecep Iman', 'Hendrawanto', 'Adinda Yuliawati'
+            'Suwarno', 'Cecep Iman', 'Hendrawanto', 'Adinda Yuliawati', 
+            'Harry Hidriana', 'Admin' , 'Miko Palar'
         ];
 
         const userName = '<?php echo $userName; ?>';

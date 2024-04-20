@@ -12,17 +12,6 @@ function populateFormFields(data) {
     $('#manDropdown').val(data.manager);
 }
 
-// Assuming you're already fetching data and calling this function when data is available
-function populateManager(managerName) {
-selectManager(managerName); // Call the function to select the manager
-}
-
-// Call the function to populate manager name when data is available
-$(document).ready(function() {
-var managerName = "Your Manager Name"; // Replace with the manager name fetched from database
-populateManager(managerName);
-});
-
 //requestor name
 function detail() {
 var requestorValue = $("#requestor").val();
@@ -92,30 +81,6 @@ element.removeAttribute("required");
 }
 }
 
-// CODE FELIX
-// $(document).on('input', '.amountInput', function () {
-//     validateAndCalculateTotalAmount();
-// });
-
-// function validateAndCalculateTotalAmount() {
-//     let totalAmount = 0;
-
-//     $('.amountInput').each(function () {
-//         const inputValue = parseFloat($(this).val()) || 0;
-
-//         // Ensure the input is greater than or equal to 0
-//         if (inputValue < 0) {
-//             alert("Please enter a number greater than or equal to 0.");
-//             $(this).val(""); // Clear the input field
-//         } else {
-//             totalAmount += inputValue;
-//         }
-//     });
-
-//     // Update the total amount only if all input values are valid
-//     $('#totalAmount1').val(totalAmount);
-//     $('#totalAmount').val(totalAmount);
-// }
 
 //CODE SAMUEL
 const amountInputFields = document.getElementsByClassName("amountInput");
@@ -159,32 +124,22 @@ if (amountInputFields[i].value){
 return parseFloat(sum)
 }
 
-// document.getElementById("formRequest").addEventListener("submit", function(event) {
-// //     for (let i = 0; i < amountInputFields.length; i++){
-// // 		if (amountInputFields[i].value){
-// // 			amountInputFields[i].value = formattedToFloat(amountInputFields[i].value);
-// // 		}
-// // 	}
-
-// // 	totalAmount.value = formattedToFloat(totalAmount.value);
-// // 	totalAmount1.value = formattedToFloat(totalAmount1.value);
-
-
-
-
-//   // Allow form submission (optional, if needed)
-// //   event.preventDefault(); // Uncomment to prevent default form submission
-// });
-
-//CODE SAMUEL ENDS HERE
-
-
 function displayFileName() {
-var fileInput = document.getElementById('file');
-var fileDisplay = document.getElementById('file-display');
+    const input = document.getElementById('file');
+    const span = document.getElementById('file-display');
+    const files = input.files;
 
-// Display the selected file name
-fileDisplay.textContent = fileInput.files[0] ? fileInput.files[0].name : '';
+    if (files.length === 0) {
+        span.textContent = 'No file selected';
+    } else {
+        let fileNames = '';
+        for (let i = 0; i < files.length; i++) {
+            fileNames += files[i].name + ', ';
+        }
+        // Remove the trailing comma and space
+        fileNames = fileNames.substring(0, fileNames.length - 2);
+        span.textContent = fileNames;
+    }
 }
 
 let costRowCounter = 1; // Initialize a counter for cost rows
@@ -211,11 +166,11 @@ cell1.innerHTML = `
     <option value="Visa/Pasport">Visa/Pasport</option>
     <option value="Flight">Flight</option>
     <option value="Toll">Toll</option>
-    <option value="Meals">Meals</option>
+    <option value="Perjalanan Dinas">Perjalanan Dinas</option>
     <option value="Others">Others</option>
 </select>`;
 cell2.innerHTML = `<input type="text" name="costData[amountTravel][]" class="amountInput" id="amountId${costRowCounter}" placeholder="Input Cost Amount" value="0" required>`;
-cell3.innerHTML = `<input type="text" name="costData[currency][]" class="currencyInput">`;
+cell3.innerHTML = `<input type="text" name="costData[currency][]" class="currencyInput" readonly>`;
 cell4.innerHTML = `<input type="text" name="costData[remark][]" id="remarksId${costRowCounter}" placeholder="Input Remarks" required>`;
 
 newRow.appendChild(cell1);

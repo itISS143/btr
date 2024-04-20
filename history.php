@@ -131,23 +131,28 @@ function getFinalStatusText($row)
                             <td class="time"><?php echo $row['status_date_time'] ?? ''; ?></td>
                             <td><button type="button" class="btn btn-sm btn-primary detail-button" onclick="showDetail('<?php echo $row['id']; ?>')">Detail</button></td>
                             <td>
-                                <?php if (($row['internalMemo'] === null)): ?>
+                                <?php if (!($row['approval'] === 'Pending')): ?>
+                                    <?php if (($row['approval'] === 'Rejected')): ?>
+                                    <?php endif; ?>
                                     <button type="button" class="btn btn-sm btn-primary internal-memo-button" onclick="redirectToInternalMemo('<?php echo $row['reference']; ?>')">Upload Internal Memo</button>
                                 <?php endif; ?>
                             </td>
                             <td>
-                                <?php if (($row['formPr'] === null)): ?>
+                                <?php if (!($row['approval'] === 'Pending')): ?>
+                                    <?php if (($row['approval'] === 'Rejected')): ?>
+                                    <?php endif; ?>
                                     <button type="button" class="btn btn-sm btn-primary form-pr-button" onclick="redirectToFormPR('<?php echo $row['reference']; ?>')">Upload Form PR</button>
                                 <?php endif; ?>
                             </td>
                             <td>
-                                <?php if (!($row['closing'] === null)): ?>
+                                <?php if (!($row['approval'] === 'Pending')): ?>
+                                    <?php if (($row['approval'] === 'Rejected')): ?>
+                                    <?php endif; ?>
                                     <button type="button" class="btn btn-sm btn-primary closing-button" onclick="redirectToClosing('<?php echo $row['reference']; ?>')">Closing</button>
                                 <?php endif; ?>
                             </td>
                             <td>
                                 <?php if ($row['closing'] === null): ?>
-
                                 <?php else: ?>
                                     <?php if ($row['validateSls'] === null && ($userName === 'Wiwiet Widya Ningrum')) : ?>
                                         <?php $elementId = 'penyerahanDateInput' . $row['reference']; ?>

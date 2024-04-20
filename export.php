@@ -30,12 +30,14 @@ $query = $Open->query("SELECT s.*, r.requestorName as initiatedByName,
                         r1.idCard as requestorIdCard,
                         r1.gender as requestorGender,
                         t.trip_from, t.trip_to, t.trip_class, t.flight_date, t.comments as trip_comments,
-                        h.hotel_name, h.hotel_address, h.hotel_phonenumber, h.remarks as hotel_remarks
+                        h.hotel_name, h.hotel_address, h.hotel_phonenumber, h.remarks as hotel_remarks, c.category,
+                        c.amount as cost_amount, c.remark as cost_remark
                         FROM submitted_requestorform s
                         LEFT JOIN requestor_forms r ON s.initiated_by_id = r.idNumber
                         LEFT JOIN requestor_forms r1 ON s.requestor_id = r1.idNumber
                         LEFT JOIN trip_routing t ON s.id = t.submitted_id
                         LEFT JOIN hotel_information h ON s.id = h.submitted_id
+                        LEFT JOIN travel_cost c ON s.id = c.submitted_id
                         ORDER BY s.reference ASC"); 
 if ($query->num_rows > 0) { 
     // Output each row of the data 
@@ -70,14 +72,9 @@ if ($query->num_rows > 0) {
             $row['trip_class'], 
             $row['flight_date'], 
             $row['trip_comments'],
-            $row['accomodation_amount'],
-            $row['accommodation_remarks'],
-            $row['meals_amount'],
-            $row['meals_remarks'],
-            $row['transportation_amount'],
-            $row['transportation_remarks'],
-            $row['others_amount'],
-            $row['others_remarks'],
+            $row['category'],
+            $row['cost_amount'],
+            $row['cost_remark'],
             $row['advance_amounts'],
             $row['tfap_remarks'],
             $row['hotel_name'],

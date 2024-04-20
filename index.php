@@ -10,13 +10,9 @@ $loginError = "";
 if (isset($_GET["email"]) && isset($_GET["password"])) {
     $email = $_GET["email"];
     $password = $_GET["password"];
-    var_dump($email);
-    var_dump($password);
 } elseif ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["email"]) && isset($_POST["password"])) {
     $email = $_POST["email"];
     $password = $_POST["password"];
-    var_dump($email);
-    var_dump($password);
 }
 
 if (isset($email) && isset($password)) {
@@ -43,21 +39,16 @@ if (isset($email) && isset($password)) {
             $stmt->bind_result($dbEmail, $dbPassword, $name, $idNumber, $company);
             $stmt->fetch();
 
-            // Verify the email
-            if (strtolower($email) !== strtolower($dbEmail)) {
-                $loginError = "Email not found. Please check your email.";
+            // Verify the email and password
+            if (strtolower($email) === strtolower($dbEmail) && $password === $dbPassword) {
+                $_SESSION['email'] = $dbEmail;
+                $_SESSION['user_name'] = $name; // Store the username in the session
+                $_SESSION['id_number'] = $idNumber;
+                $_SESSION['company'] = $company;
+                header("Location: home.php");
+                exit();
             } else {
-                // Verify the password
-                if ($password === $dbPassword) {
-                    $_SESSION['email'] = $dbEmail;
-                    $_SESSION['user_name'] = $name; // Store the username in the session
-                    $_SESSION['id_number'] = $idNumber;
-                    $_SESSION['company'] = $company;
-                    header("Location: home.php");
-                    exit();
-                } else {
-                    $loginError = "Incorrect password. Please check your password.";
-                }
+                $loginError = "Login failed. Please check your email and password.";
             }
         } else {
             $loginError = "Login failed. Please check your email and password.";

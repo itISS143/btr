@@ -1,13 +1,9 @@
 <?php
 session_start();
 // Replace these values with your actual database credentials
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "btr";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli("localhost", "root", "", "btr");
 
 // Check connection
 if ($conn->connect_error) {
@@ -146,7 +142,14 @@ $conn->close();
                         <option value="">Choose Requestor</option>
                         <?php
                         include "ambil_data.php";
-                        $query = mysqli_query($Open, "SELECT * FROM requestor_forms ORDER BY requestorName");
+                
+                        // Array of names to avoid
+                        $avoided_names = array('Admin', 'Finance Team', 'Purchasing Team'); // Add more names as needed
+                
+                        // Constructing SQL query with multiple != conditions to exclude avoided names
+                        $avoided_names_string = "'" . implode("','", $avoided_names) . "'";
+                        $query = mysqli_query($Open, "SELECT * FROM requestor_forms WHERE requestorName NOT IN ($avoided_names_string) ORDER BY requestorName");
+                
                         while ($data = mysqli_fetch_array($query)) {
                         ?>
                         <option value="<?php echo $data['requestorName']; ?>"><?php echo $data['requestorName']; ?></option>
@@ -175,10 +178,9 @@ $conn->close();
                 <th class="managerName">Manager Name <span style="color:red; font-size: 20px;">*</span></th>
                 <td><select class="select-style" aria-label="State" id="manDropdown" name="manager"required>
                     <option value="">Select Manager Name</option>
-                    <option value="Adinda Yuliawati">Adinda Yuliawati</option>
-                    <option value="Anindhita Prameswari">Anindhita Prameswari</option>
+                    <option value="Miko Palar">Miko Palar</option>
                     <option value="Cecep Iman">Cecep Iman</option>
-                    <option value="Harry Hindriana">Harry Hindriana</option>
+                    <option value="Harry Hidriana">Harry Hidriana</option>
                     <option value="Hendrawanto">Hendrawanto</option>
                     <option value="Heriyanto">Heriyanto</option>
                     <option value="Rian Andrian">Rian Andrian</option>
@@ -313,12 +315,12 @@ $conn->close();
                     <option value="Visa/Pasport">Visa/Pasport</option>
                     <option value="Flight">Flight</option>
                     <option value="Toll">Toll</option>
-                    <option value="Meals">Meals</option>
+                    <option value="Perjalanan Dinas">Perjalanan Dinas</option>
                     <option value="Others">Others</option>
                 </select>
             </td>
             <td><input type="text" name="costData[amountTravel][]" class="amountInput" placeholder="Input Cost Amount" value="0"></td>
-            <td><input type="text" name="costData[currency][]" class="currencyInput"></td>
+            <td><input type="text" name="costData[currency][]" class="currencyInput" readonly></td>
             <td><input type="text" name="costData[remark][]" placeholder="Input Remarks" required></td>
         </tr>
         <tr class="travelCostRow">
@@ -331,19 +333,19 @@ $conn->close();
                     <option value="Visa/Pasport">Visa/Pasport</option>
                     <option value="Flight">Flight</option>
                     <option value="Toll">Toll</option>
-                    <option value="Meals">Meals</option>
+                    <option value="Perjalanan Dinas">Perjalanan Dinas</option>
                     <option value="Others">Others</option>
                 </select>
             </td>
             <td><input type="text" name="costData[amountTravel][]" class="amountInput" placeholder="Input Cost Amount" value="0"></td>
-            <td><input type="text" name="costData[currency][]" class="currencyInput"></td>
+            <td><input type="text" name="costData[currency][]" class="currencyInput" readonly></td>
             <td><input type="text" name="costData[remark][]" placeholder="Input Remarks" required></td>
         </tr>
         <tr>
             <td>Total Amount</td>
             <td><input name="totalAmount" type="text" id="totalAmount1" readonly></td>
-            <td><input name="totalCurrency" type="text" class="currencyInput"></td>
-            <td><input name="totalRemark" type="text" id="remarks1Id" placeholder="Input Remarks" required></td>
+            <td><input name="totalCurrency" type="text" class="currencyInput" readonly></td>
+            <td><input name="totalRemark" type="text" id="remarks1Id" placeholder="Input Remarks"></td>
         </tr>
     </tbody>
 </table>
@@ -380,7 +382,7 @@ $conn->close();
     Choose a file
     <span id="file-display"></span>
 </label>
-<input type="file" name="file" id="file" onchange="displayFileName()" value="">
+<input type="file" name="file[]" id="file" onchange="displayFileName()" value="" multiple>
 <br>
 <br>
     <button type="submit">Submit</button>

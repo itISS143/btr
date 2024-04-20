@@ -1,14 +1,8 @@
 <?php
 session_start();
 
-// Replace these with your actual database credentials
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "btr";
-
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli("localhost", "root", "", "btr");
 
 // Check connection
 if ($conn->connect_error) {
@@ -258,23 +252,48 @@ if ($result->num_rows > 0) {
 
         echo '</table>';
         echo "</div>";
-        if (!empty($attachmentFilePath)) {
-            // Check if the file is an image
-            $imageExtensions = array('jpg', 'jpeg', 'png', 'gif');
-            $fileExtension = pathinfo($attachmentFilePath, PATHINFO_EXTENSION);
 
-            if (in_array(strtolower($fileExtension), $imageExtensions)) {
-                // Display image with width 500px
-                echo '<img src=' . $attachmentFilePath . '" alt="Uploaded File" style="width: 500px;">';
-            } elseif (strtolower($fileExtension) === 'pdf') {
-                // Display PDF using an iframe
-                echo '<iframe src="' . $attachmentFilePath . '" width="1200" height="570" style="border: none;"></iframe>';
+        $fileQuery = "SELECT * FROM file_uploads WHERE submitted_id = ?";
+        $stmtFiles = $conn->prepare($fileQuery);
+        $stmtFiles->bind_param('s', $reference);
+
+        if ($stmtFiles->execute()) {
+        $resultFiles = $stmtFiles->get_result();
+
+            // Check if any files found
+            if ($resultFiles->num_rows > 0) {
+                    echo '<tr>';
+                    echo '<th>Files</th>';
+                    echo '<td>';
+                    echo '<ul>';
+                    // Iterate through each file and display them
+                    while ($fileRow = $resultFiles->fetch_assoc()) {
+                        $fileUrl = $fileRow['file_path'];
+                        $fileName = $fileRow['file_name'];
+
+                        $fileExtension = pathinfo($fileUrl, PATHINFO_EXTENSION);
+
+                    if (in_array(strtolower($fileExtension), ['jpg', 'jpeg', 'png', 'gif'])) {
+                        // Display image with width 500px
+                        echo "<img src='$fileUrl' alt='Uploaded File' style='width: 500px;'>";
+                    } elseif (strtolower($fileExtension) === 'pdf') {
+                        // Display PDF using an iframe
+                        echo "<iframe src='$fileUrl' width='1200' height='570' style='border: none;'></iframe>";
+                    } else {
+                        // Display other file types (e.g., non-image files) with download link
+                        echo "<a href='$fileUrl' target='_blank'>View File</a>";
+                    }
+                    echo '<br>';
+
+                    }
+                    echo '</ul>';
+                    echo '</td>';
+                    echo '</tr>';
+                }
             } else {
-                // Display other file types (e.g., non-image files)
-                echo '<img src="' . $attachmentFilePath . '" alt="Uploaded File">';
-            }
-        } else {
-            echo "No files found for this request.";
+                echo "Failed to fetch files: " . $stmtFiles->error;
+            
+        
         }
         echo "<div id='watermark'>";
         if ($approval == 'Approved') {

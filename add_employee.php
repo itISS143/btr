@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$allowedUsers = ['Anindhita Prameswari']; // Add other allowed users as needed
+$allowedUsers = ['Anindhita Prameswari','Miko Palar','Admin']; // Add other allowed users as needed
 
 if (!isset($_SESSION['user_name']) || !in_array($_SESSION['user_name'], $allowedUsers)) {
     // Redirect or show an error message
@@ -53,10 +53,10 @@ if (!isset($_SESSION['user_name']) || !in_array($_SESSION['user_name'], $allowed
     
     <label for="manager_name">Manager Name:</label>
     <select name="manager_name" required>
-        <option value="">Select Manager</option>
-        <option value="Adinda Yuliawati">Adinda Yuliawati</option>
-        <option value="Anindhita Prameswari">Anindhita Prameswari</option>
+        <option value="">Select Manager Name</option>
+        <option value="Miko Palar">Miko Palar</option>
         <option value="Cecep Iman">Cecep Iman</option>
+        <option value="Harry Hidriana">Harry Hidriana</option>
         <option value="Hendrawanto">Hendrawanto</option>
         <option value="Heriyanto">Heriyanto</option>
         <option value="Rian Andrian">Rian Andrian</option>

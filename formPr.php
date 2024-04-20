@@ -42,7 +42,7 @@ $requestorName = isset($_GET['requestorName']) ? $_GET['requestorName'] : '';
 
     <h2>File Upload Form - Form PR</h2>
 
-    <?php if ($validateSls === null && ($userName === 'Adimas Ali Rizaqi' || $userName === 'Dwi Agustina' || $userName === 'Iyanju Manurung')): ?>
+    <?php if ($validateSls === null && ($userName === 'Dwi Agustina' || $userName === 'Iyanju Manurung')): ?>
         <form action="uploadPr.php?reference=<?php echo $referenceFromURL; ?>" method="post" enctype="multipart/form-data" style="<?php echo $isFinalized ? 'display: none;' : ''; ?>">
             <label for="file">Select files to upload (multiple files allowed):</label>
             <input type="file" name="files[]" id="file" multiple accept=".pdf, .doc, .docx">
